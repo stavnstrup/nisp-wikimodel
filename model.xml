@@ -19,7 +19,7 @@
 
 		A profile is based on the implementation of a pattern or a technical service.</description>
 					<nomenclature></nomenclature>
-					<structure>
+					<structure layout="table">
 						<property name="Is published by" multiplicity="one"/>
 						<property name="Title" />
 						<property name="Version" />
@@ -30,21 +30,15 @@
 						<!--<property name="Taxonomy element" multiplicity="many"/>-->
 						<subobject name="Standards" attribute="standards" concept="Profile Standards" label="Standards"/>
 					</structure>
-					<style>
-						<layout type="table"/>
-					</style>
 				</concept>
 
 				<concept name="Profile Standards" plural="Profile Standards" ordered="true" type="Internal">
 					<description>A Profile Standards is ....</description>
-					<structure>
+					<structure layout="table">
 						<property name="Obligation"/>
 						<property name="Standard" multiplicity="multiple" attribute="standards" label="Standards"/>
 						<property name="Remarks" />
 					</structure>
-					<style>
-						<layout type="table"/>
-					</style>
 				</concept>
 
 				<concept name="Standard" plural="Standards" type="Dynamic" hierarchy="tree" ordered="true" image="standard.jpeg" color="becde6">
@@ -52,8 +46,8 @@
 
 		The concept is designed to store metadata of these standards, and only in rare cases a copy or transcript of the original standard is available. The articles reflect standards that are ratified by standardization organizations (like ISO, IEEE, IETF or W3C) or published in bulk after approval by a certain community (as is the case with NATO's Interoperability Standards and Profiles). The standards metadata that is available on the EM Wiki is updated on a regular basis.</description>
 					<nomenclature></nomenclature>
-					<structure>
-						<group name="Details">
+					<structure layout="table">
+						<group name="Details" layout="table">
 							<property name="Reference code"/>
 							<property name="Title" />
 							<property name="Version" />
@@ -61,11 +55,8 @@
 					  	<property name="Date issued" />
 					  	<property name="Description" />
 					  	<property name="Lifecycle" />
-							<style>
-								<layout type="table"/>
-							</style>
 						</group>
-						<group name="Other">
+						<group name="Other" layout="table">
 					  	<property name="Is equivalent to" refersTo="Standard" multiplicity="multiple" attribute="equivalentstandards" label="Equivalent Standards"/>
 					  	<property name="Source" />
 					  	<property name="Replaces" />
@@ -74,20 +65,14 @@
 					  	<property name="Language" />
 					  	<property name="Alternative title" />
 					  	<property name="Intellectual property" />
-							<style>
-								<layout type="table"/>
-							</style>
 						</group>
 					</structure>
-					<style>
-						<layout type="table"/>
-					</style>
 				</concept>
 
 				<concept name="Cover Document" plural="Cover Documents" type="Dynamic" image="cover.png" color="becde6">
 					<description>Standardization Agreements (STANAGs) define processes, procedures, terms, and conditions for common military or technical procedures or equipment between the member countries of the Alliance. Each NATO state ratifies a STANAG and implements it within their own military. The purpose is to provide common operational and administrative procedures and logistics, so one member nation's military may use the stores and support of another member's military. STANAGs also form the basis for technical interoperability between a wide variety of communication and information (CIS) systems essential for NATO and Allied operations. STANAGs are published in English and French, the two official languages of NATO, by the NATO Standardization Agency in Brussels</description>
 					<nomenclature></nomenclature>
-					<structure>
+					<structure layout="table">
 						<property name="Reference code"/>
 						<property name="Title" />
 						<property name="Alternative title" />
@@ -100,9 +85,6 @@
 						<property name="Classification"/>
 						<property name="Link"/>
 					</structure>
-					<style>
-						<layout type="table"/>
-					</style>
 				</concept>
 
 				<reports>
@@ -117,16 +99,13 @@
 				<concept name="Organization" plural="Organizations" type="Dynamic" hierarchy="tree" color="becde6" image="organization.png">
 					<description>Organizations are those entities that are not considered actors (actively contributing to the business processes described in the C3 Taxonomy) and are meaningful for referencing or otherwise supporting the architecture, such as: governments, companies (industry) and standards organizations.</description>
 					<nomenclature></nomenclature>
-					<structure>
+					<structure layout="table">
 						<property name="Acronym" />
 						<property name="Description" mandatory="true"/>
 						<property name="Image" attribute="logo" label="Logo"/>
 						<property name="Organization type" />
 						<property name="Website" />
 					</structure>
-					<style>
-						<layout type="table"/>
-					</style>
 				</concept>
 			</package>
 
@@ -136,7 +115,7 @@
 				<concept name="Catalogue Item" plural="Catalogue Items" type="Dynamic" image="catalogitem.png" color="becde6">
 					<description>A "Catalogue Item"" is ..</description>
 					<nomenclature></nomenclature>
-					<structure>
+					<structure layout="table">
 						<group name="Subject">
 							<property name="Catalog" />
 							<property name="Is adding standard" multiplicity="one"/>
@@ -156,9 +135,6 @@
 							<property name="Is related to" label="Information Products" refersTo="Information Product" attribute="products" multiplicity="multiple"/>
 						</group>
 					</structure>
-					<style>
-						<layout type="table"/>
-					</style>
 				</concept>
 
 			</package>
