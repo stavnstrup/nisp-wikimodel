@@ -12,15 +12,16 @@
 			<package name="Standards Management">
 				<description>Concepts representing various references and standards</description>
 				<concept name="Specification" hierarchy="tree" plural="Specifications" acronym="SP" type="Virtual">
-					<description>A virtual class representing standards and profiles</description>
+					<description>A abstract class which is ancestor to standards and profiles</description>
 					<nomenclature></nomenclature>
 					<structure>
-						<property name="Reference code" label="Publication number"/> <!-- Publication Number -->
+						<property name="Reference code" label="Publication number"/>
 						<property name="Title" mandatory="true"/>
 						<property name="Date issued"/>
 						<property name="Description"/>
 						<property name="Remarks"/>
-						<property name="Language" customValue="English"/>
+<!--						<property name="Language" customValue="English"/>  
+-->
 						<!-- References -->
 						<property name="Is published by" multiplicity="one"/>
 					</structure>
@@ -138,14 +139,12 @@
 						<property name="Change event rfcp"/>
 						<property name="Change event version"/>
 					</structure>
-					<style>
-						<layout type="table"/>
-					</style>
+					
 				</concept>
 			</package>
 			<package name="C3 Taxonomy">
 				<description>Concepts representing C3 Taxonomy</description>
-				<concept name="Taxonomy Node" plural="Taxonomy Nodes" type="Virtual" hierachy="tree" ordered="true">
+				<concept name="Taxonomy Node" plural="Taxonomy Nodes" type="Virtual"  ordered="true">
 				  <description></description>
 				  <structure>
 				    <property name="Description"/>
