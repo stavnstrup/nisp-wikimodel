@@ -3,14 +3,13 @@
 	xmlns="http://tide.act.nato.int/team/wat" name="NISP" image="NISP.png">
 	<description>This NISP Wiki was set up to develop, maintain and disseminate simple yet powerful mapping products that semantically categorize and link information from operational, transformational, implementation and support taxonomies. Operational planners, program and project managers, capability implementers, researchers, experimenters and support organizations should use this Wiki to develop a better understanding of the complex relationships between various aspects of NATO and National NNEC programs. Please follow the appropriate link on the right to enter our woven web of knowledge.</description>
 	<ChangeLog>
-		<version name="0.1" date="2018-04-15">Initial version of the NISP data model</version>
+		<version name="0.2" date="2018-05-01">Initial version of the NISP data model</version>
 	</ChangeLog>
 	<DataModel>
 		<import model="CommonLibraryModel.xml"/>
-
 		<concepts>
 			<package name="Standards Management">
-				<description>Concepts representing various references and standards</description>
+				<description>Concepts representing NISP standards and profiles</description>
 				<concept name="Specification" hierarchy="tree" plural="Specifications" acronym="SP" type="Virtual">
 					<description>A abstract class which is ancestor to standards and profiles</description>
 					<nomenclature></nomenclature>
@@ -20,13 +19,34 @@
 						<property name="Date issued"/>
 						<property name="Description"/>
 						<property name="Remarks"/>
-<!--						<property name="Language" customValue="English"/>  
--->
 						<!-- References -->
 						<property name="Is published by" multiplicity="one"/>
+						<property name="Is responsible for" multiplicity="one"/>
+					</structure>
+				</concept>
+				<concept name="ServiceProfile" parent="Specification" plural="ServiceProfiles" acronym="SP" type="Dynamic" hierarchy="tree" ordered="true" image="profile.png" color="becde6">
+					<description>A serviceprofile is a set of one or more standards, with one or more constraints and implementation guidance.
+		A profile is based on the implementation of a pattern or a technical service.</description>
+					<nomenclature></nomenclature>
+					<structure layout="table">
+						<property name="Version" />
+						<property name="Guideline"/>
+						<!--<property name="Taxonomy element" multiplicity="many"/>-->
+						<subobject name="Standards" attribute="standards" concept="Profile Standards" label="Standards"/>
 					</structure>
 				</concept>
 				<concept name="Profile" parent="Specification" plural="Profiles" acronym="EP" type="Dynamic" hierarchy="tree" ordered="true" image="profile.png" color="becde6">
+					<description>A profile is a set of one or more standards, with one or more constraints and implementation guidance.
+		A profile is based on the implementation of a pattern or a technical service.</description>
+					<nomenclature></nomenclature>
+					<structure layout="table">
+						<property name="Version" />
+						<property name="Guideline"/>
+						<!--<property name="Taxonomy element" multiplicity="many"/>-->
+						<subobject name="Standards" attribute="standards" concept="Profile Standards" label="Standards"/>
+					</structure>
+				</concept>
+				<concept name="CapabilityProfile" parent="Specification" plural="CapabilityProfiles" acronym="CP" type="Dynamic" hierarchy="tree" ordered="true" image="profile.png" color="becde6">
 					<description>A profile is a set of one or more standards, with one or more constraints and implementation guidance.
 		A profile is based on the implementation of a pattern or a technical service.</description>
 					<nomenclature></nomenclature>
@@ -45,7 +65,6 @@
 						<property name="Remarks" />
 					</structure>
 				</concept>
-
 				<concept name="Standard" parent="Specification" plural="Standards" type="Dynamic" hierarchy="tree" ordered="true" image="standard.jpeg" color="becde6">
 					<description>Standards are defined as "an acknowledged measure of comparison for quantitative or qualitative value. Compliance with a certain standard sets a degree or level of requirement, excellence, or attainment". In the context of Enterprise Mapping, these standards materialize as documents, publications or other files that set proportions to the referred objects.
 		The concept is designed to store metadata of these standards, and only in rare cases a copy or transcript of the original standard is available. The articles reflect standards that are ratified by standardization organizations (like ISO, IEEE, IETF or W3C) or published in bulk after approval by a certain community (as is the case with NATO's Interoperability Standards and Profiles). The standards metadata that is available on the EM Wiki is updated on a regular basis.</description>
@@ -56,24 +75,24 @@
 							<property name="Title" />
 							<property name="Version" />
 							<property name="Is published by" multiplicity="one"/>
-					  	<property name="Date issued" />
-					  	<property name="Description" />
-					  	<property name="Lifecycle" />
+					  	    <property name="Date issued" />
+					  	    <property name="Description" />
+					  	    <property name="Lifecycle" />
 						</group>
 						<group name="Other" layout="table">
-					  	<property name="Is equivalent to" refersTo="Standard" multiplicity="multiple" attribute="equivalentstandards" label="Equivalent Standards"/>
-					  	<property name="Source" />
-					  	<property name="Replaces" />
-					  	<property name="Subject" />
-					  	<property name="Subject category" />
-					  	<property name="Language" />
-					  	<property name="Alternative title" />
-					  	<property name="Intellectual property" />
+					  	    <property name="Is equivalent to" refersTo="Standard" multiplicity="multiple" attribute="equivalentstandards" label="Equivalent Standards"/>
+					  	    <property name="Source" />
+					  	    <property name="Replaces" />
+					  	    <property name="Subject" />
+					  	    <property name="Subject category" />
+					  	    <property name="Language" />
+					  	    <property name="Alternative title" />
+					  	    <property name="Intellectual property" />
 						</group>
 					</structure>
 				</concept>
 				<concept name="Cover Document" plural="Cover Documents" type="Dynamic" image="cover.png" color="becde6">
-					<description>Standardization Agreements (STANAGs) define processes, procedures, terms, and conditions for common military or technical procedures or equipment between the member countries of the Alliance. Each NATO state ratifies a STANAG and implements it within their own military. The purpose is to provide common operational and administrative procedures and logistics, so one member nation's military may use the stores and support of another member's military. STANAGs also form the basis for technical interoperability between a wide variety of communication and information (CIS) systems essential for NATO and Allied operations. STANAGs are published in English and French, the two official languages of NATO, by the NATO Standardization Agency in Brussels</description>
+					<description>Standardization Agreements (STANAGs) define processes, procedures, terms, and conditions for common military or technical procedures or equipment between the member countries of the Alliance. Each NATO state ratifies a STANAG and implements it within their own military. The purpose is to provide common operational and administrative procedures and logistics, so one member nation's military may use the stores and support of another member's military. STANAGs also form the basis for technical interoperability between a wide variety of communication and information (CIS) systems essential for NATO and Allied operations. STANAGs are published in English and French, the two official languages of NATO, by the NATO Standardization Agency in Brussels. NISP is currently not using this concept.</description>
 					<nomenclature></nomenclature>
 					<structure layout="table">
 						<property name="Reference code"/>
@@ -139,7 +158,6 @@
 						<property name="Change event rfcp"/>
 						<property name="Change event version"/>
 					</structure>
-					
 				</concept>
 			</package>
 			<package name="C3 Taxonomy">
@@ -211,7 +229,7 @@
 				</concept>
 			</package>
 		</concepts>
-<properties>
+        <properties>
 			<property name="Acronym" type="String" label="Acronym" attribute="acronym">
 				<description>An acronym is an abbreviation formed from the initial components in a phrase or a word.</description>
 				<instruction>An "Acronym" is a string value that reflects an acronym or other abbreviation that is used in the definition of a taxonomy element. Often the acronym is an abbreviation of a title or name. In general the acronym is a combination of uppercase characters.</instruction>
@@ -254,8 +272,6 @@
 				<description>A version of a Change Event.</description>
 				<instruction/>
 			</property>
-
-
 			<property name="Conformity assessment" type="Text" label="Conformity assessment" attribute="conformity">
 				<description>.</description>
 				<instruction></instruction>
@@ -322,6 +338,10 @@
 			</property>
 			<property name="Is related to" type="Page" label="Is related to" attribute="related">
 				<description>A semantic link between elements in the same or in different concepts.</description>
+				<instruction/>
+			</property>
+			<property name="Is responsible for" type="Page" refersTo="Organization" label="Responsible" attribute="responsible">
+				<description>A responsible party a standard or profile.</description>
 				<instruction/>
 			</property>
 			<property name="Language" type="Option" label="Language" attribute="language">
@@ -590,8 +610,8 @@
 	</DataModel>
 	<ReportsModel>
 		<categories>
-			<category name="Governance">				Governance perspectives are aimed at providing a comprehensive view of the entire NISP content.			</category>
-			<category name="Coherence">				Coherence perspectives are generated to report the level of coherence of architectural data. Some of the perspectives consist of an overview of taxonomy concepts such as Business Processes, Information Products, User Applications and Technical Services, Other useful perspectives describe the definition of taxonomy layers, specifically the layers in the Technical Services Framework. Finally, specific coherence reports provide valuable feedback about possible incoherence and inconsistency in architectural data and the definition of taxonomy elements.
+			<category name="Governance">Governance perspectives are aimed at providing a comprehensive view of the entire NISP content.			</category>
+			<category name="Coherence">Coherence perspectives are generated to report the level of coherence of architectural data. Some of the perspectives consist of an overview of taxonomy concepts such as Business Processes, Information Products, User Applications and Technical Services, Other useful perspectives describe the definition of taxonomy layers, specifically the layers in the Technical Services Framework. Finally, specific coherence reports provide valuable feedback about possible incoherence and inconsistency in architectural data and the definition of taxonomy elements.
 
 The primary audience for these perspectives are NATO architects, whos role it is to continuously improve the architectural data and map the NATO C3 landscape.			</category>
 		</categories>
