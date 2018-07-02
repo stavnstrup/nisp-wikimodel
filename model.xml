@@ -3,58 +3,67 @@
 	xmlns="http://tide.act.nato.int/team/wat" name="NISP" image="NISP.png">
 	<description>This NISP Wiki was set up to develop, maintain and disseminate simple yet powerful mapping products that semantically categorize and link information from operational, transformational, implementation and support taxonomies. Operational planners, program and project managers, capability implementers, researchers, experimenters and support organizations should use this Wiki to develop a better understanding of the complex relationships between various aspects of NATO and National NNEC programs. Please follow the appropriate link on the right to enter our woven web of knowledge.</description>
 	<ChangeLog>
-		<version name="0.2" date="2018-05-01">Initial version of the NISP data model</version>
+	    <version name="0.1" date="2018-04-15">Initial version of the NISP data model</version>
+		<version name="0.2" date="2018-05-01">Adding additional profiles</version>
 	</ChangeLog>
 	<DataModel>
 		<import model="CommonLibraryModel.xml"/>
 		<concepts>
 			<package name="Standards Management">
 				<description>Concepts representing NISP standards and profiles</description>
-				<concept name="Specification" hierarchy="tree" plural="Specifications" acronym="SP" type="Virtual">
+				<concept name="Specification" plural="Specifications" acronym="SP" type="Virtual">
 					<description>A abstract class which is ancestor to standards and profiles</description>
 					<nomenclature></nomenclature>
 					<structure>
+						<property name="Is published by" multiplicity="one"/>
 						<property name="Reference code" label="Publication number"/>
 						<property name="Title" mandatory="true"/>
 						<property name="Date issued"/>
-						<property name="Description"/>
+						<property name="Version"/>
 						<property name="Remarks"/>
-						<!-- References -->
-						<property name="Is published by" multiplicity="one"/>
+						<property name="Description"/>
 						<property name="Is responsible for" multiplicity="one"/>
 					</structure>
 				</concept>
-				<concept name="ServiceProfile" parent="Specification" plural="ServiceProfiles" acronym="SP" type="Dynamic" hierarchy="tree" ordered="true" image="profile.png" color="becde6">
-					<description>A serviceprofile is a set of one or more standards, with one or more constraints and implementation guidance.
+				<concept name="Service Profile" parent="Specification" plural="Service Profiles" acronym="SP" type="Dynamic"  ordered="true" image="profile.png" color="becde6">
+					<description>A service profile is a set of one or more standards, with one or more constraints and implementation guidance.
 		A profile is based on the implementation of a pattern or a technical service.</description>
 					<nomenclature></nomenclature>
 					<structure layout="table">
+						<property name="Is published by" multiplicity="one"/>
+						<property name="Reference code" label="Publication number"/>
+						<property name="Title" mandatory="true"/>
+						<property name="Date issued"/>
 						<property name="Version" />
 						<property name="Guideline"/>
 						<!--<property name="Taxonomy element" multiplicity="many"/>-->
 						<subobject name="Standards" attribute="standards" concept="Profile Standards" label="Standards"/>
 					</structure>
 				</concept>
-				<concept name="Profile" parent="Specification" plural="Profiles" acronym="EP" type="Dynamic" hierarchy="tree" ordered="true" image="profile.png" color="becde6">
+				<concept name="Profile" parent="Specification" plural="Profiles" acronym="EP" type="Dynamic" ordered="true" image="profile.png" color="becde6">
 					<description>A profile is a set of one or more standards, with one or more constraints and implementation guidance.
 		A profile is based on the implementation of a pattern or a technical service.</description>
 					<nomenclature></nomenclature>
 					<structure layout="table">
-						<property name="Version" />
+						<property name="Is published by" multiplicity="one"/>
+						<property name="Reference code" label="Publication number"/>
+						<property name="Title" mandatory="true"/>
+						<property name="Date issued"/>						<property name="Version" />
 						<property name="Guideline"/>
-						<!--<property name="Taxonomy element" multiplicity="many"/>-->
-						<subobject name="Standards" attribute="standards" concept="Profile Standards" label="Standards"/>
 					</structure>
 				</concept>
-				<concept name="CapabilityProfile" parent="Specification" plural="CapabilityProfiles" acronym="CP" type="Dynamic" hierarchy="tree" ordered="true" image="profile.png" color="becde6">
-					<description>A profile is a set of one or more standards, with one or more constraints and implementation guidance.
+				<concept name="Capability Profile" parent="Specification" plural="Capability Profiles" acronym="CP" type="Dynamic" ordered="true" image="profile.png" color="becde6">
+					<description>A capability profile is a set of one or more standards, with one or more constraints and implementation guidance.
 		A profile is based on the implementation of a pattern or a technical service.</description>
 					<nomenclature></nomenclature>
 					<structure layout="table">
+						<property name="Is published by" multiplicity="one"/>
+						<property name="Reference code" label="Publication number"/>
+						<property name="Title" mandatory="true"/>
+						<property name="Date issued"/>
 						<property name="Version" />
 						<property name="Guideline"/>
-						<!--<property name="Taxonomy element" multiplicity="many"/>-->
-						<subobject name="Standards" attribute="standards" concept="Profile Standards" label="Standards"/>
+						<property name="Profile" multiplicity="one"/>
 					</structure>
 				</concept>
 				<concept name="Profile Standards" plural="Profile Standards" ordered="true" type="Internal">
@@ -65,30 +74,21 @@
 						<property name="Remarks" />
 					</structure>
 				</concept>
-				<concept name="Standard" parent="Specification" plural="Standards" type="Dynamic" hierarchy="tree" ordered="true" image="standard.jpeg" color="becde6">
+				<concept name="Standard" parent="Specification" plural="Standards" type="Dynamic" ordered="true" image="standard.jpeg" color="becde6">
 					<description>Standards are defined as "an acknowledged measure of comparison for quantitative or qualitative value. Compliance with a certain standard sets a degree or level of requirement, excellence, or attainment". In the context of Enterprise Mapping, these standards materialize as documents, publications or other files that set proportions to the referred objects.
 		The concept is designed to store metadata of these standards, and only in rare cases a copy or transcript of the original standard is available. The articles reflect standards that are ratified by standardization organizations (like ISO, IEEE, IETF or W3C) or published in bulk after approval by a certain community (as is the case with NATO's Interoperability Standards and Profiles). The standards metadata that is available on the EM Wiki is updated on a regular basis.</description>
 					<nomenclature></nomenclature>
 					<structure layout="table">
 						<group name="Details" layout="table">
-							<property name="Reference code"/>
-							<property name="Title" />
-							<property name="Version" />
 							<property name="Is published by" multiplicity="one"/>
+							<property name="Reference code" label="Publication Number"/>
+							<property name="Title" />
 					  	    <property name="Date issued" />
-					  	    <property name="Description" />
-					  	    <property name="Lifecycle" />
+							<property name="Version" />
+							<property name="Remarks"/>
 						</group>
-						<group name="Other" layout="table">
-					  	    <property name="Is equivalent to" refersTo="Standard" multiplicity="multiple" attribute="equivalentstandards" label="Equivalent Standards"/>
-					  	    <property name="Source" />
-					  	    <property name="Replaces" />
-					  	    <property name="Subject" />
-					  	    <property name="Subject category" />
-					  	    <property name="Language" />
-					  	    <property name="Alternative title" />
-					  	    <property name="Intellectual property" />
-						</group>
+						<property name="Description"/>
+						<property name="Is responsible for" multiplicity="one"/>
 					</structure>
 				</concept>
 				<concept name="Cover Document" plural="Cover Documents" type="Dynamic" image="cover.png" color="becde6">
@@ -115,14 +115,12 @@
 			</package>
 			<package name="Organizations Management">
 				<description>Concepts to manage Organizations</description>
-				<concept name="Organization" plural="Organizations" type="Dynamic" hierarchy="tree" color="becde6" image="organization.png">
+				<concept name="Organization" plural="Organizations" type="Dynamic" color="becde6" image="organization.png">
 					<description>Organizations are those entities that are not considered actors (actively contributing to the business processes described in the C3 Taxonomy) and are meaningful for referencing or otherwise supporting the architecture, such as: governments, companies (industry) and standards organizations.</description>
 					<nomenclature></nomenclature>
 					<structure layout="table">
 						<property name="Acronym" />
 						<property name="Description" mandatory="true"/>
-						<property name="Image" attribute="logo" label="Logo"/>
-						<property name="Organization type" />
 						<property name="Website" />
 					</structure>
 				</concept>
@@ -160,15 +158,17 @@
 					</structure>
 				</concept>
 			</package>
+
 			<package name="C3 Taxonomy">
 				<description>Concepts representing C3 Taxonomy</description>
-				<concept name="Taxonomy Node" plural="Taxonomy Nodes" type="Virtual"  ordered="true">
+				<concept name="Taxonomy Node" plural="Taxonomy Nodes" type="Dynamic"  hierarchy="tree" ordered="true" image="Services.png" color="f0cdb4">
 				  <description></description>
 				  <structure>
-				    <property name="Description"/>
+				    <property name="Title" mandatory="true"/>
+				    <property name="Description" mandatory="true"/>
 				  </structure>
 				</concept>
-
+<!--
 				<concept name="Service" parent="Taxonomy Node" plural="Services" type="Dynamic" hierarchy="tree" ordered="true" image="Services.png" color="f0cdb4">
 					<description>The Technical Services express the requirements for a set of related software and hardware functionalities that can be reused for different purposes, together with the policies that should control their usage. These requirements are derived from the operational needs expressed by the collection of User-Facing Capabilities. Inherently, the Technical Services must support all NATO Mission Types.
 		Technical Services are implemented in a federated model that allows NATO and the Nations to jointly provide a robust and secure platform on top of which powerful User Applications can be run. Thus the Technical Services provide the foundation for the NATO Network Enabled Capability (NNEC). They must implement agreed and open standards, must exhibit plug-and-play properties, and must be transparent to operational users.
@@ -227,6 +227,7 @@
 						<property name="Description" mandatory="true"/>
 					</structure>
 				</concept>
+-->				
 			</package>
 		</concepts>
         <properties>
