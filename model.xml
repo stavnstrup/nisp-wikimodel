@@ -5,6 +5,7 @@
 	<ChangeLog>
 	    <version name="0.1" date="2018-04-15">Initial version of the NISP data model</version>
 		<version name="0.2" date="2018-05-01">Adding additional profiles</version>
+		<version name="0.3" date="2018-05-01">Adding status elements and hiding unimplemented concepts</version>
 	</ChangeLog>
 	<DataModel>
 		<import model="CommonLibraryModel.xml"/>
@@ -23,6 +24,11 @@
 						<property name="Remarks"/>
 						<property name="Description"/>
 						<property name="Is responsible for" multiplicity="one"/>
+						<group name="Status">
+							<property name="Catalog item status" />
+							<property name="Website" />
+							<subobject name="Event" concept="Change Event" attribute="events"/>
+						</group>
 					</structure>
 				</concept>
 				<concept name="Service Profile" parent="Specification" plural="Service Profiles" acronym="SP" type="Dynamic"  ordered="true" image="profile.png" color="becde6">
@@ -37,7 +43,12 @@
 						<property name="Version" />
 						<property name="Guideline"/>
 						<!--<property name="Taxonomy element" multiplicity="many"/>-->
-						<subobject name="Standards" attribute="standards" concept="Profile Standards" label="Standards"/>
+						<subobject name="Standards" attribute="standards" concept="Obligation Group" label="Standards"/>
+						<group name="Status">
+							<property name="Catalog item status" />
+							<property name="Website" />
+							<subobject name="Event" concept="Change Event" attribute="events"/>
+						</group>
 					</structure>
 				</concept>
 				<concept name="Profile" parent="Specification" plural="Profiles" acronym="EP" type="Dynamic" ordered="true" image="profile.png" color="becde6">
@@ -50,6 +61,11 @@
 						<property name="Title" mandatory="true"/>
 						<property name="Date issued"/>						<property name="Version" />
 						<property name="Guideline"/>
+						<group name="Status">
+							<property name="Catalog item status" />
+							<property name="Website" />
+							<subobject name="Event" concept="Change Event" attribute="events"/>
+						</group>
 					</structure>
 				</concept>
 				<concept name="Capability Profile" parent="Specification" plural="Capability Profiles" acronym="CP" type="Dynamic" ordered="true" image="profile.png" color="becde6">
@@ -64,10 +80,15 @@
 						<property name="Version" />
 						<property name="Guideline"/>
 						<property name="Profile" multiplicity="one"/>
+						<group name="Status">
+							<property name="Catalog item status" />
+							<property name="Website" />
+							<subobject name="Event" concept="Change Event" attribute="events"/>
+						</group>
 					</structure>
 				</concept>
-				<concept name="Profile Standards" plural="Profile Standards" ordered="true" type="Internal">
-					<description>A Profile Standards is ....</description>
+				<concept name="Obligation Group" plural="Obligation Groups" ordered="true" type="Internal">
+					<description>The obligation Group references standards and profiles with a specific obligation. The  element is child of a service profile element.</description>
 					<structure layout="table">
 						<property name="Obligation"/>
 						<property name="Standard" multiplicity="multiple" attribute="standards" label="Standards"/>
@@ -89,8 +110,14 @@
 						</group>
 						<property name="Description"/>
 						<property name="Is responsible for" multiplicity="one"/>
+						<group name="Status">
+							<property name="Catalog item status" />
+							<property name="Website" />
+							<subobject name="Event" concept="Change Event" attribute="events"/>
+						</group>
 					</structure>
 				</concept>
+<!-->
 				<concept name="Cover Document" plural="Cover Documents" type="Dynamic" image="cover.png" color="becde6">
 					<description>Standardization Agreements (STANAGs) define processes, procedures, terms, and conditions for common military or technical procedures or equipment between the member countries of the Alliance. Each NATO state ratifies a STANAG and implements it within their own military. The purpose is to provide common operational and administrative procedures and logistics, so one member nation's military may use the stores and support of another member's military. STANAGs also form the basis for technical interoperability between a wide variety of communication and information (CIS) systems essential for NATO and Allied operations. STANAGs are published in English and French, the two official languages of NATO, by the NATO Standardization Agency in Brussels. NISP is currently not using this concept.</description>
 					<nomenclature></nomenclature>
@@ -108,6 +135,7 @@
 						<property name="Link"/>
 					</structure>
 				</concept>
+-->
 				<reports>
 					<report name="ADatP-34" scope="package" category="Governance" file="ADatP-34.pdf"/>
 					<report name="Coherence Report" scope="package" category="Coherence" file="Coherency Report.pdf"/>
@@ -127,6 +155,7 @@
 			</package>
 			<package name="Catalogue Management">
 				<description>Concepts to manage Standards Catalogue</description>
+<!--
 				<concept name="Catalogue Item" plural="Catalogue Items" type="Dynamic" image="catalogitem.png" color="becde6">
 					<description>A "Catalogue Item"" is ..</description>
 					<nomenclature></nomenclature>
@@ -147,7 +176,7 @@
 						</group>
 					</structure>
 				</concept>
-
+-->
 				<concept name="Change Event" plural="Events" type="Internal">
 					<description>An NISP Event is ....</description>
 					<structure>
@@ -168,66 +197,6 @@
 				    <property name="Description" mandatory="true"/>
 				  </structure>
 				</concept>
-<!--
-				<concept name="Service" parent="Taxonomy Node" plural="Services" type="Dynamic" hierarchy="tree" ordered="true" image="Services.png" color="f0cdb4">
-					<description>The Technical Services express the requirements for a set of related software and hardware functionalities that can be reused for different purposes, together with the policies that should control their usage. These requirements are derived from the operational needs expressed by the collection of User-Facing Capabilities. Inherently, the Technical Services must support all NATO Mission Types.
-		Technical Services are implemented in a federated model that allows NATO and the Nations to jointly provide a robust and secure platform on top of which powerful User Applications can be run. Thus the Technical Services provide the foundation for the NATO Network Enabled Capability (NNEC). They must implement agreed and open standards, must exhibit plug-and-play properties, and must be transparent to operational users.
-		The complete collection of Technical Services is often referred to as the Technical Services Framework (TSF) or NNEC Services Framework (NSF).</description>
-					<nomenclature>The naming convention for this concept follows these principles.
-		Names of services always end with "Services" (e.g. Information Storage Services) as even the lowest level service definition will eventually be implemented using multiple service end-points. (This view is not universally accepted in all parts of NATO but the rules will nevertheless be enforced to create consistency in the taxonomy.)		The initial letter of all words in the service name must be capitalized.		Accepted acronyms can be used to keep the length of the service name reasonable. Those acronyms must be spells out in the beginning of the description paragraph.</nomenclature>
-					<structure>
-						<property name="Description" mandatory="true"/>
-						<subobject name="Functional" attribute="functional" concept="Service Function" viewable="false" editable="false"/>
-						<subobject name="Non-Functional" attribute="nonfunctional" concept="Service Non-Functional" viewable="false" editable="false"/>
-					</structure>
-				</concept>
-				<concept name="Service Function" plural="Functional Requirements" type="Internal">
-					<description>A Service Function is ...</description>
-					<structure></structure>
-				</concept>
-				<concept name="Service Non-Functional" plural="Non-Functional Requirements" type="Internal">
-					<description>A Service Non-Functional is ...</description>
-					<structure></structure>
-				</concept>
-				<concept name="Application" parent="Taxonomy Node" plural="Applications" type="Dynamic" topic="User Applications" hierarchy="tree" ordered="true" image="Applications.png" color="d7d7d7">
-					<description>User Applications - also known as application software, software applications, applications or "apps" - enable users to perform singular or multiple related tasks through the provision of functionally designed computer software components. Within the C3 Taxonomy and based on TOGAF 9, the objective of this class is to "define the major kinds of application systems necessary to process the data and support the business". The goal is to define what kinds of User Applications are relevant to the enterprise, and what those applications need to do in order to manage data (process Information Products) and to present information to the human and computer actors in the enterprise (support Business Processes).
-		User Applications provide the logical interface between human and automated activities. Their description identifies information and functional requirements for the end user to perform specific tasks. The application's context within a Community Of Interest (COI) determines whether information and/or function is the primary discriminator used to build the NATO Network Enabled Capability (NNEC) compliant application hierarchy.</description>
-					<nomenclature>The naming convention for this concept follows these principles.
-		Names of applications that have no subordinate levels (children) must end with "Application" (e.g. Vessel Application)		Names of applications that have subordinate levels (children) must end with "Applications" (e.g. Air COI Applications)		The initial letter of all words in the application name must be capitalized.		Accepted acronyms can be used to keep the length of the application name reasonable. Those acronyms must be spelled out in the beginning of the description paragraph.</nomenclature>
-					<structure>
-						<property name="Description" mandatory="true"/>
-						<subobject name="Functional" attribute="functional" concept="Application Function" viewable="false" editable="false"/>
-						<subobject name="Non-Functional" attribute="nonfunctional" concept="Application Non-Functional" viewable="false" editable="false"/>
-						<subobject name="Information Product" attribute="ips" concept="Application Information" viewable="false" editable="false"/>
-					</structure>
-				</concept>
-				<concept name="Application Function" plural="Functional Requirements" type="Internal">
-					<description>An Application Function is ...</description>
-					<structure></structure>
-				</concept>
-				<concept name="Application Non-Functional" plural="Non-Functional Requirements" type="Internal">
-					<description>An Application Non-Functional is ...</description>
-					<structure></structure>
-				</concept>
-				<concept name="Application Information" plural="Information Products" type="Internal">
-					<description>An Application Information is ...</description>
-					<structure></structure>
-				</concept>
-				<concept name="Business Process" parent="Taxonomy Node" plural="Business Processes" type="Dynamic" topic="Business Processes" hierarchy="tree" ordered="true" image="IP.png" color="e6c3c8">
-					<description>A business process is a collection of related, structured activities or tasks that produce a specific service or product (serve a particular goal) for a particular customer or customers. It often can be visualized with a flowchart as a sequence of activities. In the context of this wiki, the C3 Business Process definitions connect activities, actors and information products. The business processes of NATO entities are derived from the mission types and tasks identified through the NATO Defense Planning Process (NDPP). The business process models provides a visual representation of the relationships and information flows between organizational entities. Over time, business processes typically evolve or change. A Service-Oriented Architecture supports evolving business processes by enabling reuse of services within different organizational configurations.</description>
-					<nomenclature/>
-					<structure>
-						<property name="Description" mandatory="true"/>
-					</structure>
-				</concept>
-				<concept name="Information Product" parent="Taxonomy Node" plural="Information Products" type="Dynamic" topic="Information Products" hierarchy="tree" ordered="true" image="IP.png" color="e6c3c8">
-					<description>An Information Product is any final product in the form of information that a person needs to have. Information Products consists of several Information Elements and can be seen as any communications or representation of knowledge such as facts, data, or opinions in any medium or form.</description>
-					<nomenclature/>
-					<structure>
-						<property name="Description" mandatory="true"/>
-					</structure>
-				</concept>
--->				
 			</package>
 		</concepts>
         <properties>
@@ -317,10 +286,12 @@
 				<description>.</description>
 				<instruction></instruction>
 			</property>
+<!--
 			<property name="Is authorized through" type="Page" refersTo="Cover Document" label="Cover Document" attribute="coverdocument">
 				<description>A semantic link with the Cover Document.</description>
 				<instruction></instruction>
 			</property>
+-->
 			<property name="Is edited by" type="Page" refersTo="Organization" label="Editor" attribute="editor">
 				<description>A editor authority of a document or file.</description>
 				<instruction/>
