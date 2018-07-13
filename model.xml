@@ -25,11 +25,27 @@
 						<property name="Description"/>
 						<property name="Is responsible for" multiplicity="one"/>
 						<group name="Status">
-							<property name="Catalog item status" />
 							<property name="Website" />
 							<subobject name="Event" concept="Change Event" attribute="events"/>
 						</group>
 					</structure>
+				</concept>
+				<concept name="Base Standards Profile" plural="Base Standards Profiles" acronym="BSP" type="Dynamic" ordered="true" image="profile.png" color="becde6">
+				    <description>The Base Standards Profile represent the IP CaT proposal for mandatory and candidate standards for a selected set of taxonomy nodes ...</description>
+                    <nomenclature></nomenclature>
+					<structure>
+					     <group name="C3 Taxonomy">
+							<property name="Is related to" label="node" refersTo="Taxonomy Node" attribute="node" multiplicity="one"/>
+						</group>
+						<subobject name="Obligation" concept="Obligation Group" attribute="obligations" />
+					</structure>
+				</concept>
+				<concept name="Obligation Group" plural="Obligations" type="Internal">
+				    <description>An Obligation Group ..</description>
+				    <nomenclature></nomenclature>
+				    <structure>
+    				    <property name="Mode" />
+				    </structure>
 				</concept>
 				<concept name="Service Profile" parent="Specification" plural="Service Profiles" acronym="SP" type="Dynamic"  ordered="true" image="profile.png" color="becde6">
 					<description>A service profile is a set of one or more standards, with one or more constraints and implementation guidance.
@@ -42,7 +58,9 @@
 						<property name="Date issued"/>
 						<property name="Version" />
 						<property name="Guideline"/>
-						<!--<property name="Taxonomy element" multiplicity="many"/>-->
+						<group name="C3 Taxonomy">
+							<property name="Is related to" label="nodes" refersTo="Taxonomy Node" attribute="nodes" multiplicity="multiple"/>
+						</group>
 						<subobject name="Standards" attribute="standards" concept="Obligation Group" label="Standards"/>
 						<group name="Status">
 							<property name="Catalog item status" />
@@ -110,11 +128,8 @@
 						</group>
 						<property name="Description"/>
 						<property name="Is responsible for" multiplicity="one"/>
-						<group name="Status">
-							<property name="Catalog item status" />
-							<property name="Website" />
-							<subobject name="Event" concept="Change Event" attribute="events"/>
-						</group>
+						<property name="Website" />
+						<subobject name="Event" concept="Change Event" attribute="events"/>
 					</structure>
 				</concept>
 <!-->
@@ -512,6 +527,14 @@
 			<property name="Link" type="URL" label="Link" attribute="link">
 				<description>A Uniform Resource Identifier (URI) to identify a name or a web resource.</description>
 				<instruction/>
+			</property>
+			<property name="Mode" type="Option" label="Mode" attribute="mode">
+			    <description>The mode mode of the standards referenced in this base standards profile.</description>
+			    <instruction/>
+			    <values default="Mandatory">
+			        <value name="Mandatory">Mandatory</value>
+				    <value name="Candidate">Candidate</value>
+			    </values>
 			</property>
 			<property name="Obligation" type="Option" label="Obligation" attribute="obligation">
 				<description>An obligation category for a standard in a standards profile.</description>
