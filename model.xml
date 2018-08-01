@@ -118,14 +118,11 @@
 		The concept is designed to store metadata of these standards, and only in rare cases a copy or transcript of the original standard is available. The articles reflect standards that are ratified by standardization organizations (like ISO, IEEE, IETF or W3C) or published in bulk after approval by a certain community (as is the case with NATO's Interoperability Standards and Profiles). The standards metadata that is available on the EM Wiki is updated on a regular basis.</description>
 					<nomenclature></nomenclature>
 					<structure layout="table">
-						<group name="Details" layout="table">
-							<property name="Is published by" multiplicity="one"/>
-							<property name="Reference code" label="Publication Number"/>
-							<property name="Title" />
-					  	    <property name="Date issued" />
-							<property name="Version" />
-							<property name="Remarks"/>
-						</group>
+						<property name="Is published by" multiplicity="one"/>
+						<property name="Reference code" label="Publication Number"/>
+						<property name="Title" />
+					  	<property name="Date issued" />
+						<property name="Version" />
 						<property name="Description"/>
 						<property name="Is responsible for" multiplicity="one"/>
 						<property name="Website" />
