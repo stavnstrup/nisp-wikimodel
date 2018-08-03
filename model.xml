@@ -5,7 +5,8 @@
 	<ChangeLog>
 	    <version name="0.1" date="2018-04-15">Initial version of the NISP data model</version>
 		<version name="0.2" date="2018-05-01">Adding additional profiles</version>
-		<version name="0.3" date="2018-05-01">Adding status elements and hiding unimplemented concepts</version>
+		<version name="0.3" date="2018-07-01">Adding status elements and hiding unimplemented concepts</version>
+		<version name="0.4" date="2018-08-03">Adding capability and profile elements</version>
 	</ChangeLog>
 	<DataModel>
 		<import model="CommonLibraryModel.xml"/>
@@ -70,15 +71,18 @@
 					</structure>
 				</concept>
 				<concept name="Profile" parent="Specification" plural="Profiles" acronym="EP" type="Dynamic" ordered="true" image="profile.png" color="becde6">
-					<description>A profile is a set of one or more standards, with one or more constraints and implementation guidance.
-		A profile is based on the implementation of a pattern or a technical service.</description>
+					<description>A profile is a set of one or more profiles or service profiles.</description>
 					<nomenclature></nomenclature>
 					<structure layout="table">
 						<property name="Is published by" multiplicity="one"/>
 						<property name="Reference code" label="Publication number"/>
 						<property name="Title" mandatory="true"/>
-						<property name="Date issued"/>						<property name="Version" />
+						<property name="Date issued"/>
+						<property name="Version" />
 						<property name="Guideline"/>
+						<subobject name="Profiles" concept="Profile Group" attribute="profiles"/>
+						<subobject name="Service Profile" concept="Service Profile Group" attribute="serviceprofiles"/>
+
 						<group name="Status">
 							<property name="Catalog item status" />
 							<property name="Website" />
@@ -97,12 +101,25 @@
 						<property name="Date issued"/>
 						<property name="Version" />
 						<property name="Guideline"/>
-						<property name="Profile" multiplicity="one"/>
+						<subobject name="Profiles" concept="Profile Group" attribute="profiles"/>
+						<subobject name="Service Profile" concept="Service Profile Group" attribute="serviceprofiles"/>
 						<group name="Status">
 							<property name="Catalog item status" />
 							<property name="Website" />
 							<subobject name="Event" concept="Change Event" attribute="events"/>
 						</group>
+					</structure>
+				</concept>
+				<concept name="Profile Group" plural="Profile Groups" ordered="true" type="Internal">
+					<description>The Profile Group references profiles and service profiles. The  element is child of a capability profile or profile element.</description>
+					<structure layout="table">
+						<property name="Profile" multiplicity="multiple" attribute="profiles" label="Profiles"/>
+					</structure>
+				</concept>
+				<concept name="Service Profile Group" plural="Service Profile Groups" ordered="true" type="Internal">
+					<description>The Service Profile Group references profiles and service profiles. The  element is child of a profile element.</description>
+					<structure layout="table">
+						<property name="Standard" multiplicity="multiple" attribute="standards" label="Standards"/>
 					</structure>
 				</concept>
 				<concept name="Obligation Group" plural="Obligation Groups" ordered="true" type="Internal">
@@ -568,6 +585,10 @@
 			</property>
 			<property name="Replaces" type="String" label="Replaces" attribute="replaces">
 				<description>A replaces ....</description>
+				<instruction/>
+			</property>
+			<property name="Service Profile" type="Page" refersTo="Service Profile" label="Service Profile" attribute="serviceprofile">
+				<description>A semantic link with Element Profile concept.</description>
 				<instruction/>
 			</property>
 			<property name="Source" type="Text" label="Source" attribute="source">
