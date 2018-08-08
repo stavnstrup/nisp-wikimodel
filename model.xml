@@ -13,6 +13,7 @@
 		<concepts>
 			<package name="Standards Management">
 				<description>Concepts representing NISP standards and profiles</description>
+
 				<concept name="Specification" plural="Specifications" acronym="SP" type="Virtual">
 					<description>A abstract class which is ancestor to standards and profiles</description>
 					<nomenclature></nomenclature>
@@ -31,6 +32,7 @@
 						</group>
 					</structure>
 				</concept>
+
 				<concept name="Base Standards Profile" plural="Base Standards Profiles" acronym="BSP" type="Dynamic" ordered="true" image="profile.png" color="becde6">
 				    <description>The Base Standards Profile represent the IP CaT proposal for mandatory and candidate standards for a selected set of taxonomy nodes ...</description>
                     <nomenclature></nomenclature>
@@ -41,6 +43,7 @@
 						<subobject name="Obligation" concept="Obligation Group" attribute="obligations" />
 					</structure>
 				</concept>
+
 				<concept name="Obligation Group" plural="Obligations" type="Internal">
 				    <description>An Obligation Group ..</description>
 				    <nomenclature></nomenclature>
@@ -48,6 +51,7 @@
     				    <property name="Mode" />
 				    </structure>
 				</concept>
+
 				<concept name="Service Profile" parent="Specification" plural="Service Profiles" acronym="SP" type="Dynamic"  ordered="true" image="profile.png" color="becde6">
 					<description>A service profile is a set of one or more standards, with one or more constraints and implementation guidance.
 		A profile is based on the implementation of a pattern or a technical service.</description>
@@ -70,6 +74,7 @@
 						</group>
 					</structure>
 				</concept>
+
 				<concept name="Profile" parent="Specification" plural="Profiles" acronym="EP" type="Dynamic" ordered="true" image="profile.png" color="becde6">
 					<description>A profile is a set of one or more profiles or service profiles.</description>
 					<nomenclature></nomenclature>
@@ -90,6 +95,7 @@
 						</group>
 					</structure>
 				</concept>
+
 				<concept name="Capability Profile" parent="Specification" plural="Capability Profiles" acronym="CP" type="Dynamic" ordered="true" image="profile.png" color="becde6">
 					<description>A capability profile is a set of one or more standards, with one or more constraints and implementation guidance.
 		A profile is based on the implementation of a pattern or a technical service.</description>
@@ -110,26 +116,30 @@
 						</group>
 					</structure>
 				</concept>
+
 				<concept name="Profile Group" plural="Profile Groups" ordered="true" type="Internal">
 					<description>The Profile Group references profiles and service profiles. The  element is child of a capability profile or profile element.</description>
 					<structure layout="table">
 						<property name="Profile" multiplicity="multiple" attribute="profiles" label="Profiles"/>
 					</structure>
 				</concept>
+
 				<concept name="Service Profile Group" plural="Service Profile Groups" ordered="true" type="Internal">
-					<description>The Service Profile Group references profiles and service profiles. The  element is child of a profile element.</description>
+					<description>The Service Profile Group references profiles and service profiles. This element is child of a capabilty profile or profile element.</description>
 					<structure layout="table">
-						<property name="Standard" multiplicity="multiple" attribute="standards" label="Standards"/>
+						<property name="Service Profile" multiplicity="multiple" attribute="serviceprofile" label="Service Profile"/>
 					</structure>
 				</concept>
+
 				<concept name="Obligation Group" plural="Obligation Groups" ordered="true" type="Internal">
-					<description>The obligation Group references standards and profiles with a specific obligation. The  element is child of a service profile element.</description>
+					<description>The obligation Group references standards with a specific obligation. This element is child of a service profile element.</description>
 					<structure layout="table">
 						<property name="Obligation"/>
 						<property name="Standard" multiplicity="multiple" attribute="standards" label="Standards"/>
 						<property name="Remarks" />
 					</structure>
 				</concept>
+
 				<concept name="Standard" parent="Specification" plural="Standards" type="Dynamic" ordered="true" image="standard.jpeg" color="becde6">
 					<description>Standards are defined as "an acknowledged measure of comparison for quantitative or qualitative value. Compliance with a certain standard sets a degree or level of requirement, excellence, or attainment". In the context of Enterprise Mapping, these standards materialize as documents, publications or other files that set proportions to the referred objects.
 		The concept is designed to store metadata of these standards, and only in rare cases a copy or transcript of the original standard is available. The articles reflect standards that are ratified by standardization organizations (like ISO, IEEE, IETF or W3C) or published in bulk after approval by a certain community (as is the case with NATO's Interoperability Standards and Profiles). The standards metadata that is available on the EM Wiki is updated on a regular basis.</description>
@@ -146,7 +156,8 @@
 						<subobject name="Event" concept="Change Event" attribute="events"/>
 					</structure>
 				</concept>
-<!-->
+
+<!--
 				<concept name="Cover Document" plural="Cover Documents" type="Dynamic" image="cover.png" color="becde6">
 					<description>Standardization Agreements (STANAGs) define processes, procedures, terms, and conditions for common military or technical procedures or equipment between the member countries of the Alliance. Each NATO state ratifies a STANAG and implements it within their own military. The purpose is to provide common operational and administrative procedures and logistics, so one member nation's military may use the stores and support of another member's military. STANAGs also form the basis for technical interoperability between a wide variety of communication and information (CIS) systems essential for NATO and Allied operations. STANAGs are published in English and French, the two official languages of NATO, by the NATO Standardization Agency in Brussels. NISP is currently not using this concept.</description>
 					<nomenclature></nomenclature>
@@ -165,14 +176,19 @@
 					</structure>
 				</concept>
 -->
+
+<!--
 				<reports>
 					<report name="ADatP-34" scope="package" category="Governance" file="ADatP-34.pdf"/>
 					<report name="Coherence Report" scope="package" category="Coherence" file="Coherency Report.pdf"/>
 				</reports>
+-->
 			</package>
+
 			<package name="Organizations Management">
 				<description>Concepts to manage Organizations</description>
-				<concept name="Organization" plural="Organizations" type="Dynamic" color="becde6" image="organization.png">
+
+				<concept name="Organization" plural="Organizations" hierarchy="tree" type="Dynamic" color="becde6" image="organization.png">
 					<description>Organizations are those entities that are not considered actors (actively contributing to the business processes described in the C3 Taxonomy) and are meaningful for referencing or otherwise supporting the architecture, such as: governments, companies (industry) and standards organizations.</description>
 					<nomenclature></nomenclature>
 					<structure layout="table">
@@ -182,8 +198,10 @@
 					</structure>
 				</concept>
 			</package>
+
 			<package name="Catalogue Management">
 				<description>Concepts to manage Standards Catalogue</description>
+
 <!--
 				<concept name="Catalogue Item" plural="Catalogue Items" type="Dynamic" image="catalogitem.png" color="becde6">
 					<description>A "Catalogue Item"" is ..</description>
@@ -206,6 +224,7 @@
 					</structure>
 				</concept>
 -->
+
 				<concept name="Change Event" plural="Events" type="Internal">
 					<description>An NISP Event is ....</description>
 					<structure>
@@ -219,6 +238,7 @@
 
 			<package name="C3 Taxonomy">
 				<description>Concepts representing C3 Taxonomy</description>
+
 				<concept name="Taxonomy Node" plural="Taxonomy Nodes" type="Dynamic"  hierarchy="tree" ordered="true" image="Services.png" color="f0cdb4">
 				  <description></description>
 				  <structure>
@@ -226,8 +246,10 @@
 				    <property name="Description" mandatory="true"/>
 				  </structure>
 				</concept>
+
 			</package>
 		</concepts>
+
         <properties>
 			<property name="Acronym" type="String" label="Acronym" attribute="acronym">
 				<description>An acronym is an abbreviation formed from the initial components in a phrase or a word.</description>
