@@ -12,18 +12,19 @@
 
 <xsl:template match="standards">
 <!--
-  <xsl:apply-templates select="organisations"/>
-  <xsl:apply-templates select="taxonomy"/>
-  <xsl:apply-templates select="records/standard"/>
+  <xsl:apply-templates select="organisations" />
+  <xsl:apply-templates select="taxonomy" />
+  <xsl:apply-templates select="records/standard" />
+-->
+  <xsl:apply-templates select="records/capabilityprofile" />
+<!--
+  <xsl:apply-templates select="records/profile" />
+  <xsl:apply-templates select="records/serviceprofile" />
 -->
 </xsl:template>
 
 
 <!-- Create a Wiki page for each organisation -->
-
-<xsl:template match="organisations">
-  <xsl:apply-templates/>
-</xsl:template>
 
 <xsl:template match="orgkey">
 <xsl:variable name="uc-key" select="upper-case(@key)"/>
@@ -85,9 +86,9 @@
 
 <xsl:template match="capabilityprofile">
 <xsl:result-document href="{$datadir}/{@id}.page">
-<xsl:text>{{capability Profile&#x0A;</xsl:text>
+<xsl:text>{{Capability Profile&#x0A;</xsl:text>
 <xsl:text>|uuid=</xsl:text><xsl:value-of select="uuid"/><xsl:text>&#x0A;</xsl:text>
-<xsl:text>|publisher=</xsl:text><xsl:value-of select="profilespec/@orgid"/><xsl:text>&#x0A;</xsl:text>
+<xsl:text>|publisher=</xsl:text><xsl:value-of select="upper-case(profilespec/@orgid)"/><xsl:text>&#x0A;</xsl:text>
 <xsl:text>|code=</xsl:text><xsl:value-of select="profilespec/@pubnum"/><xsl:text>&#x0A;</xsl:text>
 <xsl:text>|title=</xsl:text><xsl:value-of select="profilespec/@title"/><xsl:text>&#x0A;</xsl:text>
 <xsl:text>|dateissued=</xsl:text><xsl:value-of select="profilespec/@date"/><xsl:text>&#x0A;</xsl:text>
@@ -136,7 +137,7 @@
 <xsl:variable name="myid" select="@refid"/>
 <xsl:if test="/standards/records/profile[@id=$myid]"><xsl:text>{{Profile Group&#x0A;</xsl:text>
 <xsl:text>|profiles=</xsl:text><xsl:value-of select="$myid"/><xsl:text>&#x0A;</xsl:text>
-<xsl:text>}}&#x0A;</xsl:text>
+<xsl:text>}}</xsl:text>
 </xsl:if>
 </xsl:template>
 
@@ -158,7 +159,7 @@
 
 <xsl:template match="event">
 <xsl:text>{{Change Event&#x0A;</xsl:text>
-<xsl:text>|order=</xsl:text><xsl:number from="parent:status" count="event"><xsl:text>&#x0A;</xsl:text>
+<xsl:text>|order=</xsl:text><xsl:number from="history" count="event"/><xsl:text>&#x0A;</xsl:text>
 <xsl:text>|date=</xsl:text><xsl:value-of select="@date"/><xsl:text>&#x0A;</xsl:text>
 <xsl:text>|flag=</xsl:text><xsl:value-of select="@flag"/><xsl:text>&#x0A;</xsl:text>
 <xsl:text>|rfcp=</xsl:text><xsl:value-of select="@rfcp"/><xsl:text>&#x0A;</xsl:text>

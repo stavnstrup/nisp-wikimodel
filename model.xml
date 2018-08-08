@@ -109,11 +109,9 @@
 						<property name="Guideline"/>
 						<subobject name="Profiles" concept="Profile Group" attribute="profiles"/>
 						<subobject name="Service Profile" concept="Service Profile Group" attribute="serviceprofiles"/>
-						<group name="Status">
-							<property name="Catalog item status" />
-							<property name="Website" />
-							<subobject name="Event" concept="Change Event" attribute="events"/>
-						</group>
+						<property name="Catalog item status" />
+						<property name="Website" />
+						<subobject name="Event" concept="Change Event" attribute="events"/>
 					</structure>
 				</concept>
 
