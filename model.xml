@@ -66,7 +66,7 @@
 						<group name="C3 Taxonomy">
 							<property name="Is related to" label="nodes" refersTo="Taxonomy Node" attribute="nodes" multiplicity="multiple"/>
 						</group>
-						<subobject name="Standards" attribute="standards" concept="Obligation Group" label="Standards"/>
+						<property name="Is implementing standard" />
 						<group name="Status">
 							<property name="Catalog item status" />
 							<property name="Website" />
@@ -85,8 +85,8 @@
 						<property name="Date issued"/>
 						<property name="Version" />
 						<property name="Guideline"/>
-						<subobject name="Profiles" concept="Profile Group" attribute="profiles"/>
-						<subobject name="Service Profile" concept="Service Profile Group" attribute="serviceprofiles"/>
+						<property name="Is implementing profile" />
+						<property name="Is implementing service profile" />
 
 						<group name="Status">
 							<property name="Catalog item status" />
@@ -107,25 +107,11 @@
 						<property name="Date issued"/>
 						<property name="Version" />
 						<property name="Guideline"/>
-						<subobject name="Profiles" concept="Profile Group" attribute="profiles"/>
-						<subobject name="Service Profile" concept="Service Profile Group" attribute="serviceprofiles"/>
+						<property name="Is implementing profile" />
+						<property name="Is implementing service profile" />
 						<property name="Catalog item status" />
 						<property name="Website" />
 						<subobject name="Event" concept="Change Event" attribute="events"/>
-					</structure>
-				</concept>
-
-				<concept name="Profile Group" plural="Profile Groups" ordered="true" type="Internal">
-					<description>The Profile Group references profiles and service profiles. The  element is child of a capability profile or profile element.</description>
-					<structure layout="table">
-						<property name="Profile" multiplicity="multiple" attribute="profiles" label="Profiles"/>
-					</structure>
-				</concept>
-
-				<concept name="Service Profile Group" plural="Service Profile Groups" ordered="true" type="Internal">
-					<description>The Service Profile Group references profiles and service profiles. This element is child of a capabilty profile or profile element.</description>
-					<structure layout="table">
-						<property name="Service Profile" multiplicity="multiple" attribute="serviceprofile" label="Service Profile"/>
 					</structure>
 				</concept>
 
@@ -591,10 +577,6 @@
 					<value name="Standards organization">Standards organization</value>
 				</values>
 			</property>
-			<property name="Profile" type="Page" refersTo="Profile" label="Profile" attribute="profile">
-				<description>A semantic link with Element Profile concept.</description>
-				<instruction/>
-			</property>
 			<property name="Reference code" type="String" label="Code" attribute="code">
 				<description>A combination of text, numbers and/or punctuation marks that form an identifying string for an entity.</description>
 				<instruction/>
@@ -607,10 +589,7 @@
 				<description>A replaces ....</description>
 				<instruction/>
 			</property>
-			<property name="Service Profile" type="Page" refersTo="Service Profile" label="Service Profile" attribute="serviceprofile">
-				<description>A semantic link with Element Profile concept.</description>
-				<instruction/>
-			</property>
+
 			<property name="Source" type="Text" label="Source" attribute="source">
 				<description>A defining source information piece for an Information Product.</description>
 				<instruction/>
@@ -639,7 +618,20 @@
 				<description>A uniform resource locator (URL) of a particular website or other www address.</description>
 				<instruction>A "Website" is a URL value that reflects the address of a website that is used in the definition of a taxonomy element.</instruction>
 			</property>
+            <property name="Is implementing profile" refersTo="Profile" type="Page" label="Profiles" attribute="profile">
+				<description>A semantic link with the Profile concept.</description>
+				<instruction/>
+			</property>
+			<property name="Is implementing service profile" refersTo="Service Profile" type="Page" label="Service Profiles" attribute="serviceprofile">
+				<description>A semantic link with the Standards concept.</description>
+				<instruction/>
+			</property>
+			<property name="Is implementing standard" refersTo="Standard" type="Page" label="Standards" attribute="standards">
+				<description>A semantic link with the Standards concept.</description>
+				<instruction/>
+			</property>
 		</properties>
+
 	</DataModel>
 	<ReportsModel>
 		<categories>

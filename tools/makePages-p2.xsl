@@ -41,8 +41,7 @@
 <!-- Create a Wiki page for each Taxonomy node -->
 
 <xsl:template match="node">
-<xsl:variable name="name" select="translate(@title, ' ', '_')"/>
-<xsl:result-document href="{$datadir}/{$name}.page">
+<xsl:result-document href="{$datadir}/{@title}.page">
 <xsl:text>{{Taxonomy Node&#x0A;</xsl:text>
 <xsl:choose>
   <xsl:when test="@emUUID = ''"><xsl:text>|uuid=</xsl:text><xsl:value-of select="@id"/><xsl:text>&#x0A;</xsl:text></xsl:when>
@@ -92,9 +91,9 @@
 <xsl:text>|code=</xsl:text><xsl:value-of select="profilespec/@pubnum"/><xsl:text>&#x0A;</xsl:text>
 <xsl:text>|title=</xsl:text><xsl:value-of select="profilespec/@title"/><xsl:text>&#x0A;</xsl:text>
 <xsl:text>|dateissued=</xsl:text><xsl:value-of select="profilespec/@date"/><xsl:text>&#x0A;</xsl:text>
-<xsl:text>|guideline=</xsl:text><xsl:apply-templates select="applicability"/><xsl:text>&#x0A;</xsl:text>
-<xsl:text>|profiles=</xsl:text><xsl:apply-templates select="subprofiles/refprofile" mode="profiles"/><xsl:text>&#x0A;</xsl:text>
-<xsl:text>|serviceprofiles=</xsl:text><xsl:apply-templates select="subprofiles" mode="serviceprofiles"/><xsl:text>&#x0A;</xsl:text>
+<xsl:text>|guideline=</xsl:text><xsl:apply-templates select="description"/><xsl:text>&#x0A;</xsl:text>
+<xsl:text>|profiles=</xsl:text><xsl:apply-templates select="subprofiles/refprofile" mode="list-profiles"/><xsl:text>&#x0A;</xsl:text>
+<xsl:text>|serviceprofiles=</xsl:text><xsl:apply-templates select="subprofiles/refprofilele" mode="list-serviceprofiles"/><xsl:text>&#x0A;</xsl:text>
 <xsl:apply-templates select="status"/>
 <xsl:text>}}&#x0A;</xsl:text>
 </xsl:result-document>
@@ -111,9 +110,9 @@
 <xsl:text>|code=</xsl:text><xsl:value-of select="profilespec/@pubnum"/><xsl:text>&#x0A;</xsl:text>
 <xsl:text>|title=</xsl:text><xsl:value-of select="profilespec/@title"/><xsl:text>&#x0A;</xsl:text>
 <xsl:text>|dateissued=</xsl:text><xsl:value-of select="profilespec/@date"/><xsl:text>&#x0A;</xsl:text>
-<xsl:text>|guideline=</xsl:text><xsl:apply-templates select="applicability"/><xsl:text>&#x0A;</xsl:text>
-<xsl:text>|profiles=</xsl:text><xsl:apply-templates select="subprofiles/refprofile" mode="profiles"/><xsl:text>&#x0A;</xsl:text>
-<xsl:text>|serviceprofiles=</xsl:text><xsl:apply-templates select="subprofiles" mode="serviceprofiles"/><xsl:text>&#x0A;</xsl:text>
+<xsl:text>|guideline=</xsl:text><xsl:apply-templates select="description"/><xsl:text>&#x0A;</xsl:text>
+<xsl:text>|profiles=</xsl:text><xsl:apply-templates select="subprofiles/refprofile" mode="list-profiles"/><xsl:text>&#x0A;</xsl:text>
+<xsl:text>|serviceprofiles=</xsl:text><xsl:apply-templates select="subprofiles/refprofile" mode="list-serviceprofiles"/><xsl:text>&#x0A;</xsl:text>
 <xsl:apply-templates select="status"/>
 <xsl:text>}}&#x0A;</xsl:text>
 </xsl:result-document>
@@ -133,21 +132,15 @@
 
 <!-- Handle subprofiles -->
 
-<xsl:template match="refprofile" mode="profiles">
+<xsl:template match="refprofile" mode="list-profiles">
 <xsl:variable name="myid" select="@refid"/>
-<xsl:if test="/standards/records/profile[@id=$myid]"><xsl:text>{{Profile Group&#x0A;</xsl:text>
-<xsl:text>|profiles=</xsl:text><xsl:value-of select="$myid"/><xsl:text>&#x0A;</xsl:text>
-<xsl:text>}}</xsl:text>
-</xsl:if>
+<xsl:if test="/standards/records/profile[@id=$myid]"><xsl:value-of select="$myid"/><xsl:text>;&#x0A;</xsl:text></xsl:if>
 </xsl:template>
 
 
-<xsl:template match="refprofile" mode="serviceprofiles">
+<xsl:template match="refprofile" mode="list-serviceprofiles">
 <xsl:variable name="myid" select="@refid"/>
-<xsl:if test="/standards/records/serviceprofile[@id=$myid]"><xsl:text>{{Service Profile Group&#x0A;</xsl:text>
-<xsl:text>|serviceprofiles=</xsl:text><xsl:value-of select="$myid"/><xsl:text>&#x0A;</xsl:text>
-<xsl:text>}}&#x0A;</xsl:text>
-</xsl:if>
+<xsl:if test="/standards/records/serviceprofile[@id=$myid]"><xsl:value-of select="$myid"/><xsl:text>;&#x0A;</xsl:text></xsl:if>
 </xsl:template>
 
 
@@ -166,5 +159,11 @@
 <xsl:text>|version=</xsl:text><xsl:value-of select="@version"/><xsl:text>&#x0A;</xsl:text>
 <xsl:text>}}&#x0A;</xsl:text>
 </xsl:template>
+
+
+<xsl:template match="description">
+  <xsl:apply-templates/>
+</xsl:template>
+
 
 </xsl:stylesheet>
