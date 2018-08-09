@@ -618,11 +618,11 @@
 				<description>A uniform resource locator (URL) of a particular website or other www address.</description>
 				<instruction>A "Website" is a URL value that reflects the address of a website that is used in the definition of a taxonomy element.</instruction>
 			</property>
-            <property name="Is implementing profile" refersTo="Profile" type="Page" label="Profiles" attribute="profile">
+            <property name="Is implementing profile" refersTo="Profile" type="Page" label="Profiles" attribute="profiles">
 				<description>A semantic link with the Profile concept.</description>
 				<instruction/>
 			</property>
-			<property name="Is implementing service profile" refersTo="Service Profile" type="Page" label="Service Profiles" attribute="serviceprofile">
+			<property name="Is implementing service profile" refersTo="Service Profile" type="Page" label="Service Profiles" attribute="serviceprofiles">
 				<description>A semantic link with the Standards concept.</description>
 				<instruction/>
 			</property>
