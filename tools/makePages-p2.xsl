@@ -17,14 +17,14 @@
   <xsl:apply-templates select="records/standard" />
 -->
   <xsl:apply-templates select="records/capabilityprofile" />
-<!--
   <xsl:apply-templates select="records/profile" />
   <xsl:apply-templates select="records/serviceprofile" />
+<!--
 -->
 </xsl:template>
 
 
-<!-- Create a Wiki page for each organisation -->
+<!-- Create a Wiki page for an organisation -->
 
 <xsl:template match="orgkey">
 <xsl:variable name="uc-key" select="upper-case(@key)"/>
@@ -38,7 +38,7 @@
 </xsl:template>
 
 
-<!-- Create a Wiki page for each Taxonomy node -->
+<!-- Create a Wiki page for a Taxonomy Node -->
 
 <xsl:template match="node">
 <xsl:result-document href="{$datadir}/{@title}.page">
@@ -59,7 +59,7 @@
 </xsl:template>
 
 
-<!-- Create a Wiki page for each Standard -->
+<!-- Create a Wiki page for a Standard -->
 
 <xsl:template match="standard">
 <xsl:variable name="myid" select="@id"/>
@@ -81,35 +81,20 @@
 </xsl:template>
 
 
-<!-- Create a Wiki page for Capability Profile -->
+
+
+<!-- Create a Wiki page for a Capability Profile -->
 
 <xsl:template match="capabilityprofile">
 <xsl:result-document href="{$datadir}/{@id}.page">
 <xsl:text>{{Capability Profile&#x0A;</xsl:text>
 <xsl:text>|uuid=</xsl:text><xsl:value-of select="uuid"/><xsl:text>&#x0A;</xsl:text>
+<xsl:text>|title=</xsl:text><xsl:value-of select="@title"/><xsl:text>&#x0A;</xsl:text>
 <xsl:text>|publisher=</xsl:text><xsl:value-of select="upper-case(profilespec/@orgid)"/><xsl:text>&#x0A;</xsl:text>
 <xsl:text>|code=</xsl:text><xsl:value-of select="profilespec/@pubnum"/><xsl:text>&#x0A;</xsl:text>
-<xsl:text>|title=</xsl:text><xsl:value-of select="profilespec/@title"/><xsl:text>&#x0A;</xsl:text>
+<xsl:text>|spectitle=</xsl:text><xsl:value-of select="profilespec/@title"/><xsl:text>&#x0A;</xsl:text>
 <xsl:text>|dateissued=</xsl:text><xsl:value-of select="profilespec/@date"/><xsl:text>&#x0A;</xsl:text>
-<xsl:text>|guideline=</xsl:text><xsl:apply-templates select="description"/><xsl:text>&#x0A;</xsl:text>
-<xsl:text>|profiles=</xsl:text><xsl:apply-templates select="subprofiles/refprofile" mode="list-profiles"/><xsl:text>&#x0A;</xsl:text>
-<xsl:text>|serviceprofiles=</xsl:text><xsl:apply-templates select="subprofiles/refprofilele" mode="list-serviceprofiles"/><xsl:text>&#x0A;</xsl:text>
-<xsl:apply-templates select="status"/>
-<xsl:text>}}&#x0A;</xsl:text>
-</xsl:result-document>
-</xsl:template>
-
-
-<!-- Create a Wiki page for Profile -->
-
-<xsl:template match="profile">
-<xsl:result-document href="{$datadir}/{@id}.page">
-<xsl:text>{{Profile&#x0A;</xsl:text>
-<xsl:text>|uuid=</xsl:text><xsl:value-of select="uuid"/><xsl:text>&#x0A;</xsl:text>
-<xsl:text>|publisher=</xsl:text><xsl:value-of select="profilespec/@orgid"/><xsl:text>&#x0A;</xsl:text>
-<xsl:text>|code=</xsl:text><xsl:value-of select="profilespec/@pubnum"/><xsl:text>&#x0A;</xsl:text>
-<xsl:text>|title=</xsl:text><xsl:value-of select="profilespec/@title"/><xsl:text>&#x0A;</xsl:text>
-<xsl:text>|dateissued=</xsl:text><xsl:value-of select="profilespec/@date"/><xsl:text>&#x0A;</xsl:text>
+<xsl:text>|version=</xsl:text><xsl:value-of select="profilespec/@version"/><xsl:text>&#x0A;</xsl:text>
 <xsl:text>|guideline=</xsl:text><xsl:apply-templates select="description"/><xsl:text>&#x0A;</xsl:text>
 <xsl:text>|profiles=</xsl:text><xsl:apply-templates select="subprofiles/refprofile" mode="list-profiles"/><xsl:text>&#x0A;</xsl:text>
 <xsl:text>|serviceprofiles=</xsl:text><xsl:apply-templates select="subprofiles/refprofile" mode="list-serviceprofiles"/><xsl:text>&#x0A;</xsl:text>
@@ -119,16 +104,51 @@
 </xsl:template>
 
 
-<!-- Create a Wiki page for Service Profile -->
+<!-- Create a Wiki page for a Profile -->
 
-<xsl:template match="serviceprofile">
+<xsl:template match="profile">
 <xsl:result-document href="{$datadir}/{@id}.page">
-<xsl:text>{{Service Profile&#x0A;</xsl:text>
+<xsl:text>{{Profile&#x0A;</xsl:text>
+<xsl:text>|uuid=</xsl:text><xsl:value-of select="uuid"/><xsl:text>&#x0A;</xsl:text>
+<xsl:text>|title=</xsl:text><xsl:value-of select="@title"/><xsl:text>&#x0A;</xsl:text>
+<xsl:text>|publisher=</xsl:text><xsl:value-of select="upper-case(profilespec/@orgid)"/><xsl:text>&#x0A;</xsl:text>
+<xsl:text>|code=</xsl:text><xsl:value-of select="profilespec/@pubnum"/><xsl:text>&#x0A;</xsl:text>
+<xsl:text>|spectitle=</xsl:text><xsl:value-of select="profilespec/@title"/><xsl:text>&#x0A;</xsl:text>
+<xsl:text>|dateissued=</xsl:text><xsl:value-of select="profilespec/@date"/><xsl:text>&#x0A;</xsl:text>
+<xsl:text>|version=</xsl:text><xsl:value-of select="profilespec/@version"/><xsl:text>&#x0A;</xsl:text>
+<xsl:text>|guideline=</xsl:text><xsl:apply-templates select="description"/><xsl:text>&#x0A;</xsl:text>
+<xsl:text>|profiles=</xsl:text><xsl:apply-templates select="subprofiles/refprofile" mode="list-profiles"/><xsl:text>&#x0A;</xsl:text>
+<xsl:text>|serviceprofiles=</xsl:text><xsl:apply-templates select="subprofiles/refprofile" mode="list-serviceprofiles"/><xsl:text>&#x0A;</xsl:text>
 <xsl:apply-templates select="status"/>
 <xsl:text>}}&#x0A;</xsl:text>
 </xsl:result-document>
 </xsl:template>
 
+
+<!-- Create a Wiki page for a Service Profile -->
+
+<xsl:template match="serviceprofile">
+<xsl:result-document href="{$datadir}/{@id}.page">
+<xsl:text>{{Service Profile&#x0A;</xsl:text>
+<xsl:text>|uuid=</xsl:text><xsl:value-of select="uuid"/><xsl:text>&#x0A;</xsl:text>
+<xsl:text>|title=</xsl:text><xsl:value-of select="@title"/><xsl:text>&#x0A;</xsl:text>
+<xsl:text>|publisher=</xsl:text><xsl:value-of select="upper-case(profilespec/@orgid)"/><xsl:text>&#x0A;</xsl:text>
+<xsl:text>|code=</xsl:text><xsl:value-of select="profilespec/@pubnum"/><xsl:text>&#x0A;</xsl:text>
+<xsl:text>|spectitle=</xsl:text><xsl:value-of select="profilespec/@title"/><xsl:text>&#x0A;</xsl:text>
+<xsl:text>|dateissued=</xsl:text><xsl:value-of select="profilespec/@date"/><xsl:text>&#x0A;</xsl:text>
+<xsl:text>|version=</xsl:text><xsl:value-of select="profilespec/@version"/><xsl:text>&#x0A;</xsl:text>
+<xsl:text>|guideline=</xsl:text><xsl:apply-templates select="description"/><xsl:text>&#x0A;</xsl:text>
+<xsl:text>|taxonomynodes=</xsl:text><xsl:apply-templates select="reftaxonomy"/>
+<!-- obgroup -->
+<xsl:apply-templates select="status"/>
+<xsl:text>}}&#x0A;</xsl:text>
+</xsl:result-document>
+</xsl:template>
+
+<xsl:template match="reftaxonomy">
+<xsl:variable name="myid" select="@refid"/>
+<xsl:value-of select="/standards/taxonomy//node[@id=$myid]/@title"/><xsl:text>;&#x0A;</xsl:text>
+</xsl:template>
 
 <!-- Handle subprofiles -->
 
@@ -161,8 +181,53 @@
 </xsl:template>
 
 
-<xsl:template match="description">
+<xsl:template match="description|applicability">
+<xsl:text>&#x0A;</xsl:text>
+<xsl:apply-templates/>
+</xsl:template>
+
+<xsl:template match="itemizedlist|orderedlist">
   <xsl:apply-templates/>
+</xsl:template>
+
+<xsl:template match="listitem">
+<xsl:text>* </xsl:text><xsl:value-of select="."/><xsl:text>&#x0A;</xsl:text>
+  <xsl:if test="following::*">
+    <xsl:text>&#x0A;</xsl:text>
+  </xsl:if>
+</xsl:template>
+
+<xsl:template match="para">
+  <xsl:apply-templates/>
+  <xsl:if test="following::*">
+    <xsl:text>&#x0A;&#x0A;</xsl:text>
+  </xsl:if>
+</xsl:template>
+
+
+<xsl:template match="*">
+  <xsl:message>
+    <xsl:text>Element </xsl:text>
+    <xsl:value-of select="local-name(.)"/>
+    <xsl:text> in namespace '</xsl:text>
+    <xsl:value-of select="namespace-uri(.)"/>
+    <xsl:text>' encountered</xsl:text>
+    <xsl:if test="parent::*">
+      <xsl:text> in </xsl:text>
+      <xsl:value-of select="name(parent::*)"/>
+    </xsl:if>
+    <xsl:text>, but no template matches.</xsl:text>
+  </xsl:message>
+
+  <span style="color: red">
+    <xsl:text>&lt;</xsl:text>
+    <xsl:value-of select="name(.)"/>
+    <xsl:text>&gt;</xsl:text>
+    <xsl:apply-templates/>
+    <xsl:text>&lt;/</xsl:text>
+    <xsl:value-of select="name(.)"/>
+    <xsl:text>&gt;</xsl:text>
+  </span>
 </xsl:template>
 
 

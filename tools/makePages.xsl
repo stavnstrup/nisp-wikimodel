@@ -5,7 +5,11 @@
                 version='2.0'>
 
 
-<xsl:output saxon:next-in-chain="makePages-p2.xsl"/>
+
+
+<xsl:output indent="no" saxon:next-in-chain="makePages-p2.xsl"/>
+
+<xsl:strip-space elements="*"/>
 
 <xsl:template match="*[status/@mode='deleted']"/>
 
