@@ -20,6 +20,7 @@
   <xsl:apply-templates select="records/profile" />
   <xsl:apply-templates select="records/serviceprofile" />
 <!--
+  <xsl:apply-templates select="records/serviceprofile" />
 -->
 </xsl:template>
 
@@ -137,9 +138,10 @@
 <xsl:text>|spectitle=</xsl:text><xsl:value-of select="profilespec/@title"/><xsl:text>&#x0A;</xsl:text>
 <xsl:text>|dateissued=</xsl:text><xsl:value-of select="profilespec/@date"/><xsl:text>&#x0A;</xsl:text>
 <xsl:text>|version=</xsl:text><xsl:value-of select="profilespec/@version"/><xsl:text>&#x0A;</xsl:text>
-<xsl:text>|guideline=</xsl:text><xsl:apply-templates select="description"/><xsl:text>&#x0A;</xsl:text>
+<xsl:text>|description=</xsl:text><xsl:apply-templates select="description"/><xsl:text>&#x0A;</xsl:text>
 <xsl:text>|taxonomynodes=</xsl:text><xsl:apply-templates select="reftaxonomy"/>
-<!-- obgroup -->
+<xsl:apply-templates select="obgroup"/>
+<xsl:text>|guideline=</xsl:text><xsl:apply-templates select="description"/><xsl:text>&#x0A;</xsl:text>
 <xsl:apply-templates select="status"/>
 <xsl:text>}}&#x0A;</xsl:text>
 </xsl:result-document>
@@ -149,6 +151,19 @@
 <xsl:variable name="myid" select="@refid"/>
 <xsl:value-of select="/standards/taxonomy//node[@id=$myid]/@title"/><xsl:text>;&#x0A;</xsl:text>
 </xsl:template>
+
+<xsl:template match="obgroup">
+<xsl:text>{{Obligation Group&#x0A;</xsl:text>
+<xsl:text>|obligation=</xsl:text><xsl:apply-templates select="@obligation"/><xsl:text>&#x0A;</xsl:text>
+<xsl:text>|description=</xsl:text><xsl:apply-templates select="description"/><xsl:text>&#x0A;</xsl:text>
+<xsl:text>|standards=</xsl:text><xsl:apply-templates select="refstandard"/><xsl:text>&#x0A;</xsl:text>
+<xsl:text>}}&#x0A;</xsl:text>
+</xsl:template>
+
+<xsl:template match="refstandard">
+<xsl:value-of select="@refid"/><xsl:text>;&#x0A;</xsl:text>
+</xsl:template>
+
 
 <!-- Handle subprofiles -->
 
@@ -204,6 +219,7 @@
   </xsl:if>
 </xsl:template>
 
+<xsl:template match="footnote"/>
 
 <xsl:template match="*">
   <xsl:message>

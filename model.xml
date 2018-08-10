@@ -14,7 +14,6 @@
 			<package name="Standards Management">
 				<description>Concepts representing NISP standards and profiles</description>
 
-
 				<concept name="Base Standards Profile" plural="Base Standards Profiles" acronym="BSP" type="Dynamic" ordered="true" image="profile.png" color="becde6">
 				    <description>The Base Standards Profile represent the IP CaT proposal for mandatory and candidate standards for a selected set of taxonomy nodes ...</description>
                     <nomenclature></nomenclature>
@@ -25,7 +24,6 @@
 						<subobject name="Obligation" concept="Obligation Group" attribute="obligations" />
 					</structure>
 				</concept>
-
 
 				<concept name="Service Profile" plural="Service Profiles" acronym="SP" type="Dynamic"  ordered="true" image="profile.png" color="becde6">
 					<description>A service profile is a set of one or more standards, with one or more constraints and implementation guidance.
@@ -40,9 +38,10 @@
 			    			<property name="Date issued"/>
 				    		<property name="Version" />
 						</group>
-						<property name="Guideline"/>
+						<property name="Description"/>
 						<property name="Is related to" label="Taxonomy" refersTo="Taxonomy Node" attribute="taxonomynodes"/>
 						<subobject name="Obligation" concept="Obligation Group" attribute="obligations" />
+						<property name="Guideline"/>
 						<group name="Status">
 							<property name="Catalog item status" />
 							<property name="Website" />
@@ -101,8 +100,8 @@
 					<description>The obligation Group references standards with a specific obligation. This element is child of a service profile element.</description>
 					<structure layout="table">
 						<property name="Obligation"/>
-						<property name="Standard" multiplicity="multiple" attribute="standards" label="Standards"/>
-						<property name="Remarks" />
+						<property name="Description"/>
+						<property name="Is implementing standard"/>
 					</structure>
 				</concept>
 
