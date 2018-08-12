@@ -18,10 +18,10 @@
   <xsl:apply-templates select="records/capabilityprofile" />
   <xsl:apply-templates select="records/profile" />
 -->
-  <xsl:apply-templates select="records/serviceprofile" />
 <!--
   <xsl:apply-templates select="records/serviceprofile" />
 -->
+  <xsl:apply-templates select="bestpracticeprofile/bpserviceprofile" />
 </xsl:template>
 
 
@@ -81,8 +81,21 @@
 </xsl:if>
 </xsl:template>
 
+<!-- Create a Wiki page for a Bas Standards Service Profile -->
 
+<xsl:template match="bpserviceprofile">
+<xsl:variable name="myid" select="@tref"/>
+<xsl:variable name="mynode" select="/standards//node[@id=$myid]/@title"/>
+<xsl:result-document href="{$datadir}/BSP-{$mynode}.page">
+<xsl:text>{{Base Standards Service Profile&#x0A;</xsl:text>
+<xsl:text>|taxonomynode=</xsl:text><xsl:value-of select="$mynode"/><xsl:text>&#x0A;</xsl:text>
+<xsl:text>|mandatorystandards=</xsl:text><xsl:apply-templates select="bpgroup[@mode='mandatory']/bprefstandard"/><xsl:text>&#x0A;</xsl:text>
+<xsl:text>|candidatestandards=</xsl:text><xsl:apply-templates select="bpgroup[@mode='candidate']/bprefstandard"/><xsl:text>&#x0A;</xsl:text>
+<xsl:text>}}&#x0A;</xsl:text>
+</xsl:result-document>
+</xsl:template>
 
+<xsl:template match="bprefstandard"><xsl:value-of select="@refid"/><xsl:text>;</xsl:text></xsl:template>
 
 <!-- Create a Wiki page for a Capability Profile -->
 
@@ -220,6 +233,12 @@
 </xsl:template>
 
 <xsl:template match="footnote"/>
+
+
+
+
+<!-- -->
+
 
 <xsl:template match="*">
   <xsl:message>
