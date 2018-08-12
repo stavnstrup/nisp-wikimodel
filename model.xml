@@ -7,6 +7,7 @@
 		<version name="0.2" date="2018-05-01">Adding additional profiles</version>
 		<version name="0.3" date="2018-07-01">Adding status elements and hiding unimplemented concepts</version>
 		<version name="0.4" date="2018-08-03">Adding capability and profile elements</version>
+		<version name="0.5" date="2018-08-12">Final draft version of data model and import facility</version>
 	</ChangeLog>
 	<DataModel>
 		<import model="CommonLibraryModel.xml"/>
