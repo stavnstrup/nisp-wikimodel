@@ -51,14 +51,13 @@
 				</concept>
 -->
 
-				<concept name="Base Standards Profile" plural="Base Standards Profiles" acronym="BSP" type="Dynamic" ordered="true" image="profile.png" color="becde6">
-				    <description>The Base Standards Profile represent the IP CaT proposal for mandatory and candidate standards for a selected set of taxonomy nodes ...</description>
+				<concept name="Base Standards Service Profile" plural="Base Standards Service Profiles" acronym="BSP" type="Dynamic" ordered="true" image="profile.png" color="becde6">
+				    <description>The Base Standards Service Profile represent the IP CaT proposal for mandatory and candidate standards for a selected set of taxonomy nodes</description>
                     <nomenclature></nomenclature>
 					<structure>
-					     <group name="C3 Taxonomy">
-							<property name="Is related to" label="node" refersTo="Taxonomy Node" attribute="node" multiplicity="one"/>
-						</group>
-						<subobject name="Obligation" concept="Obligation Group" attribute="obligations" />
+					     <property name="Is related to" label="Taxonomy" refersTo="Taxonomy Node" multiplicity="one" attribute="taxonomynode" />
+						 <property name="Mode" multiplicity="one" editField="combobox" />
+					     <property name="Is implementing standard" />
 					</structure>
 				</concept>
 
