@@ -55,9 +55,9 @@
 				    <description>The Base Standards Service Profile represent the IP CaT proposal for mandatory and candidate standards for a selected set of taxonomy nodes</description>
                     <nomenclature></nomenclature>
 					<structure>
-					     <property name="Is related to" label="Taxonomy" refersTo="Taxonomy Node" multiplicity="one" attribute="taxonomynode" />
-						 <property name="Mode" multiplicity="one" editField="combobox" />
-					     <property name="Is implementing standard" />
+					    <property name="Is related to" label="Taxonomy" refersTo="Taxonomy Node" multiplicity="one" attribute="taxonomynode" />
+						<property name="Is implementing mandatory standard" />
+					    <property name="Is implementing candidate standard" />
 					</structure>
 				</concept>
 
@@ -612,6 +612,14 @@
 				<instruction/>
 			</property>
 			<property name="Is implementing standard" refersTo="Standard" type="Page" label="Standards" attribute="standards">
+				<description>A semantic link with the Standards concept.</description>
+				<instruction/>
+			</property>
+			<property name="Is implementing mandatory standard" refersTo="Standard" type="Page" label="Mandatory Standards" attribute="mandatorystandards">
+				<description>A semantic link with the Standards concept.</description>
+				<instruction/>
+			</property>
+			<property name="Is implementing candidate standard" refersTo="Standard" type="Page" label="Candidate Standards" attribute="candidatestandards">
 				<description>A semantic link with the Standards concept.</description>
 				<instruction/>
 			</property>
