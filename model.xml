@@ -32,26 +32,6 @@
 					</structure>
 				</concept>
 
-<!--
-				<concept name="Cover Document" plural="Cover Documents" type="Dynamic" image="cover.png" color="becde6">
-					<description>Standardization Agreements (STANAGs) define processes, procedures, terms, and conditions for common military or technical procedures or equipment between the member countries of the Alliance. Each NATO state ratifies a STANAG and implements it within their own military. The purpose is to provide common operational and administrative procedures and logistics, so one member nation's military may use the stores and support of another member's military. STANAGs also form the basis for technical interoperability between a wide variety of communication and information (CIS) systems essential for NATO and Allied operations. STANAGs are published in English and French, the two official languages of NATO, by the NATO Standardization Agency in Brussels. NISP is currently not using this concept.</description>
-					<nomenclature></nomenclature>
-					<structure layout="table">
-						<property name="Reference code"/>
-						<property name="Title" />
-						<property name="Alternative title" />
-						<property name="Description" />
-						<property name="Is published by" multiplicity="one"/>
-						<property name="Is edited by" multiplicity="one"/>
-						<property name="Language" />
-						<property name="Source" />
-						<property name="Cover document status"/>
-						<property name="Classification"/>
-						<property name="Link"/>
-					</structure>
-				</concept>
--->
-
 				<concept name="Base Standards Service Profile" plural="Base Standards Service Profiles" acronym="BSP" type="Dynamic" ordered="true" image="profile.png" color="becde6">
 				    <description>The Base Standards Service Profile represent the IP CaT proposal for mandatory and candidate standards for a selected set of taxonomy nodes</description>
                     <nomenclature></nomenclature>
@@ -138,12 +118,6 @@
 						<property name="Is implementing standard"/>
 					</structure>
 				</concept>
-<!--
-				<reports>
-					<report name="ADatP-34" scope="package" category="Governance" file="ADatP-34.pdf"/>
-					<report name="Coherence Report" scope="package" category="Coherence" file="Coherency Report.pdf"/>
-				</reports>
--->
 			</package>
 
 			<package name="Organizations Management">
@@ -162,29 +136,6 @@
 
 			<package name="Catalogue Management">
 				<description>Concepts to manage Standards Catalogue</description>
-
-<!--
-				<concept name="Catalogue Item" plural="Catalogue Items" type="Dynamic" image="catalogitem.png" color="becde6">
-					<description>A "Catalogue Item"" is ..</description>
-					<nomenclature></nomenclature>
-					<structure layout="table">
-						<group name="Subject">
-							<property name="Catalog" />
-							<property name="Is adding standard" multiplicity="one"/>
-							<property name="Is authorized through" multiplicity="one"/>
-							<property name="Is authorized by" multiplicity="one"/>
-						</group>
-						<group name="Status">
-							<property name="Catalog item status" />
-							<property name="Conformity assessment" />
-							<subobject name="Event" concept="Change Event" attribute="events"/>
-						</group>
-						<group name="C3 Taxonomy">
-							<property name="Is related to" label="nodes" refersTo="Taxonomy Node" attribute="nodes" multiplicity="multiple"/>
-						</group>
-					</structure>
-				</concept>
--->
 
 				<concept name="Change Event" plural="Events" type="Internal">
 					<description>An NISP Event is ....</description>
@@ -216,28 +167,6 @@
 				<description>An acronym is an abbreviation formed from the initial components in a phrase or a word.</description>
 				<instruction>An "Acronym" is a string value that reflects an acronym or other abbreviation that is used in the definition of a taxonomy element. Often the acronym is an abbreviation of a title or name. In general the acronym is a combination of uppercase characters.</instruction>
 			</property>
-			<property name="Alternative title" type="String" label="Alternative title" attribute="alternativetitle">
-				<description>A free text format to describe the purpose, relevance and functionality of a certain entity.</description>
-				<instruction></instruction>
-			</property>
-			<property name="Catalog" type="Option" label="Catalog" attribute="catalog">
-				<description>An catalog.</description>
-				<instruction/>
-				<values default="NISP">
-					<value name="NISP">NISP</value>
-					<value name="NSO">NSO</value>
-				</values>
-			</property>
-			<property name="Catalog item status" type="Option" label="Status" attribute="status">
-				<description>An catalog item status.</description>
-				<instruction/>
-				<values default="Candidate">
-					<value name="Candidate">Candidate</value>
-					<value name="Agreed">Agreed</value>
-					<value name="Deprecated">Deprecated</value>
-				</values>
-			</property>
-
     		<property name="Change event date" type="Date" label="Date" attribute="date">
 				<description>A date of a NISP Event.</description>
 				<instruction/>
@@ -259,28 +188,8 @@
 				<description>A version of a Change Event.</description>
 				<instruction/>
 			</property>
-			<property name="Conformity assessment" type="Text" label="Conformity assessment" attribute="conformity">
-				<description>.</description>
-				<instruction></instruction>
-			</property>
-			<property name="Classification" type="String" label="Classification" attribute="classification">
-				<description>A classification.</description>
-				<instruction></instruction>
-			</property>
-			<property name="Cover document status" type="String" label="Status" attribute="status">
-				<description>A free text format to describe the status.</description>
-				<instruction></instruction>
-			</property>
-			<property name="Date added" type="Date" label="Date added" attribute="dateadded">
-				<description>A date of addition.</description>
-				<instruction/>
-			</property>
 			<property name="Date issued" type="Date" label="Date issued" attribute="dateissued">
 				<description>A date of issuing.</description>
-				<instruction/>
-			</property>
-			<property name="Date removed" type="Date" label="Date removed" attribute="dateremoved">
-				<description>A date of removal.</description>
 				<instruction/>
 			</property>
 			<property name="Description" type="Text" label="Description" attribute="description">
@@ -291,35 +200,9 @@
 				<description>A free text format to describe the implementation guidance for a standards profile.</description>
 				<instruction>A "Implementation Guidance" is a text value that reflects a short explanation (no more than a couple of paragraphs) for a implementation guidance. A description may include some wiki markup."</instruction>
 			</property>
-			<property name="Intellectual property" type="Text" label="Intellectual property" attribute="intellectualproperty">
-				<description>.</description>
-				<instruction></instruction>
-			</property>
 			<property name="Is adding standard" type="Page" refersTo="Standard" label="Standard" attribute="standard">
 				<description>List of standards</description>
 				<instruction></instruction>
-			</property>
-			<property name="Is authorized by" type="Page" refersTo="Organization" label="Authorized by" attribute="isauthorizedby">
-				<description>.</description>
-				<instruction></instruction>
-			</property>
-<!--
-			<property name="Is authorized through" type="Page" refersTo="Cover Document" label="Cover Document" attribute="coverdocument">
-				<description>A semantic link with the Cover Document.</description>
-				<instruction></instruction>
-			</property>
--->
-			<property name="Is edited by" type="Page" refersTo="Organization" label="Editor" attribute="editor">
-				<description>A editor authority of a document or file.</description>
-				<instruction/>
-			</property>
-			<property name="Is equivalent to" type="Page" label="Equivalent to" attribute="equivalent">
-				<description>A semantic link with Standard concept.</description>
-				<instruction/>
-			</property>
-			<property name="Is part of" type="Page" label="Is part of" attribute="">
-				<description>A semantic link with the other concepts.</description>
-				<instruction/>
 			</property>
 			<property name="Is published by" type="Page" refersTo="Organization" label="Publisher" attribute="publisher">
 				<description>A publisher or publishing authority of a document or file.</description>
@@ -333,211 +216,6 @@
 				<description>A responsible party a standard or profile.</description>
 				<instruction/>
 			</property>
-			<property name="Language" type="Option" label="Language" attribute="language">
-				<description>A language used in a reference, standard, or other document.</description>
-				<instruction/>
-				<values >
-					<value name="Abkhazian">Abkhazian</value>
-					<value name="Afar">Afar</value>
-					<value name="Afrikaans">Afrikaans</value>
-					<value name="Akan">Akan</value>
-					<value name="Albanian">Albanian</value>
-					<value name="Amharic">Amharic</value>
-					<value name="Arabic">Arabic</value>
-					<value name="Aragonese">Aragonese</value>
-					<value name="Armenian">Armenian</value>
-					<value name="Assamese">Assamese</value>
-					<value name="Avaric">Avaric</value>
-					<value name="Avestan">Avestan</value>
-					<value name="Aymara">Aymara</value>
-					<value name="Azerbaijani">Azerbaijani</value>
-					<value name="Bambara">Bambara</value>
-					<value name="Bashkir">Bashkir</value>
-					<value name="Basque">Basque</value>
-					<value name="Belarusian">Belarusian</value>
-					<value name="Bengali">Bengali</value>
-					<value name="Bihari languages">Bihari languages</value>
-					<value name="Bislama">Bislama</value>
-					<value name="Bosnian">Bosnian</value>
-					<value name="Breton">Breton</value>
-					<value name="Bulgarian">Bulgarian</value>
-					<value name="Burmese">Burmese</value>
-					<value name="Catalan">Catalan, Valencian</value>
-					<value name="Central Khmer">Central Khmer</value>
-					<value name="Chamorro">Chamorro</value>
-					<value name="Chechen">Chechen</value>
-					<value name="Chichewa">Chichewa, Chewa, Nyanja</value>
-					<value name="Chinese">Chinese</value>
-					<value name="Church Slavic">Church Slavic, Church Slavonic, Old Church Slavonic, Old Slavonic, Old Bulgarian</value>
-					<value name="Chuvash">Chuvash</value>
-					<value name="Cornish">Cornish</value>
-					<value name="Corsican">Corsican</value>
-					<value name="Cree">Cree</value>
-					<value name="Croatian">Croatian</value>
-					<value name="Czech">Czech</value>
-					<value name="Danish">Danish</value>
-					<value name="Divehi">Divehi, Dhivehi, Maldivian</value>
-					<value name="Dutch, Flemish">Dutch, Flemish</value>
-					<value name="Dzongkha">Dzongkha</value>
-					<value name="English">English</value>
-					<value name="Esperanto">Esperanto</value>
-					<value name="Estonian">Estonian</value>
-					<value name="Ewe">Ewe</value>
-					<value name="Faroese">Faroese</value>
-					<value name="Fijian">Fijian</value>
-					<value name="Finnish">Finnish</value>
-					<value name="French">French</value>
-					<value name="Fulah">Fulah</value>
-					<value name="Gaelic">Gaelic, Scottish Gaelic</value>
-					<value name="Galician">Galician</value>
-					<value name="Ganda">Ganda</value>
-					<value name="Georgian">Georgian</value>
-					<value name="German">German</value>
-					<value name="Greek">Greek (modern)</value>
-					<value name="Guarani">Guarani</value>
-					<value name="Gujarati">Gujarati</value>
-					<value name="Haitian">Haitian, Haitian Creole</value>
-					<value name="Hausa">Hausa</value>
-					<value name="Hebrew">Hebrew (modern)</value>
-					<value name="Herero">Herero</value>
-					<value name="Hindi">Hindi</value>
-					<value name="Hiri Motu">Hiri Motu</value>
-					<value name="Hungarian">Hungarian</value>
-					<value name="Icelandic">Icelandic</value>
-					<value name="Ido">Ido</value>
-					<value name="Igbo">Igbo</value>
-					<value name="Interlingua">Interlingua</value>
-					<value name="Interlingue">Interlingue</value>
-					<value name="Inuktitut">Inuktitut</value>
-					<value name="Inupiaq">Inupiaq</value>
-					<value name="Irish">Irish</value>
-					<value name="Italian">Italian</value>
-					<value name="Japanese">Japanese</value>
-					<value name="Javanese">Javanese</value>
-					<value name="Kalaallisut">Kalaallisut, Greenlandic</value>
-					<value name="Kannada">Kannada</value>
-					<value name="Kanuri">Kanuri</value>
-					<value name="Kashmiri">Kashmiri</value>
-					<value name="Kazakh">Kazakh</value>
-					<value name="Kikuyu">Kikuyu, Gikuyu</value>
-					<value name="Kinyarwanda">Kinyarwanda</value>
-					<value name="Kirghiz">Kirghiz, Kyrgyz</value>
-					<value name="Komi">Komi</value>
-					<value name="Kongo">Kongo</value>
-					<value name="Korean">Korean</value>
-					<value name="Kuanyama">Kuanyama, Kwanyama</value>
-					<value name="Kurdish">Kurdish</value>
-					<value name="Lao">Lao</value>
-					<value name="Latin">Latin</value>
-					<value name="Latvian">Latvian</value>
-					<value name="Limburgan">Limburgan, Limburger, Limburgish</value>
-					<value name="Lingala">Lingala</value>
-					<value name="Lithuanian">Lithuanian</value>
-					<value name="Luba-Katanga">Luba-Katanga</value>
-					<value name="Luxembourgish">Luxembourgish, Letzeburgesch</value>
-					<value name="Macedonian">Macedonian</value>
-					<value name="Malagasy">Malagasy</value>
-					<value name="Malay">Malay</value>
-					<value name="Malayalam">Malayalam</value>
-					<value name="Maltese">Maltese</value>
-					<value name="Manx">Manx</value>
-					<value name="Maori">Maori</value>
-					<value name="Marathi">Marathi</value>
-					<value name="Marshallese">Marshallese</value>
-					<value name="Mongolian">Mongolian</value>
-					<value name="Nauru">Nauru</value>
-					<value name="Navajo">Navajo, Navaho</value>
-					<value name="Ndonga">Ndonga</value>
-					<value name="Nepali">Nepali</value>
-					<value name="North Ndebele">North Ndebele</value>
-					<value name="Northern Sami">Northern Sami</value>
-					<value name="Norwegian">Norwegian</value>
-					<value name="Norwegian Bokmal">Norwegian Bokmal</value>
-					<value name="Norwegian Nynorsk">Norwegian Nynorsk</value>
-					<value name="Occitan">Occitan</value>
-					<value name="Ojibwa">Ojibwa</value>
-					<value name="Oriya">Oriya</value>
-					<value name="Oromo">Oromo</value>
-					<value name="Ossetian">Ossetian, Ossetic</value>
-					<value name="Pali">Pali</value>
-					<value name="Panjabi">Panjabi, Punjabi</value>
-					<value name="Pashto">Pashto, Pushto</value>
-					<value name="Persian">Persian</value>
-					<value name="Polish">Polish</value>
-					<value name="Portuguese">Portuguese</value>
-					<value name="Quechua">Quechua</value>
-					<value name="Romanian">Romanian, Moldavian, Moldovan</value>
-					<value name="Romansh">Romansh</value>
-					<value name="Rundi">Rundi</value>
-					<value name="Russian">Russian</value>
-					<value name="Samoan">Samoan</value>
-					<value name="Sango">Sango</value>
-					<value name="Sanskrit">Sanskrit</value>
-					<value name="Sardinian">Sardinian</value>
-					<value name="Serbian">Serbian</value>
-					<value name="Shona">Shona</value>
-					<value name="Sichuan Yi">Sichuan Yi, Nuosu</value>
-					<value name="Sindhi">Sindhi</value>
-					<value name="Sinhala">Sinhala, Sinhalese</value>
-					<value name="Slovak">Slovak</value>
-					<value name="Slovenian">Slovenian</value>
-					<value name="Somali">Somali</value>
-					<value name="South Ndebele">South Ndebele</value>
-					<value name="Southern Sotho">Southern Sotho</value>
-					<value name="Spanish">Spanish, Castilian</value>
-					<value name="Sundanese">Sundanese</value>
-					<value name="Swahili">Swahili</value>
-					<value name="Swati">Swati</value>
-					<value name="Swedish">Swedish</value>
-					<value name="Tagalog">Tagalog</value>
-					<value name="Tahitian">Tahitian</value>
-					<value name="Tajik">Tajik</value>
-					<value name="Tamil">Tamil</value>
-					<value name="Tatar">Tatar</value>
-					<value name="Telugu">Telugu</value>
-					<value name="Thai">Thai</value>
-					<value name="Tibetan">Tibetan</value>
-					<value name="Tigrinya">Tigrinya</value>
-					<value name="Tonga">Tonga (Tonga Islands)</value>
-					<value name="Tsonga">Tsonga</value>
-					<value name="Tswana">Tswana</value>
-					<value name="Turkish">Turkish</value>
-					<value name="Turkmen">Turkmen</value>
-					<value name="Twi">Twi</value>
-					<value name="Uighur">Uighur, Uyghur</value>
-					<value name="Ukrainian">Ukrainian</value>
-					<value name="Urdu">Urdu</value>
-					<value name="Uzbek">Uzbek</value>
-					<value name="Venda">Venda</value>
-					<value name="Vietnamese">Vietnamese</value>
-					<value name="Volapuk">Volapuk</value>
-					<value name="Walloon">Walloon</value>
-					<value name="Welsh">Welsh</value>
-					<value name="Western Frisian">Western Frisian</value>
-					<value name="Wolof">Wolof</value>
-					<value name="Xhosa">Xhosa</value>
-					<value name="Yiddish">Yiddish</value>
-					<value name="Yoruba">Yoruba</value>
-					<value name="Zhuang">Zhuang, Chuang</value>
-					<value name="Zulu">Zulu</value>
-				</values>
-			</property>
-			<property name="Lifecycle" type="String" label="Lifecycle" attribute="lifecycle">
-				<description>A lifecycle ....</description>
-				<instruction/>
-			</property>
-			<property name="Link" type="URL" label="Link" attribute="link">
-				<description>A Uniform Resource Identifier (URI) to identify a name or a web resource.</description>
-				<instruction/>
-			</property>
-			<property name="Mode" type="Option" label="Mode" attribute="mode">
-			    <description>The mode mode of the standards referenced in this base standards profile.</description>
-			    <instruction/>
-			    <values default="Mandatory">
-			        <value name="Mandatory">Mandatory</value>
-				    <value name="Candidate">Candidate</value>
-			    </values>
-			</property>
 			<property name="Obligation Type" type="Option" label="Obligation" attribute="obligationtype">
 				<description>An obligation category for a standard in a standards profile.</description>
 				<instruction/>
@@ -548,36 +226,8 @@
 					<value name="optional">Optional</value>
 				</values>
 			</property>
-			<property name="Organization type" type="Option" label="Organization type" attribute="type">
-				<description>This property reflects the type of organization.</description>
-				<instruction/>
-				<values default="Other">
-					<value name="Other">Other</value>
-					<value name="Government">Government</value>
-					<value name="Company">Company</value>
-					<value name="Industry">Industry</value>
-					<value name="Standards organization">Standards organization</value>
-				</values>
-			</property>
 			<property name="Reference code" type="String" label="Code" attribute="code">
 				<description>A combination of text, numbers and/or punctuation marks that form an identifying string for an entity.</description>
-				<instruction/>
-			</property>
-			<property name="Remarks" type="Text" label="Remarks" attribute="remarks">
-				<description>A remark to accompany an entity in any relevant concept.</description>
-				<instruction/>
-			</property>
-			<property name="Replaces" type="String" label="Replaces" attribute="replaces">
-				<description>A replaces ....</description>
-				<instruction/>
-			</property>
-
-			<property name="Source" type="Text" label="Source" attribute="source">
-				<description>A defining source information piece for an Information Product.</description>
-				<instruction/>
-			</property>
-			<property name="Specification" type="Page" refersTo="Specification" label="Specification" attribute="specification">
-				<description>A semantic link with Specification concept.</description>
 				<instruction/>
 			</property>
 			<property name="Specification Title" type="Text" label="Specification Title" attribute="spectitle">
@@ -587,14 +237,6 @@
 			<property name="Standard" type="Page" refersTo="Standard" label="Standard" attribute="standard">
 				<description>A semantic link with Standard concept.</description>
 				<instruction>Either a  standard or a list of standards. The later is acomplished, by separating standards with a semicolon.</instruction>
-			</property>
-			<property name="Subject" type="Text" label="Subject" attribute="subject">
-				<description>A ....</description>
-				<instruction/>
-			</property>
-			<property name="Subject category" type="Text" label="Subject category" attribute="subjectcategory">
-				<description>A ....</description>
-				<instruction/>
 			</property>
 			<property name="Version" type="String" label="Version" attribute="version">
 				<description>A version number or code for the version of a certain entity.</description>
