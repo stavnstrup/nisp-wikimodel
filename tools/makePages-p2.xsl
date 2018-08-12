@@ -12,12 +12,12 @@
 
 <xsl:template match="standards">
 <!--
-  <xsl:apply-templates select="organisations" />
-  <xsl:apply-templates select="taxonomy" />
+  <xsl:apply-templates select="organisations/orgkey" />
+  <xsl:apply-templates select="taxonomy/node" />
   <xsl:apply-templates select="records/standard" />
--->
   <xsl:apply-templates select="records/capabilityprofile" />
   <xsl:apply-templates select="records/profile" />
+-->
   <xsl:apply-templates select="records/serviceprofile" />
 <!--
   <xsl:apply-templates select="records/serviceprofile" />
@@ -140,7 +140,7 @@
 <xsl:text>|version=</xsl:text><xsl:value-of select="profilespec/@version"/><xsl:text>&#x0A;</xsl:text>
 <xsl:text>|description=</xsl:text><xsl:apply-templates select="description"/><xsl:text>&#x0A;</xsl:text>
 <xsl:text>|taxonomynodes=</xsl:text><xsl:apply-templates select="reftaxonomy"/>
-<xsl:apply-templates select="obgroup"/>
+<xsl:text>|obligations=</xsl:text><xsl:apply-templates select="obgroup"/>
 <xsl:text>|guideline=</xsl:text><xsl:apply-templates select="description"/><xsl:text>&#x0A;</xsl:text>
 <xsl:apply-templates select="status"/>
 <xsl:text>}}&#x0A;</xsl:text>
@@ -154,7 +154,7 @@
 
 <xsl:template match="obgroup">
 <xsl:text>{{Obligation Group&#x0A;</xsl:text>
-<xsl:text>|obligation=</xsl:text><xsl:apply-templates select="@obligation"/><xsl:text>&#x0A;</xsl:text>
+<xsl:text>|obligationtype=</xsl:text><xsl:apply-templates select="@obligation"/><xsl:text>&#x0A;</xsl:text>
 <xsl:text>|description=</xsl:text><xsl:apply-templates select="description"/><xsl:text>&#x0A;</xsl:text>
 <xsl:text>|standards=</xsl:text><xsl:apply-templates select="refstandard"/><xsl:text>&#x0A;</xsl:text>
 <xsl:text>}}&#x0A;</xsl:text>
