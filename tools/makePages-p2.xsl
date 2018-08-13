@@ -81,14 +81,15 @@
 </xsl:if>
 </xsl:template>
 
-<!-- Create a Wiki page for a Bas Standards Service Profile -->
+<!-- Create a Wiki page for a Basic Standards Service Profile -->
 
 <xsl:template match="bpserviceprofile">
 <xsl:variable name="myid" select="@tref"/>
 <xsl:variable name="mynode" select="/standards//node[@id=$myid]/@title"/>
 <xsl:result-document href="{$datadir}/BSP-{$mynode}.page">
-<xsl:text>{{Base Standards Service Profile&#x0A;</xsl:text>
+<xsl:text>{{Basic Standards Service Profile&#x0A;</xsl:text>
 <xsl:text>|taxonomynode=</xsl:text><xsl:value-of select="$mynode"/><xsl:text>&#x0A;</xsl:text>
+<xsl:text>|responsible=&#x0A;</xsl:text>
 <xsl:text>|mandatorystandards=</xsl:text><xsl:apply-templates select="bpgroup[@mode='mandatory']/bprefstandard"/><xsl:text>&#x0A;</xsl:text>
 <xsl:text>|candidatestandards=</xsl:text><xsl:apply-templates select="bpgroup[@mode='candidate']/bprefstandard"/><xsl:text>&#x0A;</xsl:text>
 <xsl:text>}}&#x0A;</xsl:text>

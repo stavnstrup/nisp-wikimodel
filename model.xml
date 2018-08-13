@@ -32,11 +32,12 @@
 					</structure>
 				</concept>
 
-				<concept name="Base Standards Service Profile" plural="Base Standards Service Profiles" acronym="BSP" type="Dynamic" ordered="true" image="profile.png" color="becde6">
-				    <description>The Base Standards Service Profile represent the IP CaT proposal for mandatory and candidate standards for a selected set of taxonomy nodes</description>
+				<concept name="Basic Standards Service Profile" plural="Basic Standards Service Profiles" acronym="BSP" type="Dynamic" ordered="true" image="profile.png" color="becde6">
+				    <description>The Basic Standards Service Profile represent the IP CaT proposal for mandatory and candidate standards for a selected set of taxonomy nodes</description>
                     <nomenclature></nomenclature>
 					<structure>
 					    <property name="Is related to" label="Taxonomy" refersTo="Taxonomy Node" multiplicity="one" attribute="taxonomynode" />
+						<property name="Is responsible for" multiplicity="one"/>
 						<property name="Is implementing mandatory standard" />
 					    <property name="Is implementing candidate standard" />
 					</structure>
