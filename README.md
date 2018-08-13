@@ -32,6 +32,8 @@ N.B. one major difference between the two data models is that almost all attribu
 
 All the [core concepts in Wiki](https://wiki.nisp.nato.int/index.php/Concepts) are described below:
 
+![NISP conceptual model](nisp-graph-db.svg)
+
 ## Simple concepts
 
 The *Organisation*, *Taxonomy Node* and the *Standard* concept are straightforward and requires little explanation:
