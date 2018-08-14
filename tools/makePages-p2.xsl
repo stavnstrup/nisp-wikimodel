@@ -97,7 +97,7 @@
 <!-- Create a Wiki page for a Capability Profile -->
 
 <xsl:template match="capabilityprofile">
-<xsl:result-document href="{$datadir}/{@id}.page">
+<xsl:result-document href="{$datadir}/{@title}.page">
 <xsl:text>{{Capability Profile&#x0A;</xsl:text>
 <xsl:text>|uuid=</xsl:text><xsl:value-of select="uuid"/><xsl:text>&#x0A;</xsl:text>
 <xsl:text>|title=</xsl:text><xsl:value-of select="@title"/><xsl:text>&#x0A;</xsl:text>
@@ -118,7 +118,7 @@
 <!-- Create a Wiki page for a Profile -->
 
 <xsl:template match="profile">
-<xsl:result-document href="{$datadir}/{@id}.page">
+<xsl:result-document href="{$datadir}/{@title}.page">
 <xsl:text>{{Profile&#x0A;</xsl:text>
 <xsl:text>|uuid=</xsl:text><xsl:value-of select="uuid"/><xsl:text>&#x0A;</xsl:text>
 <xsl:text>|title=</xsl:text><xsl:value-of select="@title"/><xsl:text>&#x0A;</xsl:text>
@@ -139,7 +139,7 @@
 <!-- Create a Wiki page for a Service Profile -->
 
 <xsl:template match="serviceprofile">
-<xsl:result-document href="{$datadir}/{@id}.page">
+<xsl:result-document href="{$datadir}/{@title}.page">
 <xsl:text>{{Service Profile&#x0A;</xsl:text>
 <xsl:text>|uuid=</xsl:text><xsl:value-of select="uuid"/><xsl:text>&#x0A;</xsl:text>
 <xsl:text>|title=</xsl:text><xsl:value-of select="@title"/><xsl:text>&#x0A;</xsl:text>
@@ -179,13 +179,13 @@
 
 <xsl:template match="refprofile" mode="list-profiles">
 <xsl:variable name="myid" select="@refid"/>
-<xsl:if test="/standards/records/profile[@id=$myid]"><xsl:value-of select="$myid"/><xsl:text>;&#x0A;</xsl:text></xsl:if>
+<xsl:if test="/standards/records/profile[@id=$myid]"><xsl:value-of select="/standards/records/profile[@id=$myid]/@title"/><xsl:text>;&#x0A;</xsl:text></xsl:if>
 </xsl:template>
 
 
 <xsl:template match="refprofile" mode="list-serviceprofiles">
 <xsl:variable name="myid" select="@refid"/>
-<xsl:if test="/standards/records/serviceprofile[@id=$myid]"><xsl:value-of select="$myid"/><xsl:text>;&#x0A;</xsl:text></xsl:if>
+<xsl:if test="/standards/records/serviceprofile[@id=$myid]"><xsl:value-of select="/standards/records/serviceprofile[@id=$myid]/@title"/><xsl:text>;&#x0A;</xsl:text></xsl:if>
 </xsl:template>
 
 

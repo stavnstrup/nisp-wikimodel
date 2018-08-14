@@ -153,7 +153,7 @@
 				<description>Concepts representing C3 Taxonomy</description>
 
 				<concept name="Taxonomy Node" plural="Taxonomy Nodes" type="Dynamic"  hierarchy="tree" ordered="true" image="Services.png" color="f0cdb4">
-				  <description></description>
+				  <description>A taxonomy node represent a node in the C3 taonomy.</description>
 				  <structure>
 				    <property name="Title" mandatory="true"/>
 				    <property name="Description" mandatory="true"/>
