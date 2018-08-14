@@ -82,7 +82,7 @@ Currently, we do not present FMN 2 in the NISP documents, but only links to the 
 In the Wiki each instance of a concept is implemented as a page. We therefore need a convention on how to name the individual pages. Most objects have an id in the XML database, but often they are to cryptic to use. Therefore the following conventions are used:
 
 * Each standard use it's id to name the page.
-* Each capability profile, profile and service profile currently use the id to name the page, but it is the plan to use the title of the profile instead.
+* Each capability profile, profile and service profile use the title of the profile.
 * The basic standards service profiles do not have an id Instead they are named using the taxonomy node title prefixed with 'BSP-'.
 * Taxonomy nodes use the title as name.
 * Organizations use a capitalized form of their name.
@@ -95,7 +95,8 @@ Two of the concepts *Catalog Items* and *Cover Documents*, which originally was 
 
 # TO DO
 
-* Change name of all capability profiles, profiles and service profiles.
+* Create meaningfull description of all concepts an profiles.
+* Create helptext for all properties - this is accomplished through the instruction element.
 
 # Database refactoring
 
