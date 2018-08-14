@@ -30,17 +30,19 @@ N.B. one major difference between the two data models is that almost all attribu
 
 # Core concepts
 
-All the [core concepts in Wiki](https://wiki.nisp.nato.int/index.php/Concepts) are described below:
+All the core concepts in Wiki are described below:
 
 ![NISP conceptual model](nisp-graph-db.svg)
+
+In order to see the different concepts in the NISP Wiki, you should open the wiki and search for the page **Concepts**. All words in this note marked in bold, can be found in the Wiki.
 
 ## Simple concepts
 
 The *Organisation*, *Taxonomy Node* and the *Standard* concept are straightforward and requires little explanation:
 
-* [Organizations](https://wiki.nisp.nato.int/index.php/Project:Concept_-_Organizations) describe all organizations in the database. An organization can *own* a standard and another organisation is *responsible party* for a standard. A *responsible party* is therefore an organization, who takes the role as subject matter expert for a specific standard on behalf of NATO.
-* [Taxonomy Nodes](https://wiki.nisp.nato.int/index.php/Project:Concept_-_Taxonomy_Nodes) are nodes in the [C3 Taxonomy](https://www.nato.int/cps/en/natohq/topics_157573.htm?). We currently only use a subset of the nodes in the Taxonomy.
-* [Standards](https://wiki.nisp.nato.int/index.php/Project:Concept_-_Standards) are the most important part of the NISP database and describes all standards used by one or more profiles.
+* *Organizations* describe all organizations in the database. An organization can *own* a standard and another organisation is *responsible party* for a standard. A *responsible party* is therefore an organization, who takes the role as subject matter expert for a specific standard on behalf of NATO.
+* *Taxonomy Nodes* are nodes in the [C3 Taxonomy](https://www.nato.int/cps/en/natohq/topics_157573.htm?). We currently only use a subset of the nodes in the Taxonomy.
+* *Standards* are the most important part of the NISP database and describes all standards used by one or more profiles.
 
 ## Profiles
 
@@ -51,13 +53,13 @@ Profiles in NISP comes in two flavours:
 
 In NISP 9, we presented more or less a prettyfied version of the internal data structure of the Basic Standards Profile and the COI profiles, and this version is therefore a good illustration of the data-model. In NISP 11, the way we represent the Basic Standards Profile and COI profiles are different, but that not mean that the model is not still valid.
 
-### Base Standards Profile
+### Basic Standards Profile
 
-The *Base Standards Profile* is in NISP Vol 1 described as: "The Basic Standards Profile specifies the technical, operational, and business standards that are generally applicable in the context of the Alliance and the NATO Enterprise". We present this as mandatory standards in volume 2 and candidate standards in volume 3.
+The *Basic Standards Profile* is in NISP Vol 1 described as: "The Basic Standards Profile specifies the technical, operational, and business standards that are generally applicable in the context of the Alliance and the NATO Enterprise". We present this as mandatory standards in volume 2 and candidate standards in volume 3.
 
 In the XML version the *Basic Standards Profile* consists of one or more of the *Basic Standards Service Profile* element. We only implement the later in the Wiki, since that is all that is necessary. Each *Basic Standards Service Profile* element therefore describes the mandatory and candidate standards for a specific taxonomy node. In volume 2 and 3 we list the taxonomy nodes and recommended standards. An example on this can be found [here](https://archive.nisp.nw3.dk/nisp-9.0/volume2/ch03s02.html). Note that in NISP 9 we used to list both mandatory and candidate (at that time called emerging) standards in the same document.
 
-An Wiki example of a Basic Standards Service Profile is the profile used for [Informal Messaging Services](https://wiki.nisp.nato.int/index.php/BSP-Informal_Messaging_Services).
+An Wiki example of a Basic Standards Service Profile is the profile used for **Informal Messaging Services**.
 
 Currently a responsible party typically recommends, if a standard should be registered as mandatory or candidate standard for one or more taxonomy nodes. Since this might cause implementation specific issues of systems, it is therefore the goal that is model is dropped, and that we instead have a single responsible party for a *Basic Standards Service Profile*, which therefore only contains the minimum set of standards necessary to implement the functionality of a given taxonomy node. We have therefore added the attribute *Responsible* to the concept, which at the moment is left undefined.
 
@@ -73,7 +75,7 @@ We use these concepts in the following way:
 
 The implementation of a capability profile for FMN Spiral 2 can be found [here](https://nisp.nw3.dk/capabilityprofile/fmn2.html). You can see the whole tree, if you click on the "Topography" tab, or you can traverse down the tree clicking on the sub-profile links.
 
-The same concepts are also implemented in the Wiki, see [here](https://wiki.nisp.nato.int/index.php/Fmn2) for an example of the FMN Spiral 2 implementation.
+The same concepts are also implemented in the Wiki, see **Fmn2** for an example of the FMN Spiral 2 implementation.
 
 Currently, we do not present FMN 2 in the NISP documents, but only links to the canonical specification. In NISP version 9, we did render a version of the [FMN Spiral 1.1 profile](https://archive.nisp.nw3.dk/nisp-9.0/volume3/apgs03.html).
 
@@ -95,9 +97,9 @@ Two of the concepts *Catalog Items* and *Cover Documents*, which originally was 
 
 # TO DO
 
-* Create meaningfull description of all concepts an profiles.
+* Create meaningfull description of all concepts and profiles.
 * Create helptext for all properties - this is accomplished through the instruction element.
 
 # Database refactoring
 
-The data model is probably far from perfect and will therefore require significant refactoring. Experience also shows, that we quite often change the datamodel. IP CaT will therefore ASAP have to figure out the proocesses and techniques on out how the refactor the database.
+The data model is probably far from perfect and will therefore require significant refactoring. Experience also shows, that we quite often change the datamodel. IP CaT will therefore ASAP have to figure out the process and techniques on how to refactor the database.
