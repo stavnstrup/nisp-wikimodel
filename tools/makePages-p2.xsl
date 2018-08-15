@@ -232,7 +232,7 @@
 
 <xsl:template match="footnote"/>
 
-
+<xsl:template match="superscript"><sup><xsl:apply-templates/></sup></xsl:template>
 
 
 <!-- -->
