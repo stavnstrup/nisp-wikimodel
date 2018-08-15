@@ -219,8 +219,7 @@
 </xsl:template>
 
 <xsl:template match="listitem">
-<xsl:text>* </xsl:text><xsl:apply-templates/><xsl:text>&#x0A;</xsl:text>
-<xsl:if test="following::*"><xsl:text>&#x0A;</xsl:text></xsl:if>
+<xsl:text>* </xsl:text><xsl:apply-templates/>
 </xsl:template>
 
 <xsl:template match="para">
