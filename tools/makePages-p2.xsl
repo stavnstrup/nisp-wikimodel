@@ -80,6 +80,7 @@
 <!-- Create a Wiki page for a Basic Standards Service Profile -->
 
 <xsl:template match="bpserviceprofile">
+<xsl:if test="count(bpgroup)>0">
 <xsl:variable name="myid" select="@tref"/>
 <xsl:variable name="mynode" select="/standards//node[@id=$myid]/@title"/>
 <xsl:result-document href="{$datadir}/BSP-{$mynode}.page">
@@ -90,6 +91,7 @@
 <xsl:text>|candidatestandards=</xsl:text><xsl:apply-templates select="bpgroup[@mode='candidate']/bprefstandard"/><xsl:text>&#x0A;</xsl:text>
 <xsl:text>}}&#x0A;</xsl:text>
 </xsl:result-document>
+</xsl:if>
 </xsl:template>
 
 <xsl:template match="bprefstandard"><xsl:value-of select="@refid"/><xsl:text>;</xsl:text></xsl:template>
