@@ -219,20 +219,16 @@
 </xsl:template>
 
 <xsl:template match="listitem">
-<xsl:text>* </xsl:text><xsl:value-of select="."/><xsl:text>&#x0A;</xsl:text>
-  <xsl:if test="following::*">
-    <xsl:text>&#x0A;</xsl:text>
-  </xsl:if>
+<xsl:text>* </xsl:text><xsl:apply-templates/><xsl:text>&#x0A;</xsl:text>
+<xsl:if test="following::*"><xsl:text>&#x0A;</xsl:text></xsl:if>
 </xsl:template>
 
 <xsl:template match="para">
-  <xsl:apply-templates/>
-  <xsl:if test="following::*">
-    <xsl:text>&#x0A;&#x0A;</xsl:text>
-  </xsl:if>
+<xsl:apply-templates/>
+<xsl:if test="following::node()"><xsl:text>&#x0A;&#x0A;</xsl:text></xsl:if>
 </xsl:template>
 
-<xsl:template match="text()"><xsl:value-of select="normalize-space(.)"/></xsl:template>
+<xsl:template match="text()"><xsl:value-of select="normalize-space()"/></xsl:template>
 
 <xsl:template match="footnote"/>
 
