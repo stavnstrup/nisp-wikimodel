@@ -214,6 +214,7 @@
 </xsl:template>
 
 <xsl:template match="itemizedlist|orderedlist">
+<xsl:text>&#x0A;&#x0A;</xsl:text>
   <xsl:apply-templates/>
 </xsl:template>
 
