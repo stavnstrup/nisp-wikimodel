@@ -91,7 +91,7 @@ In the Wiki each instance of a concept is implemented as a page. We therefore ne
 
 These convention does not have to be followed, but a consistent approach makes the users life much easier.
 
-# What has not be implemented
+# What has not been implemented yet
 
 Two of the concepts *Catalog Items* and *Cover Documents*, which originally was part of the draft data model, have not been implemented yet. The main reason is lack of experience with the data modelling language, but also because these concepts was not part of the NISP XML implementation.
 
@@ -99,7 +99,8 @@ Two of the concepts *Catalog Items* and *Cover Documents*, which originally was 
 
 * Create meaningfull description of all concepts and profiles.
 * Create helptext for all properties - this is accomplished through the instruction element.
+* In the XML data model some attributes of e.g. standards contained highly stucture data like paragraph and list. These structures have been retained, but a few constructs, such as footnotes and images is not part of the existing datamodel.
 
 # Database refactoring
 
-The data model is probably far from perfect and will therefore require significant refactoring. Experience also shows, that we quite often change the datamodel. IP CaT will therefore ASAP have to figure out the process and techniques on how to refactor the database.
+The data model is probably far from perfect and will therefore require significant refactoring. Experience also shows, that we quite often change the datamodel. IP CaT will therefore ASAP have to figure out the process and techniques on how to refactor the database. Refactoring the database reqires that data can be extracted, transformed and imported again. This is also knowledge, we need to work the system.
