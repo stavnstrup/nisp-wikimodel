@@ -59,12 +59,12 @@
       <text x="868.1064" xml:space="preserve" y="672.6387" clip-path="url(#clipPath2)" font-family="sans-serif" stroke="none">Profile</text>
     </g>
     <g fill="rgb(255,204,0)" text-rendering="geometricPrecision" shape-rendering="geometricPrecision" transform="matrix(1,0,0,1,-96,0)" stroke="rgb(255,204,0)">
-      <ellipse rx="70" ry="28" clip-path="url(#clipPath2)" cx="916" cy="527.1429" stroke="none"/>
+      <ellipse rx="70" ry="28" clip-path="url(#clipPath2)" cx="912" cy="520.1429" stroke="none"/>
     </g>
     <g text-rendering="geometricPrecision" stroke-miterlimit="1.45" shape-rendering="geometricPrecision" transform="matrix(1,0,0,1,-96,0)" stroke-linecap="butt">
-      <ellipse rx="70" fill="none" ry="28" clip-path="url(#clipPath2)" cx="916" cy="527.1429"/>
-      <text x="867.6807" xml:space="preserve" y="524.3128" clip-path="url(#clipPath2)" font-family="sans-serif" stroke="none">Basic Standards</text>
-      <text x="873.0244" xml:space="preserve" y="538.2816" clip-path="url(#clipPath2)" font-family="sans-serif" stroke="none">Service Profile</text>
+      <ellipse rx="70" fill="none" ry="28" clip-path="url(#clipPath2)" cx="912" cy="520.1429"/>
+      <text x="863.6807" xml:space="preserve" y="517.3128" clip-path="url(#clipPath2)" font-family="sans-serif" stroke="none">Basic Standards</text>
+      <text x="869.0244" xml:space="preserve" y="531.2816" clip-path="url(#clipPath2)" font-family="sans-serif" stroke="none">Service Profile</text>
     </g>
     <g fill="rgb(255,204,0)" text-rendering="geometricPrecision" shape-rendering="geometricPrecision" transform="matrix(1,0,0,1,-96,0)" stroke="rgb(255,204,0)">
       <ellipse rx="80" ry="38" clip-path="url(#clipPath2)" cx="352.5" cy="695" stroke="none"/>
@@ -79,9 +79,6 @@
     <g text-rendering="geometricPrecision" stroke-miterlimit="1.45" shape-rendering="geometricPrecision" transform="matrix(1,0,0,1,-96,0)" stroke-linecap="butt">
       <ellipse rx="58.8312" fill="none" ry="32.5" clip-path="url(#clipPath2)" cx="271.2403" cy="411.7662"/>
       <text x="254.0518" xml:space="preserve" y="415.9205" clip-path="url(#clipPath2)" font-family="sans-serif" stroke="none">Event</text>
-      <path fill="none" d="M568.3699 441.6862 L568.3805 441.6571 L569.3785 437.7758 L569.9922 433.7545 L570.2013 429.6136 L569.9922 425.4727 L569.3785 421.4515 L568.3805 417.5702 L567.0186 413.8492 L565.3132 410.3089 L563.2845 406.9697 L560.9531 403.8519 L558.3391 400.9758 L555.4631 398.3619 L552.3452 396.0304 L549.006 394.0018 L545.4657 392.2963 L541.7448 390.9344 L537.8635 389.9365 L533.8422 389.3228 L529.7013 389.1136 L525.5604 389.3228 L521.5391 389.9365 L517.6578 390.9344 L513.9369 392.2963 L510.3966 394.0018 L507.0573 396.0304 L503.9395 398.3619 L501.0635 400.9758 L498.4495 403.8519 L496.118 406.9697 L494.0894 410.309 L492.384 413.8492 L491.0221 417.5702 L490.0241 421.4515 L489.4104 425.4728 L489.2013 429.6136 L489.4104 433.7545 L489.4249 433.8494 L489.4498 433.9463" clip-path="url(#clipPath2)"/>
-      <path d="M491.0528 441.784 L493.547 429.0255 L489.2495 432.9665 L483.7498 431.0292 Z" clip-path="url(#clipPath2)" stroke="none"/>
-      <text x="534.9435" xml:space="preserve" y="378.5874" clip-path="url(#clipPath2)" font-family="sans-serif" stroke="none">IS CHILD OF</text>
       <path fill="none" d="M236.4315 99.0759 L505.051 51.7544 L514.5312 51.819 L523.2752 55.4826 L804.1312 238.6687" clip-path="url(#clipPath2)"/>
       <path d="M810.8318 243.0392 L803.5124 232.2955 L803.2936 238.1224 L798.0493 240.6714 Z" clip-path="url(#clipPath2)" stroke="none"/>
       <text x="479.0897" xml:space="preserve" y="28.2132" clip-path="url(#clipPath2)" font-family="sans-serif" stroke="none">CONTAINS</text>
@@ -103,12 +100,15 @@
       <path fill="none" d="M1003.6754 152.1108 L1004.5164 149.8132 L1005.3295 146.6507 L1005.8297 143.3741 L1006 140 L1005.8297 136.6259 L1005.3295 133.3493 L1004.5164 130.1868 L1003.4067 127.1549 L1002.0171 124.2702 L1000.3641 121.5494 L998.4644 119.0089 L996.3345 116.6655 L993.9911 114.5356 L991.4506 112.6359 L988.7297 110.9829 L985.8451 109.5933 L982.8132 108.4836 L979.6506 107.6704 L976.3741 107.1704 L973 107 L969.6259 107.1704 L966.3494 107.6704 L963.1868 108.4836 L960.1549 109.5933 L957.2703 110.9829 L954.5494 112.6359 L952.0089 114.5356 L949.6655 116.6655 L947.5356 119.0089 L945.6359 121.5494 L943.9829 124.2702 L942.5933 127.1549 L941.4836 130.1868 L940.6705 133.3493 L940.1703 136.6259 L940 140 L940.1703 143.3741 L940.3217 144.3656 L940.3507 144.4613" clip-path="url(#clipPath2)"/>
       <path d="M942.3495 152.2076 L944.1927 139.3389 L940.1008 143.493 L934.5099 141.8374 Z" clip-path="url(#clipPath2)" stroke="none"/>
       <text x="959.6948" xml:space="preserve" y="74.4608" clip-path="url(#clipPath2)" font-family="sans-serif" stroke="none">IS CHILD OF</text>
-      <path fill="none" d="M895.1463 623.7582 L908.291 562.859" clip-path="url(#clipPath2)"/>
-      <path d="M909.9788 555.0391 L902.5596 565.7141 L908.08 563.8365 L912.3345 567.8239 Z" clip-path="url(#clipPath2)" stroke="none"/>
-      <text x="889.4947" xml:space="preserve" y="593.4757" clip-path="url(#clipPath2)" font-family="sans-serif" stroke="none">CONTAINS 1..*</text>
-      <path fill="none" d="M850.3299 517.448 L599.9134 480.479" clip-path="url(#clipPath2)"/>
-      <path d="M591.9991 479.3107 L603.1403 486.0096 L600.9026 480.6251 L604.6007 476.1168 Z" clip-path="url(#clipPath2)" stroke="none"/>
-      <text x="695.5198" xml:space="preserve" y="475.3885" clip-path="url(#clipPath2)" font-family="sans-serif" stroke="none">SUPPORTED_BY</text>
+      <path fill="none" d="M893.6898 623.674 L905.6671 555.9508" clip-path="url(#clipPath2)"/>
+      <path d="M907.0604 548.0731 L900.0469 559.0189 L905.493 556.9355 L909.8941 560.7604 Z" clip-path="url(#clipPath2)" stroke="none"/>
+      <text x="887.0745" xml:space="preserve" y="589.9757" clip-path="url(#clipPath2)" font-family="sans-serif" stroke="none">CONTAINS 1..*</text>
+      <path fill="none" d="M845.47 511.4365 L600.3843 479.3635" clip-path="url(#clipPath2)"/>
+      <path d="M592.4519 478.3254 L603.7017 484.8403 L601.3758 479.4933 L604.9993 474.9248 Z" clip-path="url(#clipPath2)" stroke="none"/>
+      <text x="670.9151" xml:space="preserve" y="468.6669" clip-path="url(#clipPath2)" font-family="sans-serif" stroke="none">SUPPORTED_BY</text>
+      <path fill="none" d="M939.3528 494.3665 L971.4848 208.9587" clip-path="url(#clipPath2)"/>
+      <path d="M972.3798 201.0089 L966.0687 212.3742 L971.3729 209.9524 L976.0059 213.4929 Z" clip-path="url(#clipPath2)" stroke="none"/>
+      <text x="947.5535" xml:space="preserve" y="350.7257" clip-path="url(#clipPath2)" font-family="sans-serif" stroke="none">IMPLEMENTS</text>
       <path fill="none" d="M356.1927 657.0405 L363.9117 577.6932 L364.873 573.0203 L366.7888 568.9544 L369.6591 565.4957 L373.4838 562.644 L478.9128 500.1965" clip-path="url(#clipPath2)"/>
       <path d="M485.796 496.1195 L472.9231 497.9331 L478.0524 500.7062 L478.0194 506.537 Z" clip-path="url(#clipPath2)" stroke="none"/>
       <text x="317.4934" xml:space="preserve" y="556.2238" clip-path="url(#clipPath2)" font-family="sans-serif" stroke="none">OWNS</text>
