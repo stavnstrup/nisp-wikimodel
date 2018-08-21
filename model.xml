@@ -25,6 +25,7 @@
 						<property name="Title" />
 					  	<property name="Date issued" />
 						<property name="Version" />
+						<property name="Has substandards" />
 						<property name="Description"/>
 						<property name="Is responsible for" multiplicity="one"/>
 						<property name="Website" />
@@ -200,6 +201,10 @@
 			<property name="Guideline" type="Text" label=" Guideline" attribute="guideline">
 				<description>A free text format to describe the implementation guidance for a standards profile.</description>
 				<instruction>A "Implementation Guidance" is a text value that reflects a short explanation (no more than a couple of paragraphs) for a implementation guidance. A description may include some wiki markup."</instruction>
+			</property>
+			<property name="Has substandards" type="Page" refersTo="Standard" label="Substandards" attribute="substandards">
+				<description>References to substandards of this standard</description>
+				<instruction>A list of standard id separated by semicolon, representing substandards of this standard</instruction>
 			</property>
 			<property name="Is adding standard" type="Page" refersTo="Standard" label="Standard" attribute="standard">
 				<description>List of standards</description>

@@ -7,7 +7,7 @@ The Wiki data model is almost a one-to-one mapping of the concepts used in the [
 * Only the core concepts i.e. *Basic Standards Profile*, *Capability Profile*,  *Profile*, *Service Profile*, *Standard*, *Organization* and *Taxonomy Node* are implemented.
 * XML elements, which are either container elements or elements created for usability reasons have not been implemented, as they do no contribute to the data-model and are therefore unnecessary in the Wiki model.
 * In the XML version of the NISP DB, we never delete standards or profiles, but only mark elements as deleted. We have not ported any deleted elements to the Wiki platform, but the historical elements will continue to be available [here](https://nisp.nw3.dk/).
-* All the child elements of the *document* element used by the *standard* element are not transferred to the Wiki. But of course the attributes of the document element are ported to the Wiki.
+* All the child elements except *substandards* of the *document* element used by the *standard* element are not transferred to the Wiki. But of course the attributes of the document element are ported to the Wiki.
 
 The document element is described in the XML DTD as
 

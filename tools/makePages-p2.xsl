@@ -68,6 +68,7 @@
 <xsl:text>|code=</xsl:text><xsl:value-of select="document/@pubnum"/><xsl:text>&#x0A;</xsl:text>
 <xsl:text>|title=</xsl:text><xsl:value-of select="document/@title"/><xsl:text>&#x0A;</xsl:text>
 <xsl:text>|dateissued=</xsl:text><xsl:value-of select="document/@date"/><xsl:text>&#x0A;</xsl:text>
+<xsl:text>|substandards=&#x0A;</xsl:text><xsl:apply-templates select="document/substandards/substandard"/>
 <xsl:text>|description=</xsl:text><xsl:apply-templates select="applicability"/><xsl:text>&#x0A;</xsl:text>
 <xsl:text>|responsible=</xsl:text><xsl:value-of select="upper-case(responsibleparty/@rpref)"/><xsl:text>&#x0A;</xsl:text>
 <xsl:text>|website=</xsl:text><xsl:value-of select="status/uri"/><xsl:text>&#x0A;</xsl:text>
@@ -76,6 +77,8 @@
 </xsl:result-document>
 </xsl:if>
 </xsl:template>
+
+<xsl:template match="substandard"><xsl:value-of select="@refid"/><xsl:text>;&#x0A;</xsl:text></xsl:template>
 
 <!-- Create a Wiki page for a Basic Standards Service Profile -->
 
