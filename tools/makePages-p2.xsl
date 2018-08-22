@@ -232,12 +232,12 @@
 
 <xsl:template match="text()"><xsl:value-of select="normalize-space()"/></xsl:template>
 
-<xsl:template match="footnote"/>
-
 <xsl:template match="superscript"><sup><xsl:apply-templates/></sup></xsl:template>
 
 
-<!-- -->
+<!-- Show elements without templates 
+     This template was created by Norman Walsh and is 'lifted' from the DocBook XSLT stylesheets.
+ -->
 
 
 <xsl:template match="*">
