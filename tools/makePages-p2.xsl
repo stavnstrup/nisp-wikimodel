@@ -217,7 +217,7 @@
 </xsl:template>
 
 <xsl:template match="itemizedlist|orderedlist">
-<xsl:text>&#x0A;&#x0A;</xsl:text>
+<xsl:text>&#x0A;</xsl:text>
   <xsl:apply-templates/>
 </xsl:template>
 
@@ -227,7 +227,12 @@
 
 <xsl:template match="para">
 <xsl:apply-templates/>
-<xsl:if test="following::node()"><xsl:text>&#x0A;&#x0A;</xsl:text></xsl:if>
+<xsl:if test="following::node()"><xsl:text>&#x0A;</xsl:text></xsl:if>
+</xsl:template>
+
+<xsl:template match="listitem/para">
+<xsl:apply-templates/>
+<xsl:if test="following::node()"><xsl:text>&#x0A;</xsl:text></xsl:if>
 </xsl:template>
 
 <xsl:template match="text()"><xsl:value-of select="normalize-space()"/></xsl:template>
@@ -235,10 +240,9 @@
 <xsl:template match="superscript"><sup><xsl:apply-templates/></sup></xsl:template>
 
 
-<!-- Show elements without templates 
+<!-- Show elements without templates
      This template was created by Norman Walsh and is 'lifted' from the DocBook XSLT stylesheets.
- -->
-
+-->
 
 <xsl:template match="*">
   <xsl:message>
