@@ -34,7 +34,7 @@ All the core concepts in Wiki are described below:
 
 ![NISP conceptual model](nisp-graph-db.svg)
 
-In order to see the different concepts in the NISP Wiki, you should open the wiki and search for the page **Data Browser**. All words in this note marked in bold, can be found in the Wiki.
+In order to see the different concepts in the NISP Wiki, you should open the wiki and search for the page **project:Data Browser**. All words in this note marked in bold, can be found in the Wiki.
 
 ## Simple concepts
 
