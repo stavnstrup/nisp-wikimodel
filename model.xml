@@ -8,6 +8,7 @@
 		<version name="0.3" date="2018-07-01">Adding status elements and hiding unimplemented concepts</version>
 		<version name="0.4" date="2018-08-03">Adding capability and profile elements</version>
 		<version name="0.5" date="2018-08-12">Final draft version of data model and import facility</version>
+		<version name="0.6" date="2019-04-10">Consolidate profiles models</version>
 	</ChangeLog>
 	<DataModel>
 		<import model="CommonLibraryModel.xml"/>
@@ -30,17 +31,6 @@
 						<property name="Is responsible for" multiplicity="one"/>
 						<property name="Website" />
 						<subobject name="Event" concept="Change Event" attribute="events"/>
-					</structure>
-				</concept>
-
-				<concept name="Basic Standards Service Profile" plural="Basic Standards Service Profiles" acronym="BSP" type="Dynamic" ordered="true" image="profile.png" color="becde6">
-				    <description>The Basic Standards Service Profile represent the IP CaT proposal for mandatory and candidate standards for a selected set of taxonomy nodes</description>
-                    <nomenclature></nomenclature>
-					<structure>
-					    <property name="Is related to" label="Taxonomy" refersTo="Taxonomy Node" multiplicity="one" attribute="taxonomynode" />
-						<property name="Is responsible for" multiplicity="one"/>
-						<property name="Is implementing mandatory standard" />
-					    <property name="Is implementing candidate standard" />
 					</structure>
 				</concept>
 
@@ -264,16 +254,7 @@
 				<description>A semantic link with the Standards concept.</description>
 				<instruction/>
 			</property>
-			<property name="Is implementing mandatory standard" refersTo="Standard" type="Page" label="Mandatory Standards" attribute="mandatorystandards">
-				<description>A semantic link with the Standards concept.</description>
-				<instruction/>
-			</property>
-			<property name="Is implementing candidate standard" refersTo="Standard" type="Page" label="Candidate Standards" attribute="candidatestandards">
-				<description>A semantic link with the Standards concept.</description>
-				<instruction/>
-			</property>
 		</properties>
-
 	</DataModel>
 	<ReportsModel>
 		<categories>

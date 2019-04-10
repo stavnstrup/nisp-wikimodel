@@ -44,22 +44,6 @@
       <text x="957.3408" xml:space="preserve" y="177.1543" clip-path="url(#clipPath2)" font-family="sans-serif" stroke="none">Node</text>
     </g>
     <g fill="rgb(255,204,0)" text-rendering="geometricPrecision" shape-rendering="geometricPrecision" transform="matrix(1,0,0,1,-96,0)" stroke="rgb(255,204,0)">
-      <ellipse rx="70" ry="38" clip-path="url(#clipPath2)" cx="887" cy="661.5" stroke="none"/>
-    </g>
-    <g text-rendering="geometricPrecision" stroke-miterlimit="1.45" shape-rendering="geometricPrecision" transform="matrix(1,0,0,1,-96,0)" stroke-linecap="butt">
-      <ellipse rx="70" fill="none" ry="38" clip-path="url(#clipPath2)" cx="887" cy="661.5"/>
-      <text x="838.6807" xml:space="preserve" y="658.6699" clip-path="url(#clipPath2)" font-family="sans-serif" stroke="none">Basic Standards</text>
-      <text x="868.1064" xml:space="preserve" y="672.6387" clip-path="url(#clipPath2)" font-family="sans-serif" stroke="none">Profile</text>
-    </g>
-    <g fill="rgb(255,204,0)" text-rendering="geometricPrecision" shape-rendering="geometricPrecision" transform="matrix(1,0,0,1,-96,0)" stroke="rgb(255,204,0)">
-      <ellipse rx="70" ry="28" clip-path="url(#clipPath2)" cx="912" cy="520.1429" stroke="none"/>
-    </g>
-    <g text-rendering="geometricPrecision" stroke-miterlimit="1.45" shape-rendering="geometricPrecision" transform="matrix(1,0,0,1,-96,0)" stroke-linecap="butt">
-      <ellipse rx="70" fill="none" ry="28" clip-path="url(#clipPath2)" cx="912" cy="520.1429"/>
-      <text x="863.6807" xml:space="preserve" y="517.3128" clip-path="url(#clipPath2)" font-family="sans-serif" stroke="none">Basic Standards</text>
-      <text x="869.0244" xml:space="preserve" y="531.2816" clip-path="url(#clipPath2)" font-family="sans-serif" stroke="none">Service Profile</text>
-    </g>
-    <g fill="rgb(255,204,0)" text-rendering="geometricPrecision" shape-rendering="geometricPrecision" transform="matrix(1,0,0,1,-96,0)" stroke="rgb(255,204,0)">
       <ellipse rx="80" ry="38" clip-path="url(#clipPath2)" cx="352.5" cy="695" stroke="none"/>
     </g>
     <g text-rendering="geometricPrecision" stroke-miterlimit="1.45" shape-rendering="geometricPrecision" transform="matrix(1,0,0,1,-96,0)" stroke-linecap="butt">
@@ -97,12 +81,6 @@
       <path fill="none" d="M1003.6754 152.1108 L1004.5164 149.8132 L1005.3295 146.6507 L1005.8297 143.3741 L1006 140 L1005.8297 136.6259 L1005.3295 133.3493 L1004.5164 130.1868 L1003.4067 127.1549 L1002.0171 124.2702 L1000.3641 121.5494 L998.4644 119.0089 L996.3345 116.6655 L993.9911 114.5356 L991.4506 112.6359 L988.7297 110.9829 L985.8451 109.5933 L982.8132 108.4836 L979.6506 107.6704 L976.3741 107.1704 L973 107 L969.6259 107.1704 L966.3494 107.6704 L963.1868 108.4836 L960.1549 109.5933 L957.2703 110.9829 L954.5494 112.6359 L952.0089 114.5356 L949.6655 116.6655 L947.5356 119.0089 L945.6359 121.5494 L943.9829 124.2702 L942.5933 127.1549 L941.4836 130.1868 L940.6705 133.3493 L940.1703 136.6259 L940 140 L940.1703 143.3741 L940.3217 144.3656 L940.3507 144.4613" clip-path="url(#clipPath2)"/>
       <path d="M942.3495 152.2076 L944.1927 139.3389 L940.1008 143.493 L934.5099 141.8374 Z" clip-path="url(#clipPath2)" stroke="none"/>
       <text x="959.6948" xml:space="preserve" y="74.4608" clip-path="url(#clipPath2)" font-family="sans-serif" stroke="none">IS CHILD OF</text>
-      <path fill="none" d="M893.6898 623.674 L905.6671 555.9508" clip-path="url(#clipPath2)"/>
-      <path d="M907.0604 548.0731 L900.0469 559.0189 L905.493 556.9355 L909.8941 560.7604 Z" clip-path="url(#clipPath2)" stroke="none"/>
-      <text x="887.0745" xml:space="preserve" y="589.9757" clip-path="url(#clipPath2)" font-family="sans-serif" stroke="none">CONTAINS 1..*</text>
-      <path fill="none" d="M939.3528 494.3665 L971.4848 208.9587" clip-path="url(#clipPath2)"/>
-      <path d="M972.3798 201.0089 L966.0687 212.3742 L971.3729 209.9524 L976.0059 213.4929 Z" clip-path="url(#clipPath2)" stroke="none"/>
-      <text x="947.5535" xml:space="preserve" y="350.7257" clip-path="url(#clipPath2)" font-family="sans-serif" stroke="none">IMPLEMENTS</text>
       <path fill="none" d="M185.7161 141.8954 L258.6783 372.1269" clip-path="url(#clipPath2)"/>
       <path d="M261.0951 379.7531 L262.2362 366.8033 L258.3762 371.1737 L252.7035 369.8243 Z" clip-path="url(#clipPath2)" stroke="none"/>
       <text x="181.2906" xml:space="preserve" y="264.9384" clip-path="url(#clipPath2)" font-family="sans-serif" stroke="none">1..*</text>
@@ -118,9 +96,6 @@
       <path fill="none" d="M356.1927 657.0405 L363.9117 577.6932 L364.9022 573.0758 L366.9057 569.1765 L369.9221 565.9954 L373.9515 563.5324 L482.1233 513.3572" clip-path="url(#clipPath2)"/>
       <path d="M489.3806 509.9909 L476.3907 510.5045 L481.2161 513.778 L480.5985 519.5761 Z" clip-path="url(#clipPath2)" stroke="none"/>
       <text x="319.8145" xml:space="preserve" y="554.7591" clip-path="url(#clipPath2)" font-family="sans-serif" stroke="none">OWNS</text>
-      <path fill="none" d="M843.6521 514.0955 L610.3525 493.4533" clip-path="url(#clipPath2)"/>
-      <path d="M602.3837 492.7482 L613.8963 498.7863 L611.3486 493.5414 L614.7776 488.8253 Z" clip-path="url(#clipPath2)" stroke="none"/>
-      <text x="675.4151" xml:space="preserve" y="477.422" clip-path="url(#clipPath2)" font-family="sans-serif" stroke="none">SUPPORTED_BY</text>
       <path fill="none" d="M394.6721 662.7087 L465.4109 608.5438 L480.3847 595.3564 L503.1315 572.3709 L509.2646 564.6917 L513.5955 555.8696 L523.2488 529.4324" clip-path="url(#clipPath2)"/>
       <path d="M525.9928 521.9177 L517.1802 531.4748 L522.9058 530.3718 L526.5735 534.9047 Z" clip-path="url(#clipPath2)" stroke="none"/>
       <text x="527.74" xml:space="preserve" y="554.4411" clip-path="url(#clipPath2)" font-family="sans-serif" stroke="none">RESPONSIBLE</text>
