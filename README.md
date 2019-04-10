@@ -4,7 +4,7 @@ This repository contains the specification *model.xml* and import stylesheets ne
 
 The Wiki data model is almost a one-to-one mapping of the concepts used in the [XML based data model](https://stavnstrup.github.io/nisp-tools/nisp-database-schema.html) with a few exceptions:
 
-* Only the core concepts i.e. *Basic Standards Profile*, *Capability Profile*,  *Profile*, *Service Profile*, *Standard*, *Organization* and *Taxonomy Node* are implemented.
+* Only the core concepts i.e. *Capability Profile*,  *Profile*, *Service Profile*, *Standard*, *Organization* and *Taxonomy Node* are implemented.
 * XML elements, which are either container elements or elements created for usability reasons have not been implemented, as they do no contribute to the data-model and are therefore unnecessary in the Wiki model.
 * In the XML version of the NISP DB, we never delete standards or profiles, but only mark elements as deleted. We have not ported any deleted elements to the Wiki platform, but the historical elements will continue to be available [here](https://nisp.nw3.dk/).
 * All the child elements except *substandards* of the *document* element used by the *standard* element are not transferred to the Wiki. But of course the attributes of the document element are ported to the Wiki.
@@ -48,12 +48,14 @@ The *Organisation*, *Taxonomy Node* and the *Standard* concept are straightforwa
 
 Profiles in NISP comes in two flavours:
 
-* The *Basic Standards Profile* which currently is presented as the *mandatory* standards in volume 2 and the *candidate* standards in volume 3.
+* The *Basic Standards Profile* (BSP) which currently is presented as the *mandatory* standards in volume 2 and the *candidate* standards in volume 3.
 * Community Of Interest (COI) profiles, which are modelled using the concepts *Capability Profile*, *Profile* and *Service Profile*.
 
-In NISP 9, we presented more or less a prettyfied version of the internal data structure of the Basic Standards Profile and the COI profiles, and this version is therefore a good illustration of the data-model. In NISP 11, the way we represent the Basic Standards Profile and COI profiles are different, but that not mean that the model is not still valid.
+Since NISP 12 the BSP and COI profiles have been consolidated, and the result have been the elemination of the datastructures used to describe the BSP, which is now represented by a capability profile where the id  attribute has the value *bsp*.
 
 ### Basic Standards Profile
+
+FIX THIS SECTION
 
 The *Basic Standards Profile* is in NISP Vol 1 described as: "The Basic Standards Profile specifies the technical, operational, and business standards that are generally applicable in the context of the Alliance and the NATO Enterprise". We present this as mandatory standards in volume 2 and candidate standards in volume 3.
 
