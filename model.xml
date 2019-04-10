@@ -93,7 +93,7 @@
 						</group>
 						<property name="Description"/>
 						<property name="Is related to" label="Taxonomy" refersTo="Taxonomy Node" attribute="taxonomynodes"/>
-						<subobject name="Obligations" concept="Obligation Group" attribute="obligations" />
+						<subobject name="References" concept="Reference Group" attribute="references" />
 						<property name="Guideline"/>
 						<group name="Status">
 							<property name="Website" />
@@ -102,10 +102,11 @@
 					</structure>
 				</concept>
 
-				<concept name="Obligation Group" plural="Obligation Groups" ordered="true" type="Internal">
+				<concept name="Reference Group" plural="Reference Groups" ordered="true" type="Internal">
 					<description>The obligation Group references standards with a specific obligation. This element is child of a service profile element.</description>
 					<structure layout="table">
 						<property name="Obligation Type" multiplicity="one" editField="combobox"/>
+						<property name="LifeCycle Type" multiplicity="one" editField="combobox"/>
 						<property name="Description"/>
 						<property name="Is implementing standard"/>
 					</structure>
@@ -211,6 +212,14 @@
 			<property name="Is responsible for" type="Page" refersTo="Organization" label="Responsible" attribute="responsible">
 				<description>A responsible party a standard or profile.</description>
 				<instruction/>
+			</property>
+			<property name="LifeCycle Type" type="Option" label="LifeCycle" attribute="lifecycletype">
+			    <description></description>
+				<instruction/>
+				<values default="current">
+				    <value name="current">Current</value>
+					<value name="emerging">Emerging</value>
+				</values>
 			</property>
 			<property name="Obligation Type" type="Option" label="Obligation" attribute="obligationtype">
 				<description>An obligation category for a standard in a standards profile.</description>
