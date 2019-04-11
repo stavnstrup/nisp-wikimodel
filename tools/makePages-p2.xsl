@@ -17,7 +17,6 @@
   <xsl:apply-templates select="records/capabilityprofile" />
   <xsl:apply-templates select="records/profile" />
   <xsl:apply-templates select="records/serviceprofile" />
-  <xsl:apply-templates select="bestpracticeprofile/bpserviceprofile" />
 </xsl:template>
 
 
@@ -80,24 +79,6 @@
 
 <xsl:template match="substandard"><xsl:value-of select="@refid"/><xsl:text>;&#x0A;</xsl:text></xsl:template>
 
-<!-- Create a Wiki page for a Basic Standards Service Profile -->
-
-<xsl:template match="bpserviceprofile">
-<xsl:if test="count(bpgroup)>0">
-<xsl:variable name="myid" select="@tref"/>
-<xsl:variable name="mynode" select="/standards//node[@id=$myid]/@title"/>
-<xsl:result-document href="{$datadir}/BSP-{$mynode}.page">
-<xsl:text>{{Basic Standards Service Profile&#x0A;</xsl:text>
-<xsl:text>|taxonomynode=</xsl:text><xsl:value-of select="$mynode"/><xsl:text>&#x0A;</xsl:text>
-<xsl:text>|responsible=&#x0A;</xsl:text>
-<xsl:text>|mandatorystandards=</xsl:text><xsl:apply-templates select="bpgroup[@mode='mandatory']/bprefstandard"/><xsl:text>&#x0A;</xsl:text>
-<xsl:text>|candidatestandards=</xsl:text><xsl:apply-templates select="bpgroup[@mode='candidate']/bprefstandard"/><xsl:text>&#x0A;</xsl:text>
-<xsl:text>}}&#x0A;</xsl:text>
-</xsl:result-document>
-</xsl:if>
-</xsl:template>
-
-<xsl:template match="bprefstandard"><xsl:value-of select="@refid"/><xsl:text>;</xsl:text></xsl:template>
 
 <!-- Create a Wiki page for a Capability Profile -->
 
@@ -155,7 +136,7 @@
 <xsl:text>|version=</xsl:text><xsl:value-of select="profilespec/@version"/><xsl:text>&#x0A;</xsl:text>
 <xsl:text>|description=</xsl:text><xsl:apply-templates select="description"/><xsl:text>&#x0A;</xsl:text>
 <xsl:text>|taxonomynodes=</xsl:text><xsl:apply-templates select="reftaxonomy"/>
-<xsl:text>|obligations=</xsl:text><xsl:apply-templates select="obgroup"/>
+<xsl:text>|references=</xsl:text><xsl:apply-templates select="refgroup"/>
 <xsl:text>|guideline=</xsl:text><xsl:apply-templates select="description"/><xsl:text>&#x0A;</xsl:text>
 <xsl:apply-templates select="status"/>
 <xsl:text>}}&#x0A;</xsl:text>
@@ -167,9 +148,10 @@
 <xsl:value-of select="/standards/taxonomy//node[@id=$myid]/@title"/><xsl:text>;&#x0A;</xsl:text>
 </xsl:template>
 
-<xsl:template match="obgroup">
-<xsl:text>{{Obligation Group&#x0A;</xsl:text>
+<xsl:template match="refgroup">
+<xsl:text>{{Reference Group&#x0A;</xsl:text>
 <xsl:text>|obligationtype=</xsl:text><xsl:apply-templates select="@obligation"/><xsl:text>&#x0A;</xsl:text>
+<xsl:text>|lifecycletype=</xsl:text><xsl:apply-templates select="@lifecycle"/><xsl:text>&#x0A;</xsl:text>
 <xsl:text>|description=</xsl:text><xsl:apply-templates select="description"/><xsl:text>&#x0A;</xsl:text>
 <xsl:text>|standards=</xsl:text><xsl:apply-templates select="refstandard"/><xsl:text>&#x0A;</xsl:text>
 <xsl:text>}}&#x0A;</xsl:text>
