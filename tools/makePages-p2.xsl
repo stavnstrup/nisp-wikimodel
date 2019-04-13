@@ -222,6 +222,8 @@
 <xsl:template match="superscript"><sup><xsl:apply-templates/></sup></xsl:template>
 
 
+<xsl:template match="emphasis"><xsl:text>'''</xsl:text><xsl:apply-templates/><xsl:text>'''</xsl:text></xsl:template>
+
 <!-- Show elements without templates
      This template was created by Norman Walsh and is 'lifted' from the DocBook XSLT stylesheets.
 -->
