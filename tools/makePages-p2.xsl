@@ -7,7 +7,7 @@
 
 <xsl:output method="text" indent="yes"/>
 
-<xsl:variable name="datadir" select="'../Data/NISP/data/pages/Main'" />
+<xsl:variable name="datadir" select="'./build/data/pages/Main/'" />
 
 
 <xsl:template match="standards">
