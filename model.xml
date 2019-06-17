@@ -1,14 +1,18 @@
 <?xml version="1.0"?>
-<WikiModel
-	xmlns="http://tide.act.nato.int/team/wat" name="NISP" image="NISP.png">
-	<description>This NISP Wiki was set up to develop, maintain and disseminate simple yet powerful mapping products that semantically categorize and link information from operational, transformational, implementation and support taxonomies. Operational planners, program and project managers, capability implementers, researchers, experimenters and support organizations should use this Wiki to develop a better understanding of the complex relationships between various aspects of NATO and National NNEC programs. Please follow the appropriate link on the right to enter our woven web of knowledge.</description>
-	<ChangeLog>
+<WikiModel xmlns="http://tide.act.nato.int/team/wat" name="NISP" image="NISP.png">
+    <description>This NISP Wiki was set up to develop, maintain and disseminate simple yet powerful mapping products that semantically categorize 
+	and link information from operational, transformational, implementation and support taxonomies. Operational planners, program and project managers,
+	capability implementers, researchers, experimenters and support organizations should use this Wiki to develop a better understanding of the
+	complex relationships between various aspects of NATO and National NNEC programs. Please follow the appropriate link on the right to enter our 
+	woven web of knowledge.</description>
+    <ChangeLog>
 	    <version name="0.1" date="2018-04-15">Initial version of the NISP data model</version>
 		<version name="0.2" date="2018-05-01">Adding additional profiles</version>
 		<version name="0.3" date="2018-07-01">Adding status elements and hiding unimplemented concepts</version>
 		<version name="0.4" date="2018-08-03">Adding capability and profile elements</version>
 		<version name="0.5" date="2018-08-12">Final draft version of data model and import facility</version>
 		<version name="0.6" date="2019-04-10">Consolidate profiles models</version>
+		<version name="0.7" date="2019-06-17">Merge capability profile and profile element and extract profile meta data to a specific element</version>
 	</ChangeLog>
 	<DataModel>
 		<import model="CommonLibraryModel.xml"/>
@@ -34,46 +38,20 @@
 					</structure>
 				</concept>
 
-				<concept name="Capability Profile" plural="Capability Profiles" acronym="CP" type="Dynamic" ordered="true" image="profile.png" color="becde6">
-					<description>A capability profile is a set of one or more standards, with one or more constraints and implementation guidance.
-		A profile is based on the implementation of a pattern or a technical service.</description>
-					<nomenclature></nomenclature>
-					<structure layout="table">
-					    <property name="Title" mandatory="true"/>
-						<group name="Reference Document">
-    						<property name="Is published by" multiplicity="one"/>
-	    					<property name="Reference code" label="Publication number"/>
-		    				<property name="Specification Title" mandatory="true"/>
-			    			<property name="Date issued"/>
-				    		<property name="Version" />
-						</group>
-						<property name="Guideline"/>
-						<property name="Is implementing profile" />
-						<property name="Is implementing service profile" />
-						<property name="Website" />
-						<subobject name="Event" concept="Change Event" attribute="events"/>
-					</structure>
-				</concept>
-
 				<concept name="Profile" plural="Profiles" acronym="EP" type="Dynamic" ordered="true" image="profile.png" color="becde6">
 					<description>A profile is a set of one or more profiles or service profiles.</description>
 					<nomenclature></nomenclature>
 					<structure layout="table">
-					    <property name="Title" mandatory="true"/>
-						<group name="Reference Document">
-						    <property name="Is published by" multiplicity="one"/>
-						    <property name="Reference code" label="Publication number"/>
-						    <property name="Specification Title" mandatory="true"/>
-						    <property name="Date issued"/>
-						    <property name="Version" />
-						</group>
+					    <property name="Title" mandatory="true" />
+						<property name="Short Title" mandatory="true" />
+						<property name="Toplevel" multiplicity="one" editField="combobox" />
+						<property name="Is implementing profile specification" multiplicity="one" mandatory="true" />
 						<property name="Guideline"/>
 						<property name="Is implementing profile" />
 						<property name="Is implementing service profile" />
-
 						<group name="Status">
 							<property name="Website" />
-							<subobject name="Event" concept="Change Event" attribute="events"/>
+							<subobject name="Event" concept="Change Event" attribute="events" />
 						</group>
 					</structure>
 				</concept>
@@ -84,13 +62,7 @@
 					<nomenclature></nomenclature>
 					<structure layout="table">
 					    <property name="Title" mandatory="true"/>
-						<group name="Reference Document">
-     						<property name="Is published by" multiplicity="one"/>
-	    					<property name="Reference code" label="Publication number"/>
-		    				<property name="Specification Title" mandatory="true"/>
-			    			<property name="Date issued"/>
-				    		<property name="Version" />
-						</group>
+						<property name="Is implementing profile specification" multiplicity="one" mandatory="true" />
 						<property name="Description"/>
 						<property name="Is related to" label="Taxonomy" refersTo="Taxonomy Node" attribute="taxonomynodes"/>
 						<subobject name="References" concept="Reference Group" attribute="references" />
@@ -99,6 +71,18 @@
 							<property name="Website" />
 							<subobject name="Event" concept="Change Event" attribute="events"/>
 						</group>
+					</structure>
+				</concept>
+
+                <concept name="Profile Specification" plural="Profile Specifications" acronym="PS" type="Dynamic" ordered="true" image="profile.png" color="becde6">
+				    <description>The profilespec</description>
+					<nomenclature></nomenclature>
+					<structure layout="table">
+        				<property name="Is published by" multiplicity="one" />
+	        			<property name="Reference code" label="Publication number" />
+		        		<property name="Specification Title" mandatory="true" />
+			        	<property name="Date issued" />
+				        <property name="Version" />
 					</structure>
 				</concept>
 
@@ -201,6 +185,10 @@
 				<description>List of standards</description>
 				<instruction></instruction>
 			</property>
+			<property name="Is implementing profile specification" type="Page" refersTo="Profile Specification" attribute="profspec">
+				<description>Reference to the specification which defines this profile.</description>
+				<instruction/>
+			</property>
 			<property name="Is published by" type="Page" refersTo="Organization" label="Publisher" attribute="publisher">
 				<description>A publisher or publishing authority of a document or file.</description>
 				<instruction/>
@@ -235,6 +223,10 @@
 				<description>A combination of text, numbers and/or punctuation marks that form an identifying string for an entity.</description>
 				<instruction/>
 			</property>
+			<property name="Short Title" type="Text" label="Short Title" attribute="shorttitle">
+				<description>A short title of a specification</description>
+				<instruction/>
+			</property>
 			<property name="Specification Title" type="Text" label="Specification Title" attribute="spectitle">
 				<description>A title of a specification.</description>
 				<instruction/>
@@ -242,6 +234,14 @@
 			<property name="Standard" type="Page" refersTo="Standard" label="Standard" attribute="standard">
 				<description>A semantic link with Standard concept.</description>
 				<instruction>Either a  standard or a list of standards. The later is acomplished, by separating standards with a semicolon.</instruction>
+			</property>
+			<property name="Toplevel" type="Option" label="Toplevel Profile" attribute="toplevel">
+			  <description>Is this profile a toplevel profile</description>
+			  <instruction/>
+			  <values default="no">
+			    <value name="no">No</value>
+				<value name="yes">Yes</value>
+			  </values>
 			</property>
 			<property name="Version" type="String" label="Version" attribute="version">
 				<description>A version number or code for the version of a certain entity.</description>

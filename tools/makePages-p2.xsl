@@ -14,7 +14,7 @@
   <xsl:apply-templates select="organisations/orgkey" />
   <xsl:apply-templates select="taxonomy/node" />
   <xsl:apply-templates select="records/standard" />
-  <xsl:apply-templates select="records/capabilityprofile" />
+  <xsl:apply-templates select="records/profilespec" />
   <xsl:apply-templates select="records/profile" />
   <xsl:apply-templates select="records/serviceprofile" />
 </xsl:template>
@@ -80,25 +80,21 @@
 <xsl:template match="substandard"><xsl:value-of select="@refid"/><xsl:text>;&#x0A;</xsl:text></xsl:template>
 
 
-<!-- Create a Wiki page for a Capability Profile -->
+<!-- Create a Wiki page for a Profile Specification -->
 
-<xsl:template match="capabilityprofile">
+<xsl:template match="profilespec">
 <xsl:result-document href="{$datadir}/{@title}.page">
-<xsl:text>{{Capability Profile&#x0A;</xsl:text>
+<xsl:text>{{Profile Specification&#x0A;</xsl:text>
 <xsl:text>|uuid=</xsl:text><xsl:value-of select="uuid"/><xsl:text>&#x0A;</xsl:text>
 <xsl:text>|title=</xsl:text><xsl:value-of select="@title"/><xsl:text>&#x0A;</xsl:text>
-<xsl:text>|publisher=</xsl:text><xsl:value-of select="upper-case(profilespec/@orgid)"/><xsl:text>&#x0A;</xsl:text>
-<xsl:text>|code=</xsl:text><xsl:value-of select="profilespec/@pubnum"/><xsl:text>&#x0A;</xsl:text>
-<xsl:text>|spectitle=</xsl:text><xsl:value-of select="profilespec/@title"/><xsl:text>&#x0A;</xsl:text>
-<xsl:text>|dateissued=</xsl:text><xsl:value-of select="profilespec/@date"/><xsl:text>&#x0A;</xsl:text>
-<xsl:text>|version=</xsl:text><xsl:value-of select="profilespec/@version"/><xsl:text>&#x0A;</xsl:text>
-<xsl:text>|guideline=</xsl:text><xsl:apply-templates select="description"/><xsl:text>&#x0A;</xsl:text>
-<xsl:text>|profiles=</xsl:text><xsl:apply-templates select="subprofiles/refprofile" mode="list-profiles"/><xsl:text>&#x0A;</xsl:text>
-<xsl:text>|serviceprofiles=</xsl:text><xsl:apply-templates select="subprofiles/refprofile" mode="list-serviceprofiles"/><xsl:text>&#x0A;</xsl:text>
-<xsl:apply-templates select="status"/>
+<xsl:text>|publisher=</xsl:text><xsl:value-of select="upper-case(@orgid)"/><xsl:text>&#x0A;</xsl:text>
+<xsl:text>|code=</xsl:text><xsl:value-of select="@pubnum"/><xsl:text>&#x0A;</xsl:text>
+<xsl:text>|dateissued=</xsl:text><xsl:value-of select="@date"/><xsl:text>&#x0A;</xsl:text>
+<xsl:text>|version=</xsl:text><xsl:value-of select="@version"/><xsl:text>&#x0A;</xsl:text>
 <xsl:text>}}&#x0A;</xsl:text>
 </xsl:result-document>
 </xsl:template>
+
 
 
 <!-- Create a Wiki page for a Profile -->
@@ -108,6 +104,7 @@
 <xsl:text>{{Profile&#x0A;</xsl:text>
 <xsl:text>|uuid=</xsl:text><xsl:value-of select="uuid"/><xsl:text>&#x0A;</xsl:text>
 <xsl:text>|title=</xsl:text><xsl:value-of select="@title"/><xsl:text>&#x0A;</xsl:text>
+
 <xsl:text>|publisher=</xsl:text><xsl:value-of select="upper-case(profilespec/@orgid)"/><xsl:text>&#x0A;</xsl:text>
 <xsl:text>|code=</xsl:text><xsl:value-of select="profilespec/@pubnum"/><xsl:text>&#x0A;</xsl:text>
 <xsl:text>|spectitle=</xsl:text><xsl:value-of select="profilespec/@title"/><xsl:text>&#x0A;</xsl:text>
