@@ -80,7 +80,7 @@
 					<structure layout="table">
         				<property name="Is published by" multiplicity="one" />
 	        			<property name="Reference code" label="Publication number" />
-		        		<property name="Specification Title" mandatory="true" />
+		        		<property name="Title" mandatory="true" />
 			        	<property name="Date issued" />
 				        <property name="Version" />
 					</structure>
