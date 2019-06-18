@@ -104,12 +104,9 @@
 <xsl:text>{{Profile&#x0A;</xsl:text>
 <xsl:text>|uuid=</xsl:text><xsl:value-of select="uuid"/><xsl:text>&#x0A;</xsl:text>
 <xsl:text>|title=</xsl:text><xsl:value-of select="@title"/><xsl:text>&#x0A;</xsl:text>
-
-<xsl:text>|publisher=</xsl:text><xsl:value-of select="upper-case(profilespec/@orgid)"/><xsl:text>&#x0A;</xsl:text>
-<xsl:text>|code=</xsl:text><xsl:value-of select="profilespec/@pubnum"/><xsl:text>&#x0A;</xsl:text>
-<xsl:text>|spectitle=</xsl:text><xsl:value-of select="profilespec/@title"/><xsl:text>&#x0A;</xsl:text>
-<xsl:text>|dateissued=</xsl:text><xsl:value-of select="profilespec/@date"/><xsl:text>&#x0A;</xsl:text>
-<xsl:text>|version=</xsl:text><xsl:value-of select="profilespec/@version"/><xsl:text>&#x0A;</xsl:text>
+<xsl:text>|shorttitle=</xsl:text><xsl:value-of select="@short"/><xsl:text>&#x0A;</xsl:text>
+<xsl:text>|toplevel=</xsl:text><xsl:value-of select="@toplevel"/><xsl:text>&#x0A;</xsl:text>
+<xsl:text>|profspec=</xsl:text><xsl:apply-templates select="refprofilespec" mode="list-profilespec"/><xsl:text>&#x0A;</xsl:text>
 <xsl:text>|guideline=</xsl:text><xsl:apply-templates select="description"/><xsl:text>&#x0A;</xsl:text>
 <xsl:text>|profiles=</xsl:text><xsl:apply-templates select="subprofiles/refprofile" mode="list-profiles"/><xsl:text>&#x0A;</xsl:text>
 <xsl:text>|serviceprofiles=</xsl:text><xsl:apply-templates select="subprofiles/refprofile" mode="list-serviceprofiles"/><xsl:text>&#x0A;</xsl:text>
@@ -126,11 +123,7 @@
 <xsl:text>{{Service Profile&#x0A;</xsl:text>
 <xsl:text>|uuid=</xsl:text><xsl:value-of select="uuid"/><xsl:text>&#x0A;</xsl:text>
 <xsl:text>|title=</xsl:text><xsl:value-of select="@title"/><xsl:text>&#x0A;</xsl:text>
-<xsl:text>|publisher=</xsl:text><xsl:value-of select="upper-case(profilespec/@orgid)"/><xsl:text>&#x0A;</xsl:text>
-<xsl:text>|code=</xsl:text><xsl:value-of select="profilespec/@pubnum"/><xsl:text>&#x0A;</xsl:text>
-<xsl:text>|spectitle=</xsl:text><xsl:value-of select="profilespec/@title"/><xsl:text>&#x0A;</xsl:text>
-<xsl:text>|dateissued=</xsl:text><xsl:value-of select="profilespec/@date"/><xsl:text>&#x0A;</xsl:text>
-<xsl:text>|version=</xsl:text><xsl:value-of select="profilespec/@version"/><xsl:text>&#x0A;</xsl:text>
+<xsl:text>|profspec=</xsl:text><xsl:apply-templates select="refprofilespec" mode="list-profilespec"/><xsl:text>&#x0A;</xsl:text>
 <xsl:text>|description=</xsl:text><xsl:apply-templates select="description"/><xsl:text>&#x0A;</xsl:text>
 <xsl:text>|taxonomynodes=</xsl:text><xsl:apply-templates select="reftaxonomy"/>
 <xsl:text>|references=</xsl:text><xsl:apply-templates select="refgroup"/>
@@ -156,6 +149,14 @@
 
 <xsl:template match="refstandard">
 <xsl:value-of select="@refid"/><xsl:text>;&#x0A;</xsl:text>
+</xsl:template>
+
+
+<!-- Handle profilespec reference -->
+
+<xsl:template match="refprofilespec" mode="list-profilespec">
+<xsl:variable name="myid" select="@refid"/>
+<xsl:value-of select="/standards/records/profilespec[@id=$myid]/@title"/>
 </xsl:template>
 
 

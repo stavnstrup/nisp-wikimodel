@@ -223,7 +223,7 @@
 				<description>A combination of text, numbers and/or punctuation marks that form an identifying string for an entity.</description>
 				<instruction/>
 			</property>
-			<property name="Short Title" type="Text" label="Short Title" attribute="shorttitle">
+			<property name="Short Title" type="String" label="Short Title" attribute="shorttitle">
 				<description>A short title of a specification</description>
 				<instruction/>
 			</property>
