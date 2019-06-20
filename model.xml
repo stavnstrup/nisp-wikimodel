@@ -64,7 +64,7 @@
 					    <property name="Title" mandatory="true"/>
 						<property name="Is implementing profile specification" multiplicity="one" mandatory="true" />
 						<property name="Description"/>
-						<property name="Is related to" label="Taxonomy" refersTo="Taxonomy Node" attribute="taxonomynodes"/>
+						<property name="Is related to" label="Taxonomy" refersTo="Taxonomy Node" attribute="taxonomynodes" mandatory="true"/>
 						<subobject name="References" concept="Reference Group" attribute="references" />
 						<property name="Guideline"/>
 						<group name="Status">
@@ -78,7 +78,7 @@
 				    <description>The profilespec</description>
 					<nomenclature></nomenclature>
 					<structure layout="table">
-        				<property name="Is published by" multiplicity="one" />
+        				<property name="Is published by" multiplicity="one" mandatory="true"/>
 	        			<property name="Reference code" label="Publication number" />
 		        		<property name="Title" mandatory="true" />
 			        	<property name="Date issued" />
