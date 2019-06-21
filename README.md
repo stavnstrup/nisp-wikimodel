@@ -55,8 +55,6 @@ Since NISP 12 the BSP and COI profiles have been consolidated, and the result ha
 
 ### Basic Standards Profile
 
-FIX THIS SECTION
-
 The *Basic Standards Profile* is in NISP Vol 1 described as: "The Basic Standards Profile specifies the technical, operational, and business standards that are generally applicable in the context of the Alliance and the NATO Enterprise". We present this as mandatory standards in volume 2 and candidate standards in volume 3.
 
 In the XML version the *Basic Standards Profile* consists of one or more of the *Basic Standards Service Profile* element. We only implement the later in the Wiki, since that is all that is necessary. Each *Basic Standards Service Profile* element therefore describes the mandatory and candidate standards for a specific taxonomy node. In volume 2 and 3 we list the taxonomy nodes and recommended standards. An example on this can be found [here](https://archive.nisp.nw3.dk/nisp-9.0/volume2/ch03s02.html). Note that in NISP 9 we used to list both mandatory and candidate (at that time called emerging) standards in the same document.
@@ -67,19 +65,25 @@ Currently a responsible party typically recommends, if a standard should be regi
 
 ### Community of Interest profiles
 
-A COI profiles such as e.g. the Federated Mission Networking (FMN) profile is implemented as a tree structure. A profile may therefore be composed of a number of subprofiles and each of those subprofiles may as well be composed of a number of profiles. In NISP with use three slightly different profile concepts to implement the tree. The three profile concepts are *Capability Profile*,  *Profile* and *Service Profile*.
+A COI profiles such as e.g. the Federated Mission Networking (FMN) profile is implemented as a tree structure. A profile may therefore be composed of a number of subprofiles and each of those subprofiles may as well be composed of a number of profiles. In NISP with use two slightly different profile concepts to implement the tree. The two profile concepts are *Profile* and *Service Profile*.
 
 We use these concepts in the following way:
 
-* The *Capability Profile* concept represent the root of the tree.
 * The *Service Profile* concept represents the leaves of the tree.
 * The *Profile* concept represents all the other nodes in the tree.
 
-The implementation of a capability profile for FMN Spiral 2 can be found [here](https://nisp.nw3.dk/capabilityprofile/fmn2.html). You can see the whole tree, if you click on the "Topography" tab, or you can traverse down the tree clicking on the sub-profile links.
+The profile representing the root node have a special attribute **topleve** set to the value **yes** and is also called the **capability profile**. The implementation of a capability profile for FMN Spiral 2 can be found [here](https://nisp.nw3.dk/capabilityprofile/fmn2.html). You can see the whole tree, if you click on the "Topography" tab, or you can traverse down the tree clicking on the sub-profile links.
 
 The same concepts are also implemented in the Wiki, see **Fmn2** for an example of the FMN Spiral 2 implementation.
 
-Currently, we do not present FMN 2 in the NISP documents, but only links to the canonical specification. In NISP version 9, we did render a version of the [FMN Spiral 1.1 profile](https://archive.nisp.nw3.dk/nisp-9.0/volume3/apgs03.html).
+Currently, we do not present FMN 2 in the NISP documents, but only links to the canonical specification. In NISP version 9, we did render a version of the [FMN Spiral 1.1 profile](https://archive.nisp.nw3.dk/nisp-9.0/volume3/apgs03.html). The visual presentation of all capability profile is automatically implementef for all capability profiles when you click on the "Table" tab.
+
+The *Profile* element is basically just a container element, and is only used to group standards. Each profile have a least one profile element which then consistutes the root of the profile tree.
+
+The essential element in a profile is the **service profile** element. This profile maps standards to nodes in the taxonomy. 
+
+MORE TEXT HERE - INCOMPLETE DESCRIPTION. WE NEED TO DESCRIBE THAT A SERVICE PROFILE REPRESENT TWO DIFFERENT SEMANTIC CONCEPTS.
+
 
 # Naming conventions
 
