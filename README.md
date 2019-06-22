@@ -72,7 +72,7 @@ We use these concepts in the following way:
 * The *Service Profile* concept represents the leaves of the tree.
 * The *Profile* concept represents all the other nodes in the tree.
 
-The profile representing the root node have a special attribute **topleve** set to the value **yes** and is also called the **capability profile**. The implementation of a capability profile for FMN Spiral 2 can be found [here](https://nisp.nw3.dk/capabilityprofile/fmn2.html). You can see the whole tree, if you click on the "Topography" tab, or you can traverse down the tree clicking on the sub-profile links.
+The profile representing the root node have a special attribute *toplevel* set to the value *yes* and is also called the *capability profile*. The implementation of a capability profile for FMN Spiral 2 can be found [here](https://nisp.nw3.dk/capabilityprofile/fmn2.html). You can see the whole tree, if you click on the "Topography" tab, or you can traverse down the tree clicking on the sub-profile links.
 
 The same concepts are also implemented in the Wiki, see **Fmn2** for an example of the FMN Spiral 2 implementation.
 
