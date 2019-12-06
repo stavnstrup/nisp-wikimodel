@@ -79,6 +79,26 @@
 
 <xsl:template match="substandard"><xsl:value-of select="@refid"/><xsl:text>;&#x0A;</xsl:text></xsl:template>
 
+<!-- Create a Wiki page for a Cover Document -->
+
+<xsl:template match="coverdoc">
+<xsl:variable name="myid" select="@id"/>
+<xsl:if test="not(.//event[(position()=last()) and (@flag='deleted')])">
+<xsl:result-document href="{$datadir}/{@id}.page">
+<xsl:text>{{Cover Document&#x0A;</xsl:text>
+<xsl:text>|uuid=</xsl:text><xsl:value-of select="uuid"/><xsl:text>&#x0A;</xsl:text>
+<xsl:text>|publisher=</xsl:text><xsl:value-of select="upper-case(document/@orgid)"/><xsl:text>&#x0A;</xsl:text>
+<xsl:text>|code=</xsl:text><xsl:value-of select="document/@pubnum"/><xsl:text>&#x0A;</xsl:text>
+<xsl:text>|title=</xsl:text><xsl:value-of select="document/@title"/><xsl:text>&#x0A;</xsl:text>
+<xsl:text>|dateissued=</xsl:text><xsl:value-of select="document/@date"/><xsl:text>&#x0A;</xsl:text>
+<xsl:text>|substandards=&#x0A;</xsl:text><xsl:apply-templates select="coverstandards/refstandard"/>
+<xsl:text>|responsible=</xsl:text><xsl:value-of select="upper-case(responsibleparty/@rpref)"/><xsl:text>&#x0A;</xsl:text>
+<xsl:text>|website=</xsl:text><xsl:value-of select="status/uri"/><xsl:text>&#x0A;</xsl:text>
+<xsl:apply-templates select="status"/>
+<xsl:text>}}&#x0A;</xsl:text>
+</xsl:result-document>
+</xsl:if>
+</xsl:template>
 
 <!-- Create a Wiki page for a Profile Specification -->
 
