@@ -37,6 +37,7 @@
 				</concept>
 -->
 
+
 				<concept name="Standard" plural="Standards" type="Dynamic" ordered="true" image="standard.jpeg" color="becde6">
 					<description>Standards are defined as "an acknowledged measure of comparison for quantitative or qualitative value. Compliance with a certain standard sets a degree or level of requirement, excellence, or attainment". In the context of Enterprise Mapping, these standards materialize as documents, publications or other files that set proportions to the referred objects.
 		The concept is designed to store metadata of these standards, and only in rare cases a copy or transcript of the original standard is available. The articles reflect standards that are ratified by standardization organizations (like ISO, IEEE, IETF or W3C) or published in bulk after approval by a certain community (as is the case with NATO's Interoperability Standards and Profiles). The standards metadata that is available on the EM Wiki is updated on a regular basis.</description>
@@ -49,6 +50,22 @@
 						<property name="Version" />
 						<property name="Has substandards" />
 						<property name="Description"/>
+						<property name="Is responsible for" multiplicity="one"/>
+						<property name="Website" />
+						<subobject name="Event" concept="Change Event" attribute="events"/>
+					</structure>
+				</concept>
+
+                <concept name="Cover Document" plural="Cover Documents" acronym="CD" type="Dynamic" ordered="true" image="standard.jpeg" coloe="becde6">
+					<description>A coverdoc element is a standard like construct which is realized by the NATO standardization documents STANAG and STANREC, which represents an agreement of member nations to implement a standard, in whole or in part, with or without reservation, in order to meet an interoperability requirement. A coverdoc will refer to one or more standards described by the coverstandards element.</description>
+					<nomenclature></nomenclature>
+					<structure layout="table">
+						<property name="Is published by" multiplicity="one"/>
+						<property name="Reference code" label="Publication Number"/>
+						<property name="Title" />
+					  	<property name="Date issued" />
+						<property name="Version" />
+						<property name="Has substandards" />
 						<property name="Is responsible for" multiplicity="one"/>
 						<property name="Website" />
 						<subobject name="Event" concept="Change Event" attribute="events"/>
