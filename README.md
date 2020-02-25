@@ -4,7 +4,7 @@ This repository contains the specification *model.xml* and import stylesheets ne
 
 The Wiki data model is almost a one-to-one mapping of the concepts used in the [XML based data model](https://stavnstrup.github.io/nisp-tools/nisp-database-schema.html) with a few exceptions:
 
-* Only the core concepts i.e. *Capability Profile*,  *Profile*, *Service Profile*, *Standard*, *Organization* and *Taxonomy Node* are implemented.
+* Only the core concepts i.e. *Profile*, *Service Profile*, *Standard*, *Cover Document*, *Profile Specification*, *Organization* and *Taxonomy Node* are implemented.
 * XML elements, which are either container elements or elements created for usability reasons have not been implemented, as they do no contribute to the data-model and are therefore unnecessary in the Wiki model.
 * In the XML version of the NISP DB, we never delete standards or profiles, but only mark elements as deleted. We have not ported any deleted elements to the Wiki platform, but the historical elements will continue to be available [here](https://nisp.nw3.dk/).
 * All the child elements except *substandards* of the *document* element used by the *standard* element are not transferred to the Wiki. But of course the attributes of the document element are ported to the Wiki.
@@ -38,10 +38,12 @@ In order to see the different concepts in the NISP Wiki, you should open the wik
 
 ## Simple concepts
 
-The *Organisation*, *Taxonomy Node* and the *Standard* concept are straightforward and requires little explanation:
+The *Organisation*, *Taxonomy Node*, *Cover Document*, *Profile Specification* and the *Standard* concept are straightforward and requires little explanation:
 
 * *Organizations* describe all organizations in the database. An organization can *own* a standard and another organisation is *responsible party* for a standard. A *responsible party* is therefore an organization, who takes the role as subject matter expert for a specific standard on behalf of NATO.
 * *Taxonomy Nodes* are nodes in the [C3 Taxonomy](https://www.nato.int/cps/en/natohq/topics_157573.htm?). We currently only use a subset of the nodes in the Taxonomy.
+* *Cover Document* are a special NATO concept used to cover one or more NATO standards.
+* *Profile Specification* is a concept describing a document which contains a textual representation of a profile. There will therefore exists a link from the *profile* and the *service profile* to the *profile specification* element.
 * *Standards* are the most important part of the NISP database and describes all standards used by one or more profiles.
 
 ## Profiles
@@ -49,9 +51,9 @@ The *Organisation*, *Taxonomy Node* and the *Standard* concept are straightforwa
 Profiles in NISP comes in two flavours:
 
 * The *Basic Standards Profile* (BSP) which currently is presented as the *mandatory* standards in volume 2 and the *candidate* standards in volume 3.
-* Community Of Interest (COI) profiles, which are modelled using the concepts *Capability Profile*, *Profile* and *Service Profile*.
+* Community Of Interest (COI) profiles, which are modelled using the concepts *Profile* and *Service Profile*.
 
-Since NISP 12 the BSP and COI profiles have been consolidated, and the result have been the elemination of the datastructures used to describe the BSP, which is now represented by a capability profile where the id  attribute has the value *bsp*.
+Since NISP 12 the BSP and COI profiles have been consolidated, and the result have been the elemination of the datastructures used to describe the BSP, which is now represented by a profile where the id attribute has the value *bsp*.
 
 ### Basic Standards Profile
 
@@ -80,7 +82,7 @@ Currently, we do not present FMN 2 in the NISP documents, but only links to the 
 
 The *Profile* element is basically just a container element, and is only used to group standards. Each profile have a least one profile element which then consistutes the root of the profile tree.
 
-The essential element in a profile is the **service profile** element. This profile maps standards to nodes in the taxonomy. 
+The essential element in a profile is the **service profile** element. This profile maps standards to nodes in the taxonomy.
 
 MORE TEXT HERE - INCOMPLETE DESCRIPTION. WE NEED TO DESCRIBE THAT A SERVICE PROFILE REPRESENT TWO DIFFERENT SEMANTIC CONCEPTS.
 
