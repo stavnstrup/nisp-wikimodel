@@ -397,11 +397,12 @@
       <path fill="none" d="M850.0274 150.2397 L1060.5 151.5 L1060.5 232.5 L1125.5 262.5 L1152.2009 275.9401" clip-path="url(#clipPath2)"/>
       <line transform="matrix(-1,-0.006,0.006,-1,850.0274,150.2397)" clip-path="url(#clipPath42)" fill="none" x1="-10" x2="-10" y1="-8" y2="8"/>
     </g>
-    <g text-rendering="geometricPrecision" stroke-miterlimit="1.45" shape-rendering="geometricPrecision" transform="matrix(0.8932,0.4496,-0.4496,0.8932,575.24,194.9866)" stroke-linecap="butt">
-      <line y2="8" fill="none" x1="-15" clip-path="url(#clipPath43)" x2="-15" y1="-8"/>
-      <line y2="8" fill="none" x1="-10" clip-path="url(#clipPath13)" x2="2" y1="0"/>
-      <line y2="0" fill="none" x1="-10" clip-path="url(#clipPath13)" x2="2" y1="0"/>
-      <line y2="-8" fill="none" x1="-10" clip-path="url(#clipPath13)" x2="2" y1="0"/>
+    <g stroke-linecap="butt" transform="matrix(0.8932,0.4496,-0.4496,0.8932,575.24,194.9866)" fill="white" text-rendering="geometricPrecision" shape-rendering="geometricPrecision" stroke="white" stroke-miterlimit="1.45">
+      <circle r="5" clip-path="url(#clipPath43)" cx="-15" cy="0" stroke="none"/>
+      <circle fill="none" r="5" clip-path="url(#clipPath43)" cx="-15" cy="0" stroke="black"/>
+      <line clip-path="url(#clipPath13)" fill="none" x1="-10" x2="2" y1="0" y2="8" stroke="black"/>
+      <line clip-path="url(#clipPath13)" fill="none" x1="-10" x2="2" y1="0" y2="0" stroke="black"/>
+      <line clip-path="url(#clipPath13)" fill="none" x1="-10" x2="2" y1="0" y2="-8" stroke="black"/>
     </g>
     <g text-rendering="geometricPrecision" stroke-miterlimit="1.45" shape-rendering="geometricPrecision" transform="matrix(1,0,0,1,-585,-85)" stroke-linecap="butt">
       <path fill="none" d="M1200 328.9951 L1200 451.0385" clip-path="url(#clipPath2)"/>
