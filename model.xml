@@ -29,7 +29,7 @@
 
 
 				<concept name="Specification" plural="Specifications" acronym="SP" type="Virtual">
-                   <description>An abstract class which is ancestor to all profiles</description>
+                   <description>An abstract class which is ancestor to all standards/cover documentss</description>
 				   <nomenclature/>
 				   <structure>
 				      <property name="Description"/>
