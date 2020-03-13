@@ -14,6 +14,7 @@
   <xsl:apply-templates select="organisations/orgkey" />
   <xsl:apply-templates select="taxonomy/node" />
   <xsl:apply-templates select="records/standard" />
+  <xsl:apply-templates select="records/coverdoc" />
   <xsl:apply-templates select="records/profilespec" />
   <xsl:apply-templates select="records/profile" />
   <xsl:apply-templates select="records/serviceprofile" />
