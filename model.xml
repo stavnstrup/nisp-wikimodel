@@ -247,7 +247,7 @@ standard and historical aspect about the standard.</description>
 				<instruction/>
 				<values default="current">
 				    <value name="current">Current</value>
-					<value name="emerging">Emerging</value>
+					<value name="candidate">Candidate</value>
 				</values>
 			</property>
 			<property name="Obligation Type" type="Option" label="Obligation" attribute="obligationtype">
