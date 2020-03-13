@@ -63,7 +63,7 @@ standard and historical aspect about the standard.</description>
 					</structure>
 				</concept>
 
-                <concept name="Cover Document" plural="Cover Documents" acronym="CD" type="Dynamic" ordered="true" image="standard.jpeg" coloe="becde6">
+                <concept name="Cover Document" plural="Cover Documents" acronym="CD" type="Dynamic" ordered="true" image="standard.jpeg" color="becde6">
 					<description>A coverdoc element is a standard like construct which is realized by the NATO standardization documents STANAG and STANREC, which represents an agreement of member nations to implement a standard, in whole or in part, with or without reservation, in order to meet an interoperability requirement. A coverdoc will refer to one or more standards described by the coverstandards element.</description>
 					<nomenclature></nomenclature>
 					<structure layout="table">
