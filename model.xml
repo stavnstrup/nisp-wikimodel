@@ -13,6 +13,7 @@
 		<version name="0.5" date="2018-08-12">Final draft version of data model and import facility</version>
 		<version name="0.6" date="2019-04-10">Consolidate profiles models</version>
 		<version name="0.7" date="2019-06-17">Merge capability profile and profile element and extract profile meta data to a specific element</version>
+		<version name="0.8" date="2020-03-15">Add Cover Document</version>
 	</ChangeLog>
 	<DataModel>
 		<import model="CommonLibraryModel.xml"/>
@@ -140,9 +141,11 @@ standard and historical aspect about the standard.</description>
 
 			<package name="Organizations Management">
 				<description>Concepts to manage Organizations</description>
-
 				<concept name="Organization" plural="Organizations" type="Dynamic" color="becde6" image="organization.png">
-					<description>Organizations are those entities that are not considered actors (actively contributing to the business processes described in the C3 Taxonomy) and are meaningful for referencing or otherwise supporting the architecture, such as: governments, companies (industry) and standards organizations.</description>
+					<description>Organizations are those represent entities which either create standards or act as responsible
+					 parties. The creation of standards are either done by a de-jure (official) standards organization such as ISO,
+					 a body such as IETF or W3C of might even be a company, if the standard is considered significan enough. A
+					 responsible party does not create standards, but act as domain expert and guides NATO within a specific domain.</description>
 					<nomenclature></nomenclature>
 					<structure layout="table">
 						<property name="Acronym" />
@@ -156,7 +159,8 @@ standard and historical aspect about the standard.</description>
 				<description>Concepts to manage Standards Catalogue</description>
 
 				<concept name="Change Event" plural="Events" type="Internal">
-					<description>An NISP Event is ....</description>
+					<description>An NISP Event is describes a history change to the database. Ideally we have events for
+					every change to the database, but that is currently not the case.</description>
 					<structure>
 						<property name="Change event date"/>
 						<property name="Change event flag" multiplicity="one" editField="combobox"/>
@@ -226,8 +230,20 @@ standard and historical aspect about the standard.</description>
 				<description>List of standards</description>
 				<instruction></instruction>
 			</property>
+            <property name="Is implementing profile" refersTo="Profile" type="Page" label="Profiles" attribute="profiles">
+				<description>A semantic link with the Profile concept.</description>
+				<instruction/>
+			</property>
 			<property name="Is implementing profile specification" type="Page" refersTo="Profile Specification" attribute="profspec">
 				<description>Reference to the specification which defines this profile.</description>
+				<instruction/>
+			</property>
+			<property name="Is implementing service profile" refersTo="Service Profile" type="Page" label="Service Profiles" attribute="serviceprofiles">
+				<description>A semantic link with the Standards concept.</description>
+				<instruction/>
+			</property>
+			<property name="Is implementing standard" refersTo="Standard" type="Page" label="Standards" attribute="standards">
+				<description>A semantic link with the Standards concept.</description>
 				<instruction/>
 			</property>
 			<property name="Is published by" type="Page" refersTo="Organization" label="Publisher" attribute="publisher">
@@ -292,26 +308,13 @@ standard and historical aspect about the standard.</description>
 				<description>A uniform resource locator (URL) of a particular website or other www address.</description>
 				<instruction>A "Website" is a URL value that reflects the address of a website that is used in the definition of a taxonomy element.</instruction>
 			</property>
-            <property name="Is implementing profile" refersTo="Profile" type="Page" label="Profiles" attribute="profiles">
-				<description>A semantic link with the Profile concept.</description>
-				<instruction/>
-			</property>
-			<property name="Is implementing service profile" refersTo="Service Profile" type="Page" label="Service Profiles" attribute="serviceprofiles">
-				<description>A semantic link with the Standards concept.</description>
-				<instruction/>
-			</property>
-			<property name="Is implementing standard" refersTo="Standard" type="Page" label="Standards" attribute="standards">
-				<description>A semantic link with the Standards concept.</description>
-				<instruction/>
-			</property>
 		</properties>
 	</DataModel>
 	<ReportsModel>
 		<categories>
 			<category name="Governance">Governance perspectives are aimed at providing a comprehensive view of the entire NISP content.			</category>
 			<category name="Coherence">Coherence perspectives are generated to report the level of coherence of architectural data. Some of the perspectives consist of an overview of taxonomy concepts such as Business Processes, Information Products, User Applications and Technical Services, Other useful perspectives describe the definition of taxonomy layers, specifically the layers in the Technical Services Framework. Finally, specific coherence reports provide valuable feedback about possible incoherence and inconsistency in architectural data and the definition of taxonomy elements.
-
-The primary audience for these perspectives are NATO architects, whos role it is to continuously improve the architectural data and map the NATO C3 landscape.			</category>
+            The primary audience for these perspectives are NATO architects, whos role it is to continuously improve the architectural data and map the NATO C3 landscape.			</category>
 		</categories>
 	</ReportsModel>
 </WikiModel>
