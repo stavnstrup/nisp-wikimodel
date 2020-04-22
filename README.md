@@ -50,7 +50,7 @@ The *Organisation*, *Taxonomy Node*, *Cover Document*, *Profile Specification* a
 
 Profiles in NISP comes in two flavours:
 
-* The *Basic Standards Profile* (BSP) which currently is presented as the *mandatory* standards in volume 2 and the *candidate* standards in volume 3.
+* The *Basic Standards Profile* (BSP) which currently is presented as the *mandatory* standards in volume 2 and as the *candidate* standards in volume 3.
 * Community Of Interest (COI) profiles, which are modelled using the concepts *Profile* and *Service Profile*.
 
 Since NISP 12 the BSP and COI profiles have been consolidated, and the result have been the elemination of the datastructures used to describe the BSP, which is now represented by a profile where the id attribute has the value *bsp*.
@@ -59,7 +59,7 @@ Since NISP 12 the BSP and COI profiles have been consolidated, and the result ha
 
 The *Basic Standards Profile* is in NISP Vol 1 described as: "The Basic Standards Profile specifies the technical, operational, and business standards that are generally applicable in the context of the Alliance and the NATO Enterprise". We present this as mandatory standards in volume 2 and candidate standards in volume 3.
 
-In the XML version the *Basic Standards Profile* consists of one or more of the *Basic Standards Service Profile* element. We only implement the later in the Wiki, since that is all that is necessary. Each *Basic Standards Service Profile* element therefore describes the mandatory and candidate standards for a specific taxonomy node. In volume 2 and 3 we list the taxonomy nodes and recommended standards. An example on this can be found [here](https://archive.nisp.nw3.dk/nisp-9.0/volume2/ch03s02.html). Note that in NISP 9 we used to list both mandatory and candidate (at that time called emerging) standards in the same document.
+In the XML version the *Basic Standards Profile* consists of one or more of the *Basic Standards Service Profile* element. We only implement the later in the Wiki, since that is all that is necessary. Each *Basic Standards Service Profile* element therefore describes the mandatory and candidate standards for a specific taxonomy node. In volume 2 and 3 we list  the taxonomy nodes and recommended standards. An example on this can be found [here](https://archive.nisp.nw3.dk/nisp-9.0/volume2/ch03s02.html). Note that in NISP 9 we used to list both mandatory and candidate (at that time called emerging) standards in the same document.
 
 An Wiki example of a Basic Standards Service Profile is the profile used for **Informal Messaging Services**.
 
@@ -91,8 +91,8 @@ MORE TEXT HERE - INCOMPLETE DESCRIPTION. WE NEED TO DESCRIBE THAT A SERVICE PROF
 
 In the Wiki each instance of a concept is implemented as a page. We therefore need a convention on how to name the individual pages. Most objects have an id in the XML database, but often they are to cryptic to use. Therefore the following conventions are used:
 
-* Each standard use it's id to name the page.
-* Each capability profile, profile and service profile use the title of the profile.
+* Each cover document and standard use it's id to name the page.
+* Each profile and service profile use the title of the profile.
 * The basic standards service profiles do not have an id Instead they are named using the taxonomy node title prefixed with 'BSP-'.
 * Taxonomy nodes use the title as name.
 * Organizations use a capitalized form of their name.
@@ -101,7 +101,7 @@ These convention does not have to be followed, but a consistent approach makes t
 
 # What has not been implemented
 
-Two of the concepts *Catalog Items* and *Cover Documents*, which originally was part of the draft data model, have not been implemented. The main reason is lack of experience with the data modelling language, but also because these concepts are not part of the NISP XML implementation.
+The concept *Catalog Items*, which originally was part of the draft data model, has not been implemented. The main reason is lack of experience with the data modelling language, but also because this concepts wase not part of the NISP XML implementation.
 
 # TO DO
 
