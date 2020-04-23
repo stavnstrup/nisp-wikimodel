@@ -5,13 +5,16 @@
                 version='2.0'>
 
 
-
-
 <xsl:output indent="no" saxon:next-in-chain="makePages-p2.xsl"/>
 
 <xsl:strip-space elements="*"/>
 
 <xsl:template match="*[status/@mode='deleted']"/>
+
+
+<xsl:template match="node/@title">
+  <xsl:attribute name="title" select="translate(., '/', '-')"/>
+</xsl:template>
 
 <xsl:template match="standards">
   <standards>
