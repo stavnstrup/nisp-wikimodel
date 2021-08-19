@@ -27,7 +27,7 @@
 <xsl:variable name="uc-key" select="upper-case(@key)"/>
 <xsl:result-document href="{$datadir}/{$uc-key}.page">
 <xsl:text>{{Organization&#x0A;</xsl:text>
-<xsl:text>|acronym=</xsl:text><xsl:value-of select="upper-case(@key)"/><xsl:text>&#x0A;</xsl:text>
+<xsl:text>|acronym=</xsl:text><xsl:value-of select="upper-case(@short)"/><xsl:text>&#x0A;</xsl:text>
 <xsl:text>|description=</xsl:text><xsl:value-of select="@long"/><xsl:text>&#x0A;</xsl:text>
 <xsl:text>|website=</xsl:text><xsl:value-of select="@uri"/><xsl:text>&#x0A;</xsl:text>
 <xsl:text>}}&#x0A;</xsl:text>
