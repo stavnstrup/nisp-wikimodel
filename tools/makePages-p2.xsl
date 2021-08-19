@@ -164,7 +164,7 @@
 <xsl:text>|obligationtype=</xsl:text><xsl:apply-templates select="@obligation"/><xsl:text>&#x0A;</xsl:text>
 <xsl:text>|lifecycletype=</xsl:text><xsl:apply-templates select="@lifecycle"/><xsl:text>&#x0A;</xsl:text>
 <xsl:text>|description=</xsl:text><xsl:apply-templates select="description"/><xsl:text>&#x0A;</xsl:text>
-<xsl:text>|standards=</xsl:text><xsl:apply-templates select="refstandard"/><xsl:text>&#x0A;</xsl:text>
+<xsl:text>|standards=</xsl:text><xsl:apply-templates select="refstandard"/>
 <xsl:text>}}&#x0A;</xsl:text>
 </xsl:template>
 
